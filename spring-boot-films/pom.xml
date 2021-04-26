@@ -9,14 +9,18 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.films</groupId>
-	<artifactId>springboot-films</artifactId>
+	<artifactId>spring-boot-films</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>springboot-films</name>
+	<name>spring-boot-films</name>
 	<description>Back-End de reto IBM Films</description>
 	<properties>
 		<java.version>16</java.version>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-rest</artifactId>
