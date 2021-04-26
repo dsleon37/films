@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `db-films`.`actor` (
   `name` VARCHAR(255) NULL DEFAULT NULL,
   `film_id` BIGINT(20),
   PRIMARY KEY (`id`),
-  CONSTRAINT `FK_film_id` FOREIGN KEY (`film_id`) REFERENCES `actor` (`id`)
+  CONSTRAINT `FK_film_id_actor` FOREIGN KEY (`film_id`) REFERENCES `actor` (`id`)
   )
 ENGINE=InnoDB
 AUTO_INCREMENT = 1;
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `db-films`.`category` (
   `name` VARCHAR(255) NULL DEFAULT NULL,
   `film_id` BIGINT(20),
   PRIMARY KEY (`id`),
-  CONSTRAINT `FK_film_id` FOREIGN KEY (`film_id`) REFERENCES `actor` (`id`)
+  CONSTRAINT `FK_film_id_category` FOREIGN KEY (`film_id`) REFERENCES `actor` (`id`)
   )
 ENGINE=InnoDB
 AUTO_INCREMENT = 1;
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `db-films`.`filmList` (
   `type` VARCHAR(255) NULL DEFAULT NULL,
   `film_id` BIGINT(20),
   PRIMARY KEY (`id`),
-  CONSTRAINT `FK_film_id` FOREIGN KEY (`film_id`) REFERENCES `actor` (`id`)
+  CONSTRAINT `FK_film_id_filmlist` FOREIGN KEY (`film_id`) REFERENCES `actor` (`id`)
   )
 ENGINE=InnoDB
 AUTO_INCREMENT = 1;
