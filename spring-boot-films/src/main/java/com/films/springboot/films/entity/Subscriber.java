@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="")
+@Table(name="subscriber")
 @Data
 public class Subscriber {
 }
