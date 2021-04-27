@@ -4,14 +4,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule, Router} from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AltaPeliculaComponent } from './controlador/pelicula/alta-pelicula/alta-pelicula.component';
 import { FilmService } from './service/film.service';
+import { CatalogoPeliculasComponent } from './controlador/pelicula/catalogo-peliculas/catalogo-peliculas.component';
 
 const routes: Routes = [
+  {path: 'alta-pelicula', component: AltaPeliculaComponent},
   {path: '', redirectTo: '/peliculas', pathMatch: 'full'},
   {path: '**', redirectTo: '/peliculas', pathMatch: 'full'}
 ];
@@ -19,14 +22,15 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    AltaPeliculaComponent
+    AltaPeliculaComponent,
+    CatalogoPeliculasComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
     BrowserModule,
     HttpClientModule,
+    NgbModule,
     ReactiveFormsModule,
-    AppRoutingModule
   ],
   providers: [FilmService],
   bootstrap: [AppComponent]
