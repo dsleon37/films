@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AltaPeliculaComponent } from './controlador/pelicula/alta-pelicula/alta-pelicula.component';
+import { FilmService } from './service/film.service';
 
 const routes: Routes = [
   {path: '', redirectTo: '/peliculas', pathMatch: 'full'},
@@ -27,7 +28,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [FilmService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
