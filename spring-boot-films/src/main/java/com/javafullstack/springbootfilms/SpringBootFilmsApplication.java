@@ -1,13 +1,13 @@
-package com.films.springboot.films;
+package com.javafullstack.springbootfilms;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringbootFilmsApplication {
+public class SpringBootFilmsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringbootFilmsApplication.class, args);
+		SpringApplication.run(SpringBootFilmsApplication.class, args);
 	}
 
 }

@@ -1,0 +1,57 @@
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            <div class="row">
+<!-- loop over the collection of products -->
+<div *ngFor="let tempPelicula of peliculas" class="col-md-3">
+
+    <div class="product-box">
+
+        <a routerLink="/ver-pelicula/{{ tempPelicula.id }}">
+            <img src="{{ tempPelicula.imageUrl }}" class="img-responsive">
+        </a>
+
+        <a routerLink="/products/{{ tempPelicula.id }}">
+            <h1>{{ tempPelicula.title }}</h1>
+            <h2>{{ tempPelicula.date }}</h2>
+            <h2>{{ tempPelicula.description }}</h2>
+        </a>
+        <div class="price">{{ '92.000'| currency:'COP' }}</div>
+    </div>
+
+</div>
+
+<!-- if products empty then display a message-->
+<div *ngIf="peliculas?.length == 0" class="alert alert-warning col-md-12" role="alert">
+    No se encontraron películas.
+</div>
+
+            </div>
+
+            <div class="footer-pagination">
+                <div class="row">
+                    <div class="col-md-6"></div>
+                    <div class="col-md-3">
+                        <div class="items">
+                            <label>Item per page</label> <select>
+                                <option>10</option>
+                                <option>20</option>
+                                <option>30</option>
+                                <option>40</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="number">1 - 10 of 100</div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="arrows">
+                            <a href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
