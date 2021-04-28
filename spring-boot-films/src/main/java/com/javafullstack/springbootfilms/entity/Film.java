@@ -11,7 +11,6 @@ import java.util.Date;
 @Table(name="film")
 @Getter
 @Setter
-@Data
 public class Film {
 
     @Id
@@ -23,5 +22,17 @@ public class Film {
     private String description;
 
     private Date date;
+
+    @ManyToOne
+    @JoinColumn(name = "actor_id", nullable = false)
+    private Actor actor;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false)
+    private Category category;
+
+    @ManyToOne
+    @JoinColumn(name = "director_id", nullable = false)
+    private Director director;
 
 }
