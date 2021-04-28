@@ -12,9 +12,12 @@ import { AppComponent } from './app.component';
 import { AltaPeliculaComponent } from './controlador/pelicula/alta-pelicula/alta-pelicula.component';
 import { FilmService } from './service/film.service';
 import { CatalogoPeliculasComponent } from './controlador/pelicula/catalogo-peliculas/catalogo-peliculas.component';
+import { VerPeliculaComponent } from './controlador/pelicula/ver-pelicula/ver-pelicula.component';
 
 const routes: Routes = [
+  {path: 'ver-pelicula/:id', component: VerPeliculaComponent},
   {path: 'alta-pelicula', component: AltaPeliculaComponent},
+  {path: 'catalogo-peliculas', component: CatalogoPeliculasComponent},
   {path: '', redirectTo: '/catalogo-peliculas', pathMatch: 'full'},
   {path: '**', redirectTo: '/catalogo-peliculas', pathMatch: 'full'}
 ];
@@ -23,7 +26,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     AltaPeliculaComponent,
-    CatalogoPeliculasComponent
+    CatalogoPeliculasComponent,
+    VerPeliculaComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
