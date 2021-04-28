@@ -15,8 +15,8 @@ import { CatalogoPeliculasComponent } from './controlador/pelicula/catalogo-peli
 
 const routes: Routes = [
   {path: 'alta-pelicula', component: AltaPeliculaComponent},
-  {path: '', redirectTo: '/peliculas', pathMatch: 'full'},
-  {path: '**', redirectTo: '/peliculas', pathMatch: 'full'}
+  {path: '', redirectTo: '/catalogo-peliculas', pathMatch: 'full'},
+  {path: '**', redirectTo: '/catalogo-peliculas', pathMatch: 'full'}
 ];
 
 @NgModule({
