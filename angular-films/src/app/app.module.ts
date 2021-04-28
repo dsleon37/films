@@ -4,12 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule, Router} from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AltaPeliculaComponent } from './controlador/pelicula/alta-pelicula/alta-pelicula.component';
-//import { CatalogoPeliculasComponent } from './controlador/pelicula/catalogo-peliculas/catalogo-peliculas.component';
+import { CatalogoPeliculasComponent } from './controlador/pelicula/catalogo-peliculas/catalogo-peliculas.component';
 import { AltaOfertaComponent } from './controlador/oferta/alta-oferta/alta-oferta.component';
 
 const routes: Routes = [
@@ -30,8 +31,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     BrowserModule,
     HttpClientModule,
+    NgbModule,
     ReactiveFormsModule,
-    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
