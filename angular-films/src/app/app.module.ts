@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AltaPeliculaComponent } from './controlador/pelicula/alta-pelicula/alta-pelicula.component';
 import { CatalogoPeliculasComponent } from './controlador/pelicula/catalogo-peliculas/catalogo-peliculas.component';
+import { VerPeliculaComponent } from './controlador/pelicula/ver-pelicula/ver-pelicula.component';
 
 const routes: Routes = [
   {path: 'alta-pelicula', component: AltaPeliculaComponent},
@@ -22,7 +23,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     AltaPeliculaComponent,
-    CatalogoPeliculasComponent
+    CatalogoPeliculasComponent,
+    VerPeliculaComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
