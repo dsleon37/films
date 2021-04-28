@@ -12,7 +12,6 @@ import { AppComponent } from './app.component';
 import { AltaPeliculaComponent } from './controlador/pelicula/alta-pelicula/alta-pelicula.component';
 import { CatalogoPeliculasComponent } from './controlador/pelicula/catalogo-peliculas/catalogo-peliculas.component';
 import { AltaOfertaComponent } from './controlador/oferta/alta-oferta/alta-oferta.component';
-
 const routes: Routes = [
   {path: 'alta-oferta', component: AltaOfertaComponent},
   {path: 'alta-pelicula', component: AltaPeliculaComponent},

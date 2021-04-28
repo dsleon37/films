@@ -2,9 +2,9 @@
 <div class="main-content page-m">
     <div class="section-content section-content-p30">
         <div class="container-fluid">
-            <form (ngSubmit)="onSubmit()">
+            <form [formGroup]="altaOfertaFormGroup" (ngSubmit)="onSubmit()">
                 <!-- Ofertas Form Group-->
-                <div formGoupName="ofertas" class="form-area">
+                <div formGroupName="ofertas" class="form-area">
                     <h3>Ofertas</h3>
                     <div class="row">
                         <div class="col-md-2"><label>Descripcion</label></div>
@@ -12,6 +12,14 @@
                             <div class="input space">
                                 <input formControlName="description" type="text"> 
                             </div>
+                            <!--<div *ngIf="description.invalid && (description.dirty || description.touched)" class="alert alert-danger">
+                                <div *ngIf="description.errors.required">
+                                    Descripcion requerida
+                                </div>
+                                <div *ngIf="description.errors.minlength">
+                                    Descripcion muy corta
+                                </div>
+                            </div>-->
                         </div>
                         <div class="col-md-2"><label>Limite de tiempo</label></div>
                         <div class="col-md-9">
@@ -43,3 +51,4 @@
         </div>
     </div>
 </div>
+<!--Tabla de ofertas-->

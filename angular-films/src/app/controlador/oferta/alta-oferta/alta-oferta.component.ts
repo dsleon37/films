@@ -11,23 +11,35 @@ import { Router } from '@angular/router';
 
 export class AltaOfertaComponent implements OnInit {
 
-  altaOfertaForm: FormGroup | undefined;
+  altaOfertaFormGroup: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
-              private router: Router) { }
+              private router: Router) {
+                this.altaOfertaFormGroup= this.formBuilder.group({
+                  oferta: this.formBuilder.group({
+                    description:  new FormControl('',[Validators.required,Validators.minLength(2)]),
+                    deadline:  new FormControl('',[Validators.required]),
+                    addPoints: new FormControl('', [Validators.required]),
+                    subPoints: new FormControl('', [Validators.required]),
+                  })
+                })
+              }
 
   ngOnInit(): void {
-    this.altaOfertaForm = this.formBuilder.group({
+    this.altaOfertaFormGroup= this.formBuilder.group({
       oferta: this.formBuilder.group({
         description:  new FormControl('',[Validators.required,Validators.minLength(2)]),
         deadline:  new FormControl('',[Validators.required]),
-        addPoints: new FormControl('', [Validators.required, Validators.minLength(2)]),
-        subPoints: new FormControl('', [Validators.required, Validators.minLength(2)]),
+        addPoints: new FormControl('', [Validators.required]),
+        subPoints: new FormControl('', [Validators.required]),
       })
     })
   }
-
+  get description(){return this.altaOfertaFormGroup.get('oferta.description')}
   onSubmit(){
+    if(this.altaOfertaFormGroup.invalid){
+      this.altaOfertaFormGroup.markAllAsTouched();
+    }
     console.log("handle algo button")
   }
 }
