@@ -12,7 +12,7 @@ public class Director {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private int id;
-    @Column(name="code")
-    private String code;
+    @Column(name="name")
+    private String name;
 
 }
