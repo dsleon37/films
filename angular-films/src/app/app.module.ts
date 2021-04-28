@@ -9,8 +9,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AltaPeliculaComponent } from './controlador/pelicula/alta-pelicula/alta-pelicula.component';
+import { CheckoutComponent } from './controlador/ofertas/checkout/checkout.component';
 
 const routes: Routes = [
+  {path: 'checkout', component: CheckoutComponent},
   {path: '', redirectTo: '/peliculas', pathMatch: 'full'},
   {path: '**', redirectTo: '/peliculas', pathMatch: 'full'}
 ];
@@ -18,7 +20,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    AltaPeliculaComponent
+    AltaPeliculaComponent,
+    CheckoutComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
