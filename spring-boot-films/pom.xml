@@ -8,11 +8,11 @@
 		<version>2.4.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.films</groupId>
+	<groupId>com.javafullstack</groupId>
 	<artifactId>spring-boot-films</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-boot-films</name>
-	<description>Back-End de reto IBM Films</description>
+	<description>Spring Boot films project</description>
 	<properties>
 		<java.version>16</java.version>
 	</properties>
@@ -24,10 +24,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-rest</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
 		<dependency>
@@ -61,15 +57,7 @@
 					</excludes>
 				</configuration>
 			</plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>15</source>
-                    <target>15</target>
-                </configuration>
-            </plugin>
-        </plugins>
+		</plugins>
 	</build>
 
 </project>
