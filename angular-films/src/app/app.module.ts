@@ -9,19 +9,22 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AltaPeliculaComponent } from './controlador/pelicula/alta-pelicula/alta-pelicula.component';
-import { CheckoutComponent } from './controlador/ofertas/checkout/checkout.component';
+//import { CatalogoPeliculasComponent } from './controlador/pelicula/catalogo-peliculas/catalogo-peliculas.component';
+import { AltaOfertaComponent } from './controlador/oferta/alta-oferta/alta-oferta.component';
 
 const routes: Routes = [
-  {path: 'checkout', component: CheckoutComponent},
-  {path: '', redirectTo: '/peliculas', pathMatch: 'full'},
-  {path: '**', redirectTo: '/peliculas', pathMatch: 'full'}
+  {path: 'alta-oferta', component: AltaOfertaComponent},
+  {path: 'alta-pelicula', component: AltaPeliculaComponent},
+  {path: '', redirectTo: '/catalogo-peliculas', pathMatch: 'full'},
+  {path: '**', redirectTo: '/catalogo-peliculas', pathMatch: 'full'}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     AltaPeliculaComponent,
-    CheckoutComponent
+    CatalogoPeliculasComponent,
+    AltaOfertaComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
