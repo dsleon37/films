@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="film")
@@ -37,5 +38,24 @@ public class Film {
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
+    /**
+     * Actores.
+     */
+    @ManyToMany
+    @JoinTable(name = "film_has_actor",
+            joinColumns = @JoinColumn(name = "film_id"),
+            inverseJoinColumns = @JoinColumn(name = "actor_id")
+    )
+    private List<Actor> actores;
+
+    /**
+     * Directores.
+     */
+    @ManyToMany
+    @JoinTable(name = "film_has_director",
+            joinColumns = @JoinColumn(name = "film_id"),
+            inverseJoinColumns = @JoinColumn(name = "director_id")
+    )
+    private List<Director> directores;
 
 }
