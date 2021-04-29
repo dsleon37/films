@@ -16,10 +16,11 @@ import { MenuPrincipalComponent } from './controlador/menu-principal/menu-princi
 import { CatalogoPorCategoriaComponent } from './controlador/pelicula/catalogo-peliculas/catalogo-por-categoria.component';
 import { VideoPeliculaComponent } from './controlador/pelicula/video-pelicula/video-pelicula.component';
 import { UserService } from './services/user.service';
-import { UsersComponent } from './vista/users/users/users.component';
+
 import { UserRegisterComponent } from './vista/user-register/user-register.component';
 import { UserStatusComponent } from './vista/user-status/user-status.component';
 import { UserMenuComponent } from './vista/user-menu/user-menu.component';
+import { UsersComponent } from './vista/users/users/users.component';
 
 const routes: Routes = [
   {path: 'user-signup', component: UserRegisterComponent},
@@ -42,7 +43,7 @@ const routes: Routes = [
     VerPeliculaComponent,
     MenuPrincipalComponent,
     CatalogoPorCategoriaComponent,
-    VideoPeliculaComponent
+    VideoPeliculaComponent,
     UsersComponent,
     UserRegisterComponent,
     UserStatusComponent,
