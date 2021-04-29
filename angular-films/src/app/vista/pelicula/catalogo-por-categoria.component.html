@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="row">
 <!-- loop over the collection of products -->
-<div *ngFor="let tempPelicula of peliculas" class="col-md-3">
+<div *ngFor="let tempPelicula of peliculasCategoria" class="col-md-3">
 
     <div class="product-box">
 
@@ -11,26 +11,25 @@
             <img src="{{ tempPelicula.imageUrl }}" class="img-responsive">
         </a>
 
-        <a routerLink="/ver-pelicula/{{ tempPelicula.id }}">
+        <a routerLink="/products/{{ tempPelicula.id }}">
             <h1>{{ tempPelicula.title }}</h1>
-            <h2>{{ tempPelicula.date }}</h2>
             <h2>Fecha estreno:{{ tempPelicula.date | date: 'mediumDate'}}</h2>
             <h2>{{ tempPelicula.description }}</h2>
         </a>
-        <div class="price">{{ '92.000'| currency: "COP" :" $ " }}</div>
+        <div class="price">
+            <input type="checkbox" class="form-check-input" id="id_disponible">
+            <span class="form-check-label" for="id_disponible">  Disponible en cinema</span>
+        </div>
     </div>
 
 </div>
 
 <!-- if products empty then display a message-->
-<div *ngIf="peliculas?.length == 0" class="alert alert-warning col-md-12" role="alert">
+<div *ngIf="peliculasCategoria?.length == 0" class="alert alert-warning col-md-12" role="alert">
     No se encontraron películas.
-</div>      
-<div class="cart-area d-n">
-    <a routerLink="/alta-pelicula"> 
-        <button type="button" class="btn btn-primary">Guardar Película</button>
-    </a>
 </div>
+
+            </div>
 
             <div class="footer-pagination">
                 <div class="row">
@@ -45,9 +44,6 @@
                             </select>
                         </div>
                     </div>
-
-                    
-
                     <div class="col-md-2">
                         <div class="number">1 - 10 of 100</div>
                     </div>

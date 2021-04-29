@@ -5,5 +5,5 @@ export class Pelicula {
     description: string = '';
     date: Date;
     imageUrl: string = "";
-    
+    videoUrl: string = "";
 }

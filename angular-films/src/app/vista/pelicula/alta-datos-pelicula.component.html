@@ -9,7 +9,7 @@
             <br>
             <form [formGroup]="datosPeliculaFormGroup" (ngSubmit)="onSubmit()">
 
-                <div formGroupName="film" class="form-area">
+                <div formGroupName="film_has_actor" class="form-area">
                     <h3>Datos de Película1</h3>
                     <div class="row">
                         <div class="col-md-2">
@@ -19,28 +19,41 @@
                             <div class="input-space">
                                 
                                 <select formControlName="actor_id" >
-                                    <option *ngFor="let actor of actors" [ngValue]="actor">
-                                       {{actor}}
+                                    <option *ngFor="let actor of actores" [ngValue]="actor" value="{{actor}}">
+                                       {{actor.name}}
                                     </option>
                                 </select>
                             
                             </div>
                         </div>
                     </div>
+
+                    <div >
+                        <ul>
+                            <li *ngFor="let a of actoresPelicula">
+                                <h4>{{a.name}}</h4>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <!--
                     <div class="row">
                         <div class="col-md-2">
                             <label for="">Director</label>
                         </div>
                         <div class="col-md-9">
-                            <div class="input-space">
-                                
+                            <div class="input-space">                                
                                 <select formControlName="director_id" >
-                                    <option *ngFor="let director of directors" [ngValue]="director">
-                                       {{director}}
+                                    <option *ngFor="let director of directores" [ngValue]="director">
+                                       {{director.name}}
                                     </option>
-                                </select>
-                            
+                                </select>                            
                             </div>
+                        </div>
+                        <div class="col-md-1">  
+                            <button class="btn btn-primary btn-sm">
+                                <i  class="fas fa-plus"></i>
+                            </button>
                         </div>
                     </div>
                     <div class="row">
@@ -51,14 +64,15 @@
                             <div class="input-space">
                                 
                                 <select formControlName="category_id" >
-                                    <option *ngFor="let category of categories" [ngValue]="category">
-                                       {{category}}
+                                    <option *ngFor="let category of categorias" [ngValue]="category">
+                                       {{category.name}}
                                     </option>
-                                </select>
-                            
+                                </select>                                                           
                             </div>
                         </div>
                     </div>
+                -->
+
                 </div>
 
 

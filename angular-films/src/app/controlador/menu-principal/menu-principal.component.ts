@@ -15,15 +15,20 @@ export class MenuPrincipalComponent implements OnInit {
  
   constructor(private servicioPeliculas:ServicioPeliculaService,
               private route: ActivatedRoute,
-              private router: Router){}
+              private router: Router){
+              this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+              }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.listarCategorias();
   }
   listarCategorias(){
     this.servicioPeliculas.getCategories().subscribe(data =>{this.categorias = data._embedded.categories; console.log(this.categorias)})
   
-    //this.router.navigateByUrl(`/catalogo-peliculas/${id}`);
+    
+  }
+  listaCategoria(id:number){
+    this.router.navigateByUrl(`/catalogo-por-categoria/${id}`);
   }
 
 }

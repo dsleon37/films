@@ -1,13 +1,7 @@
-<aside class="menu-sidebar d-none d-lg-block">
-    <div class="logo">
-        <a href="home.html">
-            <img src="assets/Logo/logo-blancoynegro2-v2.png" alt="luv2shop" class="img-responsive">
-        </a>
+<div class="navbar-sidebar">
+    <div class="menu_bar">
+        <a href="#" class="bt-menu"><span class="icon-list2"></span>Menú</a>
     </div>
-    <div class="">
-        <div class="menu_bar">
-            <a href="#" class="bt-menu"><span class="icon-list2"></span>Menú</a>
-        </div>
 
         <nav>
             <ul>
@@ -30,13 +24,29 @@
             <li><a href="../../../vista/pelicula/catalogo-peliculas.component.html"><span class="icon-earth"></span>Categorias</a></li>
             
         </nav>
+    <nav class="navbar-list">
+        <ul>
+            <li><a routerLink="/catalogo-peliculas"><span class="icon-house"></span>Inicio</a></li>
+            <li class="submenu">
+                <a><span class="icon-rocket"></span>Categorias<span class="caret icon-arrow-down6"></span></a>
+                <ul class="children">
+                    <li *ngFor="let tempListCategory of categorias">
+                        <a routerLink="/catalogo-por-categoria/{{tempListCategory.id}}" routerLinkActive="active-link">
+                            <!-- <a (click)="listaCategoria(tempListCategory.id)" routerLinkActive="active-link"> -->
+                            {{tempListCategory.name}}
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#"><span class="icon-earth"></span>Cinemas</a></li>
+        </ul>
+    </nav>
 
-        <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
     </div>
-</aside>
+</div>
