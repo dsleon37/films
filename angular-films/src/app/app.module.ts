@@ -16,15 +16,15 @@ import { AltaDatosPeliculaComponent } from './controlador/pelicula/alta-datos-pe
 
 import { CatalogoPeliculasComponent } from './controlador/pelicula/catalogo-peliculas/catalogo-peliculas.component';
 import { VerPeliculaComponent } from './controlador/pelicula/ver-pelicula/ver-pelicula.component';
+import { MenuPrincipalComponent } from './controlador/menu-principal/menu-principal.component';
 
 const routes: Routes = [
+  {path: 'catalogo-peliculas/:id', component: CatalogoPeliculasComponent},
   {path: 'ver-pelicula/:id', component: VerPeliculaComponent},
   {path: 'alta-pelicula', component: AltaPeliculaComponent},
-  {path: 'catalogo-peliculas', component: CatalogoPeliculasComponent},
-
-  { path : 'datos-pelicula', component: AltaDatosPeliculaComponent},
-  {path: '', redirectTo: '/catalogo-peliculas', pathMatch: 'full'},
-  {path: '**', redirectTo: '/catalogo-peliculas', pathMatch: 'full'}
+  {path: 'datos-pelicula', component: AltaDatosPeliculaComponent},
+  {path: '', redirectTo: '/catalogo-peliculas/inicio', pathMatch: 'full'},
+  {path: '**', redirectTo: '/catalogo-peliculas/inicio', pathMatch: 'full'}
 ];
 
 @NgModule({
@@ -33,7 +33,8 @@ const routes: Routes = [
     AltaPeliculaComponent,
     AltaDatosPeliculaComponent,
     CatalogoPeliculasComponent,
-    VerPeliculaComponent
+    VerPeliculaComponent,
+    MenuPrincipalComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
