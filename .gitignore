@@ -1,4 +1,7 @@
 
 .DS_Store
 spring-boot-films/src/main/resources/application.properties
+.DS_Store
 *.properties
+angular-films/package-lock.json
+spring-boot-films/src/main/resources/application.properties
