@@ -49,7 +49,7 @@ export class AltaDatosPeliculaComponent implements OnInit {
     this.servicioPelicula.getCategories().subscribe(
       data => {
         console.log('Categorias: ' + JSON.stringify(data));
-        //this.categories = data;
+        // this.categories = data;
       }
     )
   }

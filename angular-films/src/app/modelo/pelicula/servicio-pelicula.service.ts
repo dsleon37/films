@@ -18,7 +18,7 @@ export class ServicioPeliculaService {
 
 
   getFilmsListPaginate( thePage:number, thePageSize: number, theCategoryId: number): Observable<GetResponseFilms> {
-    const searchUrl = `${this.baseUrl}/films`
+    const searchUrl = `${this.baseUrl}films`
                       +`&page=${thePage}&size=${thePageSize}`;
                       
     return this.httpClient.get<GetResponseFilms>(searchUrl);
@@ -27,18 +27,18 @@ export class ServicioPeliculaService {
 
 
   getCategories(): Observable<GetResponseCategories> {
-    const searchUrl = `${this.baseUrl}/categories`;                      
+    const searchUrl = `${this.baseUrl}categories`;                      
     return this.httpClient.get<GetResponseCategories>(searchUrl);
   }
 
 
   getActors(): Observable<GetResponseActors> {
-    const searchUrl = `${this.baseUrl}/actors`;                      
+    const searchUrl = `${this.baseUrl}actors`;                      
     return this.httpClient.get<GetResponseActors>(searchUrl);
   }
 
   getDirectors(): Observable<GetResponseDirectors> {
-    const searchUrl = `${this.baseUrl}/directors`;                      
+    const searchUrl = `${this.baseUrl}directors`;                      
     return this.httpClient.get<GetResponseDirectors>(searchUrl);
   }
 
@@ -47,7 +47,7 @@ export class ServicioPeliculaService {
 
 interface GetResponseFilms {
   _embedded: {
-    pelicula: Pelicula[];
+    films: Pelicula[];
   },
   page: {
     size: number,
@@ -60,7 +60,7 @@ interface GetResponseFilms {
 
 interface GetResponseActors {
   _embedded: {
-    actor: Actor[];
+    actors: Actor[];
   },
   page: {
     size: number,
@@ -72,7 +72,7 @@ interface GetResponseActors {
 
 interface GetResponseDirectors {
   _embedded: {
-    director: Director[];
+    directors: Director[];
   },
   page: {
     size: number,
@@ -85,7 +85,7 @@ interface GetResponseDirectors {
 
 interface GetResponseCategories {
   _embedded: {
-    category: Categoria[];
+    categories: Categoria[];
   },
   page: {
     size: number,
