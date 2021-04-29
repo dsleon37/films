@@ -15,8 +15,14 @@ import { VerPeliculaComponent } from './controlador/pelicula/ver-pelicula/ver-pe
 import { MenuPrincipalComponent } from './controlador/menu-principal/menu-principal.component';
 import { CatalogoPorCategoriaComponent } from './controlador/pelicula/catalogo-peliculas/catalogo-por-categoria.component';
 import { VideoPeliculaComponent } from './controlador/pelicula/video-pelicula/video-pelicula.component';
+import { UserService } from './services/user.service';
+import { UsersComponent } from './vista/users/users/users.component';
+import { UserRegisterComponent } from './vista/user-register/user-register.component';
+import { UserStatusComponent } from './vista/user-status/user-status.component';
+import { UserMenuComponent } from './vista/user-menu/user-menu.component';
 
 const routes: Routes = [
+  {path: 'user-signup', component: UserRegisterComponent},
   {path: 'video-pelicula/:id', component: VideoPeliculaComponent},
   {path: 'ver-pelicula/:id', component: VerPeliculaComponent},
   {path: 'alta-pelicula', component: AltaPeliculaComponent},
@@ -37,6 +43,10 @@ const routes: Routes = [
     MenuPrincipalComponent,
     CatalogoPorCategoriaComponent,
     VideoPeliculaComponent
+    UsersComponent,
+    UserRegisterComponent,
+    UserStatusComponent,
+    UserMenuComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -45,7 +55,7 @@ const routes: Routes = [
     NgbModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

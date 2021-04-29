@@ -68,7 +68,7 @@ interface GetResponseFilms {
 
 interface GetResponseActors {
   _embedded: {
-    actor: Actor[];
+    actors: Actor[];
   },
   page: {
     size: number,
@@ -80,7 +80,7 @@ interface GetResponseActors {
 
 interface GetResponseDirectors {
   _embedded: {
-    director: Director[];
+    directors: Director[];
   },
   page: {
     size: number,
