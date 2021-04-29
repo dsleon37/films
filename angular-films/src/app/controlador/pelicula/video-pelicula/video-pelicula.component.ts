@@ -4,11 +4,11 @@ import { ServicioPeliculaService } from 'src/app/modelo/pelicula/servicio-pelicu
 import { Pelicula } from '../pelicula';
 
 @Component({
-  selector: 'app-ver-pelicula',
-  templateUrl: '../../../vista/pelicula/ver-pelicula.component.html',
-  styleUrls: ['../../../vista/pelicula/ver-pelicula.component.css']
+  selector: 'app-video-pelicula',
+  templateUrl: '../../../vista/pelicula/video-pelicula.component.html',
+  styleUrls: ['../../../vista/pelicula/video-pelicula.component.css']
 })
-export class VerPeliculaComponent implements OnInit {
+export class VideoPeliculaComponent implements OnInit {
 
   pelicula: Pelicula = new Pelicula;
 
@@ -29,7 +29,7 @@ export class VerPeliculaComponent implements OnInit {
     this.peliculaService.getPelicula(peliculaId).subscribe(
       data => {
         this.pelicula = data;
-        console.log(this.pelicula);
+        console.log(this.pelicula.videoUrl);
       }
     )
   }

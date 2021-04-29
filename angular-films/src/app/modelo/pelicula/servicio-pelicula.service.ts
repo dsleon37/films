@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Pelicula } from 'src/app/controlador/pelicula/pelicula';
@@ -12,16 +12,26 @@ import { Categoria } from 'src/app/controlador/pelicula/categoria';
   providedIn: 'root'
 })
 export class ServicioPeliculaService {
-  private baseUrl = 'http://localhost:8080/api/';
+  private baseUrl = 'http://localhost:8080/api';
 
   constructor(private httpClient: HttpClient) { }
 
 
-  getFilmsListPaginate( thePage:number, thePageSize: number, theCategoryId: number): Observable<GetResponseFilms> {
-    const searchUrl = `${this.baseUrl}/films`
-                      +`&page=${thePage}&size=${thePageSize}`;
+  getFilmsListPaginate( thePage:number, thePageSize: number): Observable<GetResponseFilms> {
+    const searchUrl = `${this.baseUrl}/films`;
                       
     return this.httpClient.get<GetResponseFilms>(searchUrl);
+  }
+
+  getFilmsListPaginateByCategories( thePage:number, thePageSize: number,categoryId:number): Observable<GetResponseFilms> {
+    const searchUrl = `${this.baseUrl}/films/search/findByCategoryId?id=${categoryId}`;
+                      
+    return this.httpClient.get<GetResponseFilms>(searchUrl);
+  }
+
+  getPelicula(idFilm:number): Observable<Pelicula>{
+    const peliculaUrl = `${this.baseUrl}/films/${idFilm}`;
+    return this.httpClient.get<Pelicula>(peliculaUrl);
   }
 
 
@@ -44,10 +54,9 @@ export class ServicioPeliculaService {
 
 }
 
-
 interface GetResponseFilms {
   _embedded: {
-    pelicula: Pelicula[];
+    films: Pelicula[];
   },
   page: {
     size: number,
@@ -57,10 +66,9 @@ interface GetResponseFilms {
   }
 }
 
-
 interface GetResponseActors {
   _embedded: {
-    actor: Actor[];
+    actors: Actor[];
   },
   page: {
     size: number,
@@ -72,7 +80,7 @@ interface GetResponseActors {
 
 interface GetResponseDirectors {
   _embedded: {
-    director: Director[];
+    directors: Director[];
   },
   page: {
     size: number,
@@ -82,10 +90,9 @@ interface GetResponseDirectors {
   }
 }
 
-
 interface GetResponseCategories {
   _embedded: {
-    category: Categoria[];
+    categories: Categoria[];
   },
   page: {
     size: number,

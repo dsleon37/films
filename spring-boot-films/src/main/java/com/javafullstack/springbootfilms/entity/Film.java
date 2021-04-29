@@ -15,24 +15,27 @@ public class Film {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
+    @Column(name="title")
     private String title;
 
+    @Column(name="description")
     private String description;
 
-    private Date date;
+    @Column(name="image_url")
+    private String imageUrl;
 
-    @ManyToOne
-    @JoinColumn(name = "actor_id", nullable = false)
-    private Actor actor;
+    @Column(name="video_url")
+    private String videoUrl;
+
+    @Column(name="date")
+    private Date date;
 
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
-    @ManyToOne
-    @JoinColumn(name = "director_id", nullable = false)
-    private Director director;
 
 }
