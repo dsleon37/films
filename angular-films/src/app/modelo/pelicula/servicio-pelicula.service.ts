@@ -32,18 +32,18 @@ export class ServicioPeliculaService {
 
 
   getCategories(): Observable<GetResponseCategories> {
-    const searchUrl = `${this.baseUrl}categories`;                      
+    const searchUrl = `${this.baseUrl}/categories`;                      
     return this.httpClient.get<GetResponseCategories>(searchUrl);
   }
 
 
   getActors(): Observable<GetResponseActors> {
-    const searchUrl = `${this.baseUrl}actors`;                      
+    const searchUrl = `${this.baseUrl}/actors`;                      
     return this.httpClient.get<GetResponseActors>(searchUrl);
   }
 
   getDirectors(): Observable<GetResponseDirectors> {
-    const searchUrl = `${this.baseUrl}directors`;                      
+    const searchUrl = `${this.baseUrl}/directors`;                      
     return this.httpClient.get<GetResponseDirectors>(searchUrl);
   }
 
