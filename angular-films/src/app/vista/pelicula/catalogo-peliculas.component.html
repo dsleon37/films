@@ -13,10 +13,13 @@
 
         <a routerLink="/products/{{ tempPelicula.id }}">
             <h1>{{ tempPelicula.title }}</h1>
-            <h2>{{ tempPelicula.date }}</h2>
+            <h2>{{ tempPelicula.date | date: 'mediumDate'}}</h2>
             <h2>{{ tempPelicula.description }}</h2>
         </a>
-        <div class="price">{{ '92.000'| currency:'COP' }}</div>
+        <div class="price">
+            <input type="checkbox" class="form-check-input" id="id_disponible">
+            <span class="form-check-label" for="id_disponible">  Disponible en cinema</span>
+        </div>
     </div>
 
 </div>

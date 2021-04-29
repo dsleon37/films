@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Categoria } from './controlador/pelicula/categoria';
+import { ServicioPeliculaService } from './modelo/pelicula/servicio-pelicula.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-films';
+
+
 }
