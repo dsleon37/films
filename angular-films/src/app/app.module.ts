@@ -20,6 +20,9 @@ import { VerOfertasComponent } from './controlador/ofertas/ver-ofertas/ver-ofert
 import { AplicarOfertaComponent } from './controlador/ofertas/aplicar-oferta/aplicar-oferta.component';
 import { UserService } from './services/user.service';
 
+import { VerOfertasComponent } from './controlador/ofertas/ver-ofertas/ver-ofertas.component';
+import { AplicarOfertaComponent } from './controlador/ofertas/aplicar-oferta/aplicar-oferta.component';
+
 import { UserRegisterComponent } from './vista/user-register/user-register.component';
 import { UserStatusComponent } from './vista/user-status/user-status.component';
 import { UserMenuComponent } from './vista/user-menu/user-menu.component';
@@ -32,6 +35,8 @@ const routes: Routes = [
   {path: 'ver-pelicula/:id', component: VerPeliculaComponent},
   {path: 'alta-pelicula', component: AltaPeliculaComponent},
   {path: 'datos-pelicula', component: AltaDatosPeliculaComponent},
+  {path: 'aplicar-oferta', component: AplicarOfertaComponent},
+  {path: 'ver-ofertas', component: VerOfertasComponent},
   {path: 'catalogo-por-categoria/:id', component: CatalogoPorCategoriaComponent},
   {path: 'catalogo-peliculas', component: CatalogoPeliculasComponent},
   {path: 'datos-pelicula', component: AltaDatosPeliculaComponent},
@@ -54,7 +59,9 @@ const routes: Routes = [
     UsersComponent,
     UserRegisterComponent,
     UserStatusComponent,
-    UserMenuComponent
+    UserMenuComponent,
+    VerOfertasComponent,
+    AplicarOfertaComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
