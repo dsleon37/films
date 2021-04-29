@@ -19,11 +19,6 @@ public class Actor {
     private Long id;
     @Column(name="name")
     private String name;
-
-
-s    /**
-     * Peliculas.
-     */
     @ManyToMany(mappedBy = "actores")
     List<Film> peliculas;
 }

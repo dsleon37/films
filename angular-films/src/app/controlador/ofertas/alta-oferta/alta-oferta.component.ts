@@ -13,9 +13,9 @@ import { ListaofertasI } from '../../../modelo/ofertas/listaoferta.interface';
 export class AltaOfertaComponent implements OnInit {
 
   altaOfertaFormGroup: FormGroup;
-  //ofertas: ListaofertasI[];
+  offers: Oferta[] = [];
 
-  constructor(private formBuilder: FormBuilder, /*private api:ApiService,*/ private router: Router) {
+  constructor(private formBuilder: FormBuilder, private ofertasService: OfertasService,*/ private router: Router) {
 
     this.altaOfertaFormGroup= this.formBuilder.group({
       oferta: this.formBuilder.group({
@@ -28,6 +28,7 @@ export class AltaOfertaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.listOffers();
     /*this.altaOfertaFormGroup= this.formBuilder.group({
       oferta: this.formBuilder.group({
         description:  new FormControl('',[Validators.required,Validators.minLength(2)]),
@@ -39,6 +40,13 @@ export class AltaOfertaComponent implements OnInit {
     /*this.api.getAllOffers(1).subscribe(data =>{
       this.ofertas = data;
     })*/
+  }
+  listOffers(){
+    this.ofertasService.getOffersList().subscribe({
+      data >= {
+        this.offers = data;
+      }
+    })
   }
   //get description(){return this.altaOfertaFormGroup.get('oferta.description')}
   onSubmit(){

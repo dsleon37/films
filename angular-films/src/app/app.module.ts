@@ -16,6 +16,8 @@ import { VerPeliculaComponent } from './controlador/pelicula/ver-pelicula/ver-pe
 import { MenuPrincipalComponent } from './controlador/menu-principal/menu-principal.component';
 import { CatalogoPorCategoriaComponent } from './controlador/pelicula/catalogo-peliculas/catalogo-por-categoria.component';
 import { VideoPeliculaComponent } from './controlador/pelicula/video-pelicula/video-pelicula.component';
+import { VerOfertasComponent } from './controlador/ofertas/ver-ofertas/ver-ofertas.component';
+import { AplicarOfertaComponent } from './controlador/ofertas/aplicar-oferta/aplicar-oferta.component';
 import { UserService } from './services/user.service';
 
 import { UserRegisterComponent } from './vista/user-register/user-register.component';
