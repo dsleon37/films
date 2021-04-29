@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -19,4 +20,10 @@ public class Actor {
     @Column(name="name")
     private String name;
 
+
+s    /**
+     * Peliculas.
+     */
+    @ManyToMany(mappedBy = "actores")
+    List<Film> peliculas;
 }
