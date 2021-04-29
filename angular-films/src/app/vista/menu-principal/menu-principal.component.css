@@ -1,15 +1,15 @@
 .menu_bar {
 	display:none;
 }
-aside nav ul{
+nav ul{
     padding-left: 0 !important;
 }
-aside nav ul li:hover {
+nav ul li:hover {
 	background:#2d5d82;
     transition: 0.5s;
 }
 
-aside nav ul li a {
+nav ul li a {
 	color:#fff;
 	display:block;
 	text-decoration:none;
@@ -20,12 +20,12 @@ aside nav ul li a span {
 	margin-right:3px;
 }
 
-aside nav ul li:hover .children {
+nav ul li:hover .children {
 	display:block;
     transition: 0.5s;
 }
 
-aside nav ul li .children {
+nav ul li .children {
 	display: none;
 	background:#015183;
 	position: absolute;
@@ -33,17 +33,17 @@ aside nav ul li .children {
 	z-index:1000;
 }
 
-aside nav ul li .children li {
+nav ul li .children li {
 	display:block;
 	overflow: hidden;
 	border-bottom: 1px solid rgba(255,255,255,.5);
 }
 
-aside nav ul li .children li a {
+nav ul li .children li a {
 	display: block;
 }
 
-aside nav ul li .children li a span {
+nav ul li .children li a span {
 	float: right;
 	position: relative;
 	top:3px;
@@ -51,7 +51,7 @@ aside nav ul li .children li a span {
 	margin-left:10px;
 }
 
-aside nav ul li .caret {
+nav ul li .caret {
 	position: relative;
 	top:3px;
 	margin-left:10px;
@@ -86,7 +86,7 @@ aside nav ul li .caret {
 		font-size: 40px;
 	}
 
-	aside nav {
+	nav {
 		width: 80%;
 		height: calc(100% - 80px);
 		position: fixed;
@@ -95,7 +95,7 @@ aside nav ul li .caret {
 		overflow: scroll;
 	}
 
-	aside nav ul li {
+	nav ul li {
 		display: block;
 		border-bottom:1px solid rgba(255,255,255,.5);
 	}
@@ -104,20 +104,20 @@ aside nav ul li .caret {
 		display: block;
 	}
 
-	aside nav ul li:hover .children {
+	nav ul li:hover .children {
 		display: none;
 	}
 
-	aside nav ul li .children {
+	nav ul li .children {
 		width: 100%;
 		position: relative;
 	}
 
-	aside nav ul li .children li a {
+	nav ul li .children li a {
 		margin-left:20px;
 	}
 
-	aside nav ul li .caret {
+	nav ul li .caret {
 		float: right;
 	}
 }

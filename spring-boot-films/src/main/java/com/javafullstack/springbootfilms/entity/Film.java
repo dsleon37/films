@@ -28,6 +28,9 @@ public class Film {
     @Column(name="image_url")
     private String imageUrl;
 
+    @Column(name="video_url")
+    private String videoUrl;
+
     @Column(name="date")
     private Date date;
 
