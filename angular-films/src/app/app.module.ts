@@ -18,6 +18,7 @@ import { CatalogoPeliculasComponent } from './controlador/pelicula/catalogo-peli
 import { VerPeliculaComponent } from './controlador/pelicula/ver-pelicula/ver-pelicula.component';
 import { MenuPrincipalComponent } from './controlador/menu-principal/menu-principal.component';
 import { UserService } from './services/user.service';
+import { UsersComponent } from './vista/users/users/users.component';
 
 const routes: Routes = [
   {path: 'catalogo-peliculas/:id', component: CatalogoPeliculasComponent},
@@ -35,7 +36,8 @@ const routes: Routes = [
     AltaDatosPeliculaComponent,
     CatalogoPeliculasComponent,
     VerPeliculaComponent,
-    MenuPrincipalComponent
+    MenuPrincipalComponent,
+    UsersComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
