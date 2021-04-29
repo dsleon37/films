@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 import { AltaPeliculaComponent } from './controlador/pelicula/alta-pelicula/alta-pelicula.component';
 import { AltaDatosPeliculaComponent } from './controlador/pelicula/alta-datos-pelicula/alta-datos-pelicula.component';
 import { CatalogoPeliculasComponent } from './controlador/pelicula/catalogo-peliculas/catalogo-peliculas.component';
-import { AltaOfertaComponent } from './controlador/oferta/alta-oferta/alta-oferta.component';
+import { AltaOfertaComponent } from './controlador/ofertas/alta-oferta/alta-oferta.component';
 import { VerPeliculaComponent } from './controlador/pelicula/ver-pelicula/ver-pelicula.component';
 import { MenuPrincipalComponent } from './controlador/menu-principal/menu-principal.component';
 import { CatalogoPorCategoriaComponent } from './controlador/pelicula/catalogo-peliculas/catalogo-por-categoria.component';

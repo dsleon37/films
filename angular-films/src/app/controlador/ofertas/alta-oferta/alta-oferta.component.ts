@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ListaofertasI } from '../../../modelo/oferta/listaoferta.interface';
+import { ListaofertasI } from '../../../modelo/ofertas/listaoferta.interface';
 
 @Component({
   selector: 'app-alta-oferta',
   templateUrl: '../../../vista/oferta/alta-oferta.component.html',
   styleUrls: ['../../../vista/oferta/alta-oferta.component.css']
-
 })
 
 
