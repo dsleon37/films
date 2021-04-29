@@ -1,1 +1,77 @@
-<p>alta-pelicula works!</p>
+<div class="main-content page-m">
+    <div class="section-content section-content-p30">
+      <div class="container-fluid">
+        <h1>Mantenimiento de Datos de Peliculas</h1>
+        <br />
+        <br />
+        <form [formGroup]="altaPeliculaFormGroup" (ngSubmit)="onSubmit()">
+          <div formGroupName="pelicula" class="form-area">
+            <h3>Datos de Película1</h3>
+            <!-- titulo -->
+            <div class="row">
+              <div class="col-md-2">
+                <label>Titulo</label>
+              </div>
+              <div class="input-space">
+                <input formControlName="titulo" type="text" />
+              </div>
+            </div>
+  
+            <!-- Description -->
+            <div class="row">
+              <div class="col-md-2">
+                <label>Descripción</label>
+              </div>
+              <div class="input-space">
+                <input formControlName="descripcion" type="text" />
+              </div>
+            </div>
+            <!-- fecha -->
+            <div class="row">
+              <div class="col-md-2">
+                <label> Fecha </label>
+              </div>
+              <div class="input-space">
+                <input formControlName=" fecha " type="text" />
+              </div>
+            </div>
+            <!-- categoria -->
+            <div class="row">
+              <div class="col-md-2">
+                <label> Categoria </label>
+              </div>
+              <div class="input-space">
+                <input formControlName=" categoria " type="text" />
+              </div>
+            </div>
+  
+            <!-- director -->
+            <div class="row">
+              <div class="col-md-2">
+                <label> Director </label>
+              </div>
+              <div class="input-space">
+                <input formControlName=" director " type="text" />
+              </div>
+            </div>
+  
+            <!-- imageurl -->
+            <div class="row">
+              <div class="col-md-2">
+                <label> Imagen </label>
+              </div>
+              <div class="input-space">
+                <input formControlName=" imageurl " type="text" />
+              </div>
+            </div>
+          </div>
+  
+          <!-- boton-->
+          <div class="text-center">
+            <button type="submit" class="btn btn-info">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

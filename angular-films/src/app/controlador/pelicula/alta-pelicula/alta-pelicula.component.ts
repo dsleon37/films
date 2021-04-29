@@ -1,31 +1,42 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormGroup, FormBuilder } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-alta-pelicula',
   templateUrl: '../../../vista/pelicula/alta-pelicula.component.html',
   styleUrls: ['../../../vista/pelicula/alta-pelicula.component.css']
+  
 })
 export class AltaPeliculaComponent implements OnInit {
 
-  altaPeliculaForm: FormGroup | undefined;
+  altaPeliculaFormGroup: FormGroup ;
+  AltaPeliculaFormGroup: any;
 
-  constructor(private formBuilder: FormBuilder,
-              private router: Router) { }
+  constructor(private formBuilder: FormBuilder) {
+    this.altaPeliculaFormGroup = this.formBuilder.group({
+      pelicula: this.formBuilder.group({
+        titulo: [''],
+        descripcion: [''],
+        fecha:  [''],
+        actor: [''],
+        categoria: [''],
+        director: [''],
+        imageurl: [''],
+
+        
+      }),
+    });
+   }
 
   ngOnInit(): void {
 
-    this.altaPeliculaForm = this.formBuilder.group({
-      pelicula: this.formBuilder.group({
-        titulo: new FormControl('',[Validators.required,Validators.minLength(3)]),
-        descripcion:  new FormControl('',[Validators.required,Validators.minLength(2)]),
-        fecha:  new FormControl('',[Validators.required]),
-        actor: new FormControl('', [Validators.required, Validators.minLength(2)]),
-        categoria: new FormControl('', [Validators.required, Validators.minLength(2)]),
-        director: new FormControl('', [Validators.required])
-      }),
-    });
   }
+  onSubmit(){
+    console.log("Estamos guardando la informacion de la pelicula ");
+    console.log(this.AltaPeliculaFormGroup.get('pelicula').value);
+  }
+
 
 }

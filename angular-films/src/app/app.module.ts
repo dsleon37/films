@@ -42,7 +42,7 @@ const routes: Routes = [
     NgbModule,
     ReactiveFormsModule,
   ],
-  providers: [FilmService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
