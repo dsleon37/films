@@ -1,9 +1,9 @@
 export class User {
-    id: number;
+    id: number ;
     role: String;
     userName: String ;
     password: String ;
-    name!: String;
+    name: String;
     surname: String;
     email: String
 }
