@@ -1,31 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ListaofertasI } from '../../../modelo/oferta/listaoferta.interface';
 
 @Component({
   selector: 'app-alta-oferta',
   templateUrl: '../../../vista/oferta/alta-oferta.component.html',
   styleUrls: ['../../../vista/oferta/alta-oferta.component.css']
+
 })
 
 
 export class AltaOfertaComponent implements OnInit {
 
   altaOfertaFormGroup: FormGroup;
+  //ofertas: ListaofertasI[];
 
-  constructor(private formBuilder: FormBuilder,
-              private router: Router) {
-                this.altaOfertaFormGroup= this.formBuilder.group({
-                  oferta: this.formBuilder.group({
-                    description:  new FormControl('',[Validators.required,Validators.minLength(2)]),
-                    deadline:  new FormControl('',[Validators.required]),
-                    addPoints: new FormControl('', [Validators.required]),
-                    subPoints: new FormControl('', [Validators.required]),
-                  })
-                })
-              }
+  constructor(private formBuilder: FormBuilder, /*private api:ApiService,*/ private router: Router) {
 
-  ngOnInit(): void {
     this.altaOfertaFormGroup= this.formBuilder.group({
       oferta: this.formBuilder.group({
         description:  new FormControl('',[Validators.required,Validators.minLength(2)]),
@@ -35,7 +27,21 @@ export class AltaOfertaComponent implements OnInit {
       })
     })
   }
-  get description(){return this.altaOfertaFormGroup.get('oferta.description')}
+
+  ngOnInit(): void {
+    /*this.altaOfertaFormGroup= this.formBuilder.group({
+      oferta: this.formBuilder.group({
+        description:  new FormControl('',[Validators.required,Validators.minLength(2)]),
+        deadline:  new FormControl('',[Validators.required]),
+        addPoints: new FormControl('', [Validators.required]),
+        subPoints: new FormControl('', [Validators.required]),
+      })
+    })*/
+    /*this.api.getAllOffers(1).subscribe(data =>{
+      this.ofertas = data;
+    })*/
+  }
+  //get description(){return this.altaOfertaFormGroup.get('oferta.description')}
   onSubmit(){
     if(this.altaOfertaFormGroup.invalid){
       this.altaOfertaFormGroup.markAllAsTouched();

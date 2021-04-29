@@ -20,8 +20,7 @@ const routes: Routes = [
   {path: 'ver-pelicula/:id', component: VerPeliculaComponent},
   {path: 'alta-pelicula', component: AltaPeliculaComponent},
   {path: 'catalogo-peliculas', component: CatalogoPeliculasComponent},
-
-  {path : 'datos-pelicula', component: AltaDatosPeliculaComponent},
+  {path: 'datos-pelicula', component: AltaDatosPeliculaComponent},
   {path: '', redirectTo: '/catalogo-peliculas', pathMatch: 'full'},
   {path: '**', redirectTo: '/catalogo-peliculas', pathMatch: 'full'}
 ];
