@@ -1,77 +1,80 @@
 <div class="page-wrapper">
 
-		<!-- MENU SIDEBAR-->
-		<aside class="menu-sidebar d-none d-lg-block">
-			<div class="logo">
-				<a href="home.html">
-					<img src="assets/Logo/logo-blancoynegro2-v2.png" alt="luv2shop" class="img-responsive">
-				</a>
-			</div>
-			<div class="menu-sidebar-content js-scrollbar1">
-				<nav class="navbar-sidebar navbar" id="navbarToggleExternalContent">
-					<ul class="list-unstyled navbar-list">
-						<li>
-							<a href="#">Peliculas</a>
-						</li>
-						<li>
-							<a href="#">Cines</a>
-						</li>
-					</ul>
-				</nav>
-        <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        </div>
-			</div>
-		</aside>
-		<!-- END MENU SIDEBAR-->
+	<!-- MENU SIDEBAR-->
+	<app-menu-principal></app-menu-principal>
+	
+	<!-- END MENU SIDEBAR-->
 
-		<!-- PAGE CONTAINER-->
-		<div class="page-container">
-			<!-- HEADER DESKTOP-->
-			<header class="header-desktop">
-				<div class="section-content section-content-p30">
-					<div class="container-fluid">
-						<div class="header-wrap">
-							<form class="form-header" onsubmit="return false;" method="GET">
-								<input class="au-input au-input-xl" type="text" name="search"
-									placeholder="Search for data ..." />
-								<button class="au-btn-submit" type="submit">
-									Search
-								</button>
-							</form>
-							<div class="cart-area d-n">
-								<a href="shopping-detail.html">
-									<div class="total">19.22 <span> 2</span> </div> <i class="fa fa-shopping-cart"
-										aria-hidden="true"></i>
-								</a>
-							</div>
+	<!-- PAGE CONTAINER-->
+	<div class="page-container">
+		<!-- HEADER DESKTOP-->
+		<header class="header-desktop">
+			<div class="section-content section-content-p30">
+				<div class="container-fluid">
+					<div class="header-wrap">
+						<form class="form-header" onsubmit="return false;" method="GET">
+							<input class="au-input au-input-xl" type="text" name="search"
+								placeholder="Search for data ..." />
+							<button class="au-btn-submit" type="submit">
+								Search
+							</button>
+						</form>
+						<div class="cart-area d-n">
+							<a href="shopping-detail.html">
+								<div class="total">19.22 <span> 2</span> </div> <i class="fa fa-shopping-cart"
+									aria-hidden="true"></i>
+							</a>
 						</div>
-						<div class="account-wrap"></div>
 					</div>
+					<div class="account-wrap"></div>
 				</div>
-			</header>
-			<!-- END HEADER DESKTOP-->
+			</div>
+		</header>
+		<!-- END HEADER DESKTOP-->
 
-			<!-- MAIN CONTENT-->
-			<router-outlet></router-outlet>
-			
+		<!-- MAIN CONTENT-->
+		<router-outlet></router-outlet>
 
-		    <!-- END MAIN CONTENT-->
 
-		</div>
+		<!-- END MAIN CONTENT-->
+
 	</div>
+</div>
 
-	<!-- END PAGE CONTAINER-->
+<!-- END PAGE CONTAINER-->
 
 
-	<footer>
-		<ul>
-			<li><a href="#">About Us</a></li>
-			<li><a href="#">Contact Us</a></li>
-			<li><a href="#">Help</a></li>
-		</ul>
-	</footer>
+<footer>
+	<ul>
+		<li><a href="#">About Us</a></li>
+		<li><a href="#">Contact Us</a></li>
+		<li><a href="#">Help</a></li>
+	</ul>
+</footer>
+<script>
+	$(document).ready(main);
 
+	var contador = 1;
+
+	function main() {
+		$('.menu_bar').click(function () {
+			if (contador == 1) {
+				$('nav').animate({
+					left: '0'
+				});
+				contador = 0;
+			} else {
+				contador = 1;
+				$('nav').animate({
+					left: '-100%'
+				});
+			}
+		});
+
+		// Mostramos y ocultamos submenus
+		$('.submenu').click(function () {
+			$(this).children('.children').slideToggle();
+		});
+	}
+</script>
 <!-- end document-->

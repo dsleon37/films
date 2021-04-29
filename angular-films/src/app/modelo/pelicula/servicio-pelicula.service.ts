@@ -12,14 +12,19 @@ import { Categoria } from 'src/app/controlador/pelicula/categoria';
   providedIn: 'root'
 })
 export class ServicioPeliculaService {
-  private baseUrl = 'http://localhost:8080/api/';
+  private baseUrl = 'http://localhost:8080/api';
 
   constructor(private httpClient: HttpClient) { }
 
 
-  getFilmsListPaginate( thePage:number, thePageSize: number, theCategoryId: number): Observable<GetResponseFilms> {
-    const searchUrl = `${this.baseUrl}/films`
-                      +`&page=${thePage}&size=${thePageSize}`;
+  getFilmsListPaginate( thePage:number, thePageSize: number): Observable<GetResponseFilms> {
+    const searchUrl = `${this.baseUrl}/films`;
+                      
+    return this.httpClient.get<GetResponseFilms>(searchUrl);
+  }
+
+  getFilmsListPaginateByCategories( thePage:number, thePageSize: number,categoryId:number): Observable<GetResponseFilms> {
+    const searchUrl = `${this.baseUrl}/films/search/findByCategoryId?id=${categoryId}`;
                       
     return this.httpClient.get<GetResponseFilms>(searchUrl);
   }
@@ -44,10 +49,9 @@ export class ServicioPeliculaService {
 
 }
 
-
 interface GetResponseFilms {
   _embedded: {
-    pelicula: Pelicula[];
+    films: Pelicula[];
   },
   page: {
     size: number,
@@ -56,7 +60,6 @@ interface GetResponseFilms {
     number: number
   }
 }
-
 
 interface GetResponseActors {
   _embedded: {
@@ -82,10 +85,9 @@ interface GetResponseDirectors {
   }
 }
 
-
 interface GetResponseCategories {
   _embedded: {
-    category: Categoria[];
+    categories: Categoria[];
   },
   page: {
     size: number,
