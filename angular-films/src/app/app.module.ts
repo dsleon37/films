@@ -21,6 +21,7 @@ import { UserService } from './services/user.service';
 import { UsersComponent } from './vista/users/users/users.component';
 import { UserRegisterComponent } from './vista/user-register/user-register.component';
 import { UserStatusComponent } from './vista/user-status/user-status.component';
+import { UserMenuComponent } from './vista/user-menu/user-menu.component';
 
 const routes: Routes = [
   {path: 'user-signup', component: UserRegisterComponent},
@@ -42,7 +43,8 @@ const routes: Routes = [
     MenuPrincipalComponent,
     UsersComponent,
     UserRegisterComponent,
-    UserStatusComponent
+    UserStatusComponent,
+    UserMenuComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
