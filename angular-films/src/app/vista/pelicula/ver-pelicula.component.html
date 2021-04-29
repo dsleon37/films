@@ -1,9 +1,26 @@
 <div class="main-content">
-    <div class="section-content section-content-p30">
-        <div class="container-fluid">
-<p>ver-pelicula works!</p>
-
-<button class="btn btn-primary btn-sm">Ver película</button>
+    <div class="row section-content section-content-p30">
+        <div class="col-sm-3">
+            <a routerLink="/catalogo-peliculas" class="btn-sm btn-danger" title="Atrás"> X </a>
+            <img src="{{pelicula.imageUrl}}" alt="{{pelicula.title}}">
+            <a routerLink="/catalogo-peliculas" class="btn-sm primary-btn btn-warning"> Modificar</a>
+            <a routerLink="/catalogo-peliculas" class="btn-sm primary-btn btn-danger"> Eliminar</a>
+        </div>
+        <div class="col-sm-9">
+            <div class="card-body">
+                <h5 class="card-title">{{pelicula.title}}</h5>
+                <p class="card-text">
+                    {{pelicula.description}}
+                </p>
+            </div>
+            <div class="card-footer">
+                    <p>Disponible en los siguientes cinemas:</p>
+                    <ul>
+                        <li>
+                            <a routerLink="/video-pelicula/{{pelicula.id}}" class=""> *Cine Colombia</a>        
+                        </li>
+                    </ul>
+            </div>
         </div>
     </div>
 </div>

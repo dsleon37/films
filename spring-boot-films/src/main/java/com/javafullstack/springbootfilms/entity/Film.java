@@ -27,19 +27,15 @@ public class Film {
     @Column(name="image_url")
     private String imageUrl;
 
+    @Column(name="video_url")
+    private String videoUrl;
+
     @Column(name="date")
     private Date date;
-
-    @ManyToOne
-    @JoinColumn(name = "actor_id", nullable = false)
-    private Actor actor;
 
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
-    @ManyToOne
-    @JoinColumn(name = "director_id", nullable = false)
-    private Director director;
 
 }

@@ -19,6 +19,4 @@ public class Actor {
     @Column(name="name")
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "actor")
-    private Set<Film> films;
 }
