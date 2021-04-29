@@ -1,12 +1,14 @@
 <div class="main-content page-m">
     <div class="section-content section-content-p30">
       <div class="container-fluid">
-        <h1>Mantenimiento de Datos de Peliculas</h1>
+        <h1>Alta de Película</h1>
         <br />
         <br />
         <form [formGroup]="altaPeliculaFormGroup" (ngSubmit)="onSubmit()">
+
+
           <div formGroupName="pelicula" class="form-area">
-            <h3>Datos de Película1</h3>
+            <h3>Datos de Película</h3>
             <!-- titulo -->
             <div class="row">
               <div class="col-md-2">
@@ -35,7 +37,17 @@
                 <input formControlName=" fecha " type="text" />
               </div>
             </div>
-            <!-- categoria -->
+              <!-- Actor -->
+              <div class="row">
+                <div class="col-md-2">
+                  <label> Actor </label>
+                </div>
+                <div class="input-space">
+                  <input formControlName=" actor " type="text" />
+                </div>
+              </div>
+            <!-- categoria --> 
+            
             <div class="row">
               <div class="col-md-2">
                 <label> Categoria </label>
@@ -44,7 +56,7 @@
                 <input formControlName=" categoria " type="text" />
               </div>
             </div>
-  
+               
             <!-- director -->
             <div class="row">
               <div class="col-md-2">
@@ -55,10 +67,11 @@
               </div>
             </div>
   
+            
             <!-- imageurl -->
             <div class="row">
               <div class="col-md-2">
-                <label> Imagen </label>
+                <label> Url de Imagen </label>
               </div>
               <div class="input-space">
                 <input formControlName=" imageurl " type="text" />

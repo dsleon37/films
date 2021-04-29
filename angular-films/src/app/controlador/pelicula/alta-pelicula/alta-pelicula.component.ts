@@ -1,5 +1,8 @@
+import { Categoria } from 'src/app/controlador/pelicula/categoria';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { ServicioPeliculaService } from 'src/app/modelo/pelicula/servicio-pelicula.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 
@@ -13,8 +16,9 @@ export class AltaPeliculaComponent implements OnInit {
 
   altaPeliculaFormGroup: FormGroup ;
   AltaPeliculaFormGroup: any;
+  
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private servicioPelicula: ServicioPeliculaService,private route: ActivatedRoute) {
     this.altaPeliculaFormGroup = this.formBuilder.group({
       pelicula: this.formBuilder.group({
         titulo: [''],
@@ -24,6 +28,7 @@ export class AltaPeliculaComponent implements OnInit {
         categoria: [''],
         director: [''],
         imageurl: [''],
+        Categoria: [],        
 
         
       }),
@@ -31,12 +36,13 @@ export class AltaPeliculaComponent implements OnInit {
    }
 
   ngOnInit(): void {
-
+ 
   }
   onSubmit(){
     console.log("Estamos guardando la informacion de la pelicula ");
     console.log(this.AltaPeliculaFormGroup.get('pelicula').value);
   }
+
 
 
 }

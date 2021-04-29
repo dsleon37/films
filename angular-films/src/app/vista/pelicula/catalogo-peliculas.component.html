@@ -24,12 +24,13 @@
 <!-- if products empty then display a message-->
 <div *ngIf="peliculas?.length == 0" class="alert alert-warning col-md-12" role="alert">
     No se encontraron películas.
+</div>      
+<div class="cart-area d-n">
+    <a routerLink="/alta-pelicula"> 
+        <button type="button" class="btn btn-primary">Guardar Película</button>
+    </a>
 </div>
 
-            </div>
-            
-                	<button (click)="/pelicula" class="btn btn-primary">  Agregar Peliculas  </a>
-            
             <div class="footer-pagination">
                 <div class="row">
                     <div class="col-md-6"></div>
@@ -43,6 +44,9 @@
                             </select>
                         </div>
                     </div>
+
+                    
+
                     <div class="col-md-2">
                         <div class="number">1 - 10 of 100</div>
                     </div>

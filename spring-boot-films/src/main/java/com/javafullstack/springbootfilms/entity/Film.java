@@ -9,7 +9,8 @@ import java.util.Date;
 
 @Entity
 @Table(name="film")
-@Data
+@Getter
+@Setter
 public class Film {
 
     @Id

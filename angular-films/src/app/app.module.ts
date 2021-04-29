@@ -17,6 +17,7 @@ import { AltaDatosPeliculaComponent } from './controlador/pelicula/alta-datos-pe
 import { CatalogoPeliculasComponent } from './controlador/pelicula/catalogo-peliculas/catalogo-peliculas.component';
 import { VerPeliculaComponent } from './controlador/pelicula/ver-pelicula/ver-pelicula.component';
 import { MenuPrincipalComponent } from './controlador/menu-principal/menu-principal.component';
+import { ServicioPeliculaService } from './modelo/pelicula/servicio-pelicula.service';
 
 const routes: Routes = [
   {path: 'catalogo-peliculas/:id', component: CatalogoPeliculasComponent},
@@ -43,7 +44,7 @@ const routes: Routes = [
     NgbModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [ServicioPeliculaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
