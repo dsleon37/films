@@ -29,6 +29,11 @@ export class ServicioPeliculaService {
     return this.httpClient.get<GetResponseFilms>(searchUrl);
   }
 
+  getPelicula(idFilm:number): Observable<Pelicula>{
+    const peliculaUrl = `${this.baseUrl}/films/${idFilm}`;
+    return this.httpClient.get<Pelicula>(peliculaUrl);
+  }
+
 
 
   getCategories(): Observable<GetResponseCategories> {
@@ -47,6 +52,14 @@ export class ServicioPeliculaService {
     return this.httpClient.get<GetResponseDirectors>(searchUrl);
   }
 
+  getActorsOfFilm(filmId:number){
+    const searchUrl = `${this.baseUrl}/films/${filmId}/actores`;                      
+    return this.httpClient.get<GetResponseActors>(searchUrl);
+  }
+  getDirectorsOfFilm(filmId:number){
+    const searchUrl = `${this.baseUrl}/films/${filmId}/directores`;                      
+    return this.httpClient.get<GetResponseDirectors>(searchUrl);
+  }
 }
 
 interface GetResponseFilms {

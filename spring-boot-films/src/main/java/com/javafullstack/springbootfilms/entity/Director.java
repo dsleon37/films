@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -19,6 +20,9 @@ public class Director {
     @Column(name="name")
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "director")
-    private Set<Film> films;
+    /**
+     * Peliculas.
+     */
+    @ManyToMany(mappedBy = "directores")
+    List<Film> peliculas;
 }

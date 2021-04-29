@@ -17,7 +17,7 @@ body{
     font-weight:400;
     font-size:18px;
     line-height:1.625;
-    color:#666;
+    color:rgb(43, 63, 87);
     -webkit-font-smoothing:antialiased;
     -moz-osx-font-smoothing:grayscale
 }
@@ -45,16 +45,15 @@ button{
 
 img{
     max-width:100%;
-    height:auto
+    height:auto;
 }
 
 p{
     margin:0
 }
 
-h1,h2,h3,h4,h5,h6{
+h1,h2,h3,h4,h5,h6,p{
     color:snow;
-    font-weight:700;
     margin:0;
     line-height:1.2
 }
@@ -362,8 +361,7 @@ input.au-input.au-input-xl{
 }
 
 .navbar-sidebar{
-    padding:35px;
-    padding-bottom:0
+    padding-left: 10px;
 }
 
 .navbar-sidebar .navbar-list li a{
@@ -371,7 +369,7 @@ input.au-input.au-input-xl{
     display:block;
     color:snow;
     font-size:18px;
-    padding:5px 0
+    padding:5px 0;
 }
 
 .navbar-sidebar .navbar-list li a i{
@@ -766,6 +764,7 @@ table.table.table-bordered th{
 a.primary-btn{
     background:#012996;
     padding:7px 20px;
+    margin:7px 10px;
     text-align:center;
     display:inline-block;
     color:#fff;
