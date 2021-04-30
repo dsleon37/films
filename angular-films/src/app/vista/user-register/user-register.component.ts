@@ -49,13 +49,7 @@ export class UserRegisterComponent implements OnInit {
       error: err => {
         alert(`No se registro el usuario: ${err.message}`);
       }
-    });/*data => {
-      let subscriber = {
-        points: 0,
-        user: "http://localhost:9090/api/users/"+data.id
-      };
-      this.saveSubscriber(subscriber);
-    });*/
+    });
 
   }
 
