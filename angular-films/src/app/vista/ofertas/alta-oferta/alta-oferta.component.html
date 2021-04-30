@@ -80,7 +80,7 @@
                             <td>{{tempOffer.subPoints}}</td>
                             <td><button type="submit" class="btn btn-info">Ver Oferta</button></td>
                             <td><button type="submit" class="btn btn-success">Aplicar Oferta</button></td>
-                            <td><button type="submit" class="btn btn-danger">Eliminar Oferta</button></td>
+                            <td><button [formGroup]="altaOfertaFormGroup"  (ngSubmit)=deleteOffers() class="btn btn-danger">Eliminar Oferta</button></td>
                         </tr>
                     </tbody>
                 </table>

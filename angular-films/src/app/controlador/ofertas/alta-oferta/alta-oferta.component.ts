@@ -52,10 +52,12 @@ export class AltaOfertaComponent implements OnInit {
   }
 
   deleteOffers(){
-    this.altaOfertasService.deleteOffer(this.ofert.id);
+    console.log(this.altaOfertaFormGroup.get('oferta').value.id);
+    this.altaOfertasService.deleteOffer(this.altaOfertaFormGroup.get('oferta').value.id);
   }
   //get description(){return this.altaOfertaFormGroup.get('oferta.description')}
   onSubmit(){
+ 
       console.log(this.altaOfertaFormGroup.get('oferta').value);
       this.altaOfertasService.registerOffer(this.altaOfertaFormGroup.get('oferta').value);
   }
