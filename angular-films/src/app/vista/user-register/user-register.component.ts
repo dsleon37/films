@@ -33,6 +33,7 @@ export class UserRegisterComponent implements OnInit {
 
     if(this.userRegisterFormGroup.invalid){
       this.userRegisterFormGroup.markAllAsTouched();
+      return;
     }
     
     this.user = this.userRegisterFormGroup.get('newUser').value;
