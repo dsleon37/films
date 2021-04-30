@@ -1,5 +1,4 @@
 import { HttpClient } from '@angular/common/http';
-import { GuardarP } from './guardar-p';
 import { GuardarService } from './../../modelo/pelicula/guardar.service';
 import { Categoria } from './../categoria';
 import { Component, OnInit } from '@angular/core';
@@ -67,13 +66,6 @@ export class AltaPeliculaComponent implements OnInit {
     });
 */
 
-this.peliculaService.getCategories().subscribe(data =>{this.categorias = data._embedded.categories});
-
-let guardarP = new GuardarP();
-
-guardarP.title = this.AltaPeliculaFormGroup.FormControl;
-
-  }
 
   /*listCategori(){
 
@@ -92,16 +84,6 @@ guardarP.title = this.AltaPeliculaFormGroup.FormControl;
     )
   }*/
 
-  guardar():void{
-    this.peliculaService.saveAlta(this.altaPeliculaForm.value).subscribe(resp=>{
-      this.altaPeliculaForm.reset();
-    },
-    error => { console.error(error)}
-    
-
-    )
-
-  }
 
 
 
