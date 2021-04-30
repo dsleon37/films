@@ -49,10 +49,15 @@ export class AltaOfertaComponent implements OnInit {
       }
     )
   }
+  addOffers(){
+    
+  }
   //get description(){return this.altaOfertaFormGroup.get('oferta.description')}
   onSubmit(){
     if(this.altaOfertaFormGroup.invalid){
       this.altaOfertaFormGroup.markAllAsTouched();
+    }else{
+      this.addOffers
     }
     console.log("handle algo button")
   }
