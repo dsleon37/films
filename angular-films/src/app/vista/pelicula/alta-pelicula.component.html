@@ -4,7 +4,7 @@
         <h1>Alta de Película</h1>
         <br />
         <br />
-        <form [formGroup]="altaPeliculaFormGroup" (ngSubmit)="onSubmit()">
+        <form [formGroup]="altaPeliculaForm" (ngSubmit)="onSubmit()">
 
 
           <div formGroupName="pelicula" class="form-area">
@@ -52,11 +52,22 @@
               <div class="col-md-2">
                 <label> Categoria </label>
               </div>
-              <div class="input-space">
-                <select name="categoria" id="categoria" formControlname="categoria" class="form-control">
-                  <option value="itemid" *ngFor="lef item of categoria"> {{categoria}} </option>
-                </select>
-              </div>
+              <div  class="input-space">
+            <!--    <ul class="children">
+            <li *ngFor="let tempListCategory of categoria">
+                <a routerLink="/catalogo-por-categoria/:id" routerLinkActive="active-link">   
+                  <option> 
+                    
+                    {{tempListCategory.name}} 
+
+                  </option>
+                </a>
+              </li>
+            </ul>-->
+
+            <input formControlName=" categoria " type="text" />
+
+          </div>
             </div>
                
             <!-- director -->

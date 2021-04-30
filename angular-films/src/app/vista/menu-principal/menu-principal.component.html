@@ -3,27 +3,7 @@
         <a href="#" class="bt-menu"><span class="icon-list2"></span>Menú</a>
     </div>
 
-        <nav>
-            <ul>
-                <li><a routerLink="/catalogo-peliculas"><span class="icon-house"></span>Inicio</a></li>
-                <li class="submenu">
-                    <a><span class="icon-rocket"></span>Categorias<span class="caret icon-arrow-down6"></span></a>
-                    <ul class="children">
-                        <li *ngFor="let tempListCategory of categorias">
-                            <a routerLink="catalogo-peliculas/{{tempListCategory.id}}">
-                                {{tempListCategory.name}}
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="#"><span class="icon-earth"></span>Cinemas</a></li>
-            </ul>
-
-            
-
-            <li><a href="../../../vista/pelicula/catalogo-peliculas.component.html"><span class="icon-earth"></span>Categorias</a></li>
-            
-        </nav>
+        
     <nav class="navbar-list">
         <ul>
             <li><a routerLink="/catalogo-peliculas"><span class="icon-house"></span>Inicio</a></li>

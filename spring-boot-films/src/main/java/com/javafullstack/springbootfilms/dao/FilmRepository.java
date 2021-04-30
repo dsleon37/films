@@ -12,4 +12,5 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RepositoryRestResource
 public interface FilmRepository extends JpaRepository<Film, Long> {
     Page<Film> findByCategoryId(@RequestParam("id")Long id, Pageable pageable);
+
 }

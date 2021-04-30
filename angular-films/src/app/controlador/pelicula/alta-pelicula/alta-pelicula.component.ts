@@ -1,8 +1,11 @@
-import { Categoria } from 'src/app/controlador/pelicula/categoria';
+import { GuardarService } from './../../modelo/pelicula/guardar.service';
+import { Categoria } from './../categoria';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ServicioPeliculaService } from 'src/app/modelo/pelicula/servicio-pelicula.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Pelicula } from '../pelicula'; 
+
 
 
 
@@ -14,21 +17,25 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AltaPeliculaComponent implements OnInit {
 
-  altaPeliculaFormGroup: FormGroup ;
+
   AltaPeliculaFormGroup: any;
-  categoria: any;
   
   altaPeliculaForm: FormGroup;
+  /*categoria: Categoria[];
+  CategoriId: number;*/
 
-  constructor(public formBuilder: FormBuilder,
-     public   servicioPelicula: ServicioPeliculaService,
-     public route: ActivatedRoute) {
+  constructor(private formBuilder: FormBuilder,
+     private   servicioPelicula: ServicioPeliculaService,
+     private route: ActivatedRoute,
+     private guardarService: GuardarService,
+     private router:Router){
+      
     
     
    }
 
   ngOnInit(): void {
-    this.altaPeliculaFormGroup = this.formBuilder.group({
+    this.altaPeliculaForm = this.formBuilder.group({
       pelicula: this.formBuilder.group({
         titulo: ['', Validators.required],
         descripcion: ['', Validators.required],
@@ -43,19 +50,42 @@ export class AltaPeliculaComponent implements OnInit {
       }),
     });
 
-    this.servicioPelicula.getCategories().subscribe(resp=>{
-      this.categoria = resp;  
-    },
-     error=>{ console.error(error)}
-    );
     
     
       
   }
+
   onSubmit(){
     console.log("Estamos guardando la informacion de la pelicula ");
     console.log(this.AltaPeliculaFormGroup.get('pelicula').value);
+
+  /*  this.route.paramMap.subscribe(()=>{
+      this.listCategori();
+    });
+*/
+
+
+
+
+
   }
+
+  /*listCategori(){
+
+    const hasCategoriaId:boolean = this.route.snapshot.paramMap.has('id');
+
+    if (hasCategoriaId){
+      this.CategoriId= +this.route.snapshot.paramMap.get('id');
+    }else{
+      this.CategoriId=1;
+    }
+
+    this.servicioPelicula.getfilmliscategori(this.CategoriId).subscribe(
+      data=>{
+        this.categoria=data
+      }
+    )
+  }*/
 
   guardar():void{
 

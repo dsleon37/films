@@ -21,6 +21,15 @@ export class ServicioPeliculaService {
   constructor(private httpClient: HttpClient) { }
 
 
+  getfilmliscategori(theCategiryid:number):Observable<Categoria[]>{
+
+    const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${theCategiryid}`;
+
+    return this.httpClient.get<GetResponse>(searchUrl).pipe(
+      map(response => response._embedded.categoria)
+    );
+  }
+
   getFilmsListPaginate( thePage:number, thePageSize: number): Observable<GetResponseFilms> {
     const searchUrl = `${this.baseUrl}/films`;
                       
@@ -63,6 +72,11 @@ export class ServicioPeliculaService {
   getDirectorsOfFilm(filmId:number){
     const searchUrl = `${this.baseUrl}/films/${filmId}/directores`;                      
     return this.httpClient.get<GetResponseDirectors>(searchUrl);
+  }
+}
+interface GetResponse{
+  _embedded:{
+    categoria: Categoria[];
   }
 }
 
