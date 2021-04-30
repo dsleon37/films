@@ -52,7 +52,8 @@ export class AltaOfertaComponent implements OnInit {
   }
 
   deleteOffers(){
-    this.altaOfertasService.deleteOffer(this.ofert.id);
+    console.log(this.altaOfertaFormGroup.get('oferta').value.id);
+    this.altaOfertasService.deleteOffer(this.altaOfertaFormGroup.get('oferta').value.id);
   }
   //get description(){return this.altaOfertaFormGroup.get('oferta.description')}
   onSubmit(){
