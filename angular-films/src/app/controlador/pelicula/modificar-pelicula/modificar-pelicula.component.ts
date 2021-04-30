@@ -39,7 +39,7 @@ export class ModificarPeliculaComponent implements OnInit {
       }),
     });
 
-    this.peliculaService.getCategories().subscribe(data =>{this.categorias = data._embedded.categories});
+    this.peliculaService.getCategories().subscribe(data =>{this.categorias = data._embedded.categories}); 
   }
 
   getPelicula() {

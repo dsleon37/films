@@ -1,16 +1,15 @@
 package com.javafullstack.springbootfilms.controller;
 
-import com.javafullstack.springbootfilms.Service.FilmService;
-import com.javafullstack.springbootfilms.dto.TomarResponse;
-import com.javafullstack.springbootfilms.entity.Film;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin( "htopp://localhost:4200")
 @RestController
 @RequestMapping("/api/pelicula")
 public class FilmsController {
 
-    private FilmService filmService;
+    /*private FilmService filmService;
     public FilmsController(FilmService filmService){
         this.filmService = filmService;
     }
@@ -18,5 +17,5 @@ public class FilmsController {
     public TomarResponse placeOrder(@RequestBody Film film){
         TomarResponse tomarResponse = filmService.placeOrder(film);
         return  tomarResponse ;
-    }
+    }*/
 }

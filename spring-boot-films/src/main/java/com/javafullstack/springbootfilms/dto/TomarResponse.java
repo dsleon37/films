@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class TomarResponse {
-    private String ObjetoTransferencia;
+    //private String ObjetoTransferencia;
 }

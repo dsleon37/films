@@ -13,6 +13,8 @@ import { Categoria } from 'src/app/controlador/pelicula/categoria';
 })
 export class ServicioPeliculaService {
   
+private guarda= "http://localhost:8080/api/Film";
+
   static getCategories() {
     throw new Error('Method not implemented.');
   }
@@ -20,6 +22,9 @@ export class ServicioPeliculaService {
   
   constructor(private httpClient: HttpClient) { }
 
+  public saveAlta(pelicula: any):Observable<any>{
+    return this.httpClient.post(this.guarda,pelicula);
+  }
 
   getfilmliscategori(theCategiryid:number):Observable<Categoria[]>{
 

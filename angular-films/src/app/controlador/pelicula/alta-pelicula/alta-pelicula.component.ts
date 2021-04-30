@@ -1,10 +1,13 @@
+import { HttpClient } from '@angular/common/http';
+import { GuardarP } from './guardar-p';
 import { GuardarService } from './../../modelo/pelicula/guardar.service';
 import { Categoria } from './../categoria';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ServicioPeliculaService } from 'src/app/modelo/pelicula/servicio-pelicula.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Pelicula } from '../pelicula'; 
+    
 
 
 
@@ -21,11 +24,11 @@ export class AltaPeliculaComponent implements OnInit {
   AltaPeliculaFormGroup: any;
   
   altaPeliculaForm: FormGroup;
-  /*categoria: Categoria[];
-  CategoriId: number;*/
+  categorias: Categoria[];
+  /*CategoriId: number;*/
 
   constructor(private formBuilder: FormBuilder,
-     private   servicioPelicula: ServicioPeliculaService,
+     private peliculaService: ServicioPeliculaService,
      private route: ActivatedRoute,
      private guardarService: GuardarService,
      private router:Router){
@@ -57,16 +60,18 @@ export class AltaPeliculaComponent implements OnInit {
 
   onSubmit(){
     console.log("Estamos guardando la informacion de la pelicula ");
-    console.log(this.AltaPeliculaFormGroup.get('pelicula').value);
+    console.log(this.AltaPeliculaFormGroup.get('guardar').value);
 
   /*  this.route.paramMap.subscribe(()=>{
       this.listCategori();
     });
 */
 
+this.peliculaService.getCategories().subscribe(data =>{this.categorias = data._embedded.categories});
 
+let guardarP = new GuardarP();
 
-
+guardarP.title = this.AltaPeliculaFormGroup.FormControl;
 
   }
 
@@ -88,6 +93,13 @@ export class AltaPeliculaComponent implements OnInit {
   }*/
 
   guardar():void{
+    this.peliculaService.saveAlta(this.altaPeliculaForm.value).subscribe(resp=>{
+      this.altaPeliculaForm.reset();
+    },
+    error => { console.error(error)}
+    
+
+    )
 
   }
 
