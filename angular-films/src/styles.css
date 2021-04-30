@@ -17,7 +17,7 @@ body{
     font-weight:400;
     font-size:18px;
     line-height:1.625;
-    color:#666;
+    color:rgb(43, 63, 87);
     -webkit-font-smoothing:antialiased;
     -moz-osx-font-smoothing:grayscale
 }
@@ -45,16 +45,15 @@ button{
 
 img{
     max-width:100%;
-    height:auto
+    height:auto;
 }
 
 p{
     margin:0
 }
 
-h1,h2,h3,h4,h5,h6{
+h1,h2,h3,h4,h5,h6,p{
     color:snow;
-    font-weight:700;
     margin:0;
     line-height:1.2
 }
@@ -362,8 +361,7 @@ input.au-input.au-input-xl{
 }
 
 .navbar-sidebar{
-    padding:35px;
-    padding-bottom:0
+    padding-left: 10px;
 }
 
 .navbar-sidebar .navbar-list li a{
@@ -371,7 +369,7 @@ input.au-input.au-input-xl{
     display:block;
     color:snow;
     font-size:18px;
-    padding:5px 0
+    padding:5px 0;
 }
 
 .navbar-sidebar .navbar-list li a i{
@@ -610,6 +608,22 @@ input.au-input.au-input-xl{
     padding:10px;
     border:1px solid #ccc
 }
+.input-space input[type=password]{
+    width:100%;
+    height:40px;
+    border-radius:30px;
+    outline:0;
+    padding:10px;
+    border:1px solid #ccc
+}
+.input-space input[type=email]{
+    width:100%;
+    height:40px;
+    border-radius:30px;
+    outline:0;
+    padding:10px;
+    border:1px solid #ccc
+}
 .input-space select{
     width:100%;
     height:40px;
@@ -750,6 +764,7 @@ table.table.table-bordered th{
 a.primary-btn{
     background:#012996;
     padding:7px 20px;
+    margin:7px 10px;
     text-align:center;
     display:inline-block;
     color:#fff;
@@ -1048,3 +1063,87 @@ footer ul li{
         padding:8px 0
     }
 }
+
+
+/*
+USUARIOS
+*/
+.newUser{
+    width: 200px;
+    height: 200px;
+ }
+ 
+ 
+ .fa-user:before {
+     content: "\f0a1";
+ 
+ }
+ .input-space1{
+     margin-bottom:20px
+ }
+ .input-space1 label{
+     padding-left:31px;
+     font-size:14px;
+     margin-bottom:50px
+ }
+ .input-space1 input[type=text]{
+     width:100%;
+     height:40px;
+     border-radius:30px;
+     outline:0;
+     padding:10px;
+     border:1px solid #ccc;
+     text-align: center;
+ }
+ .input-space1 input[type=password]{
+     width:100%;
+     height:40px;
+     border-radius:30px;
+     outline:0;
+     padding:10px;
+     border:1px solid #ccc;
+     align-content: center;
+ }
+ 
+ .form .titulo h3 ,h4{
+     color: #ccc;
+     text-align: center;
+ }
+ 
+ .titulo{
+     background:#012996;
+     font: small-caps 100%/200% serif;
+ }
+ .col-md{
+     font: small-caps 100%/200% serif;
+     text-align: center;
+ }
+ 
+ .form h4{
+    font-size: 10px;
+ }
+ 
+ element.style {
+     position: absolute;
+     background: red;
+     transform: translate3d(0px, 19px, 0px);
+     top: 20px;
+     left: 0px;
+     will-change: transform;
+ }
+ 
+ .dropdown-menu{
+     width: 250px;
+    height: 200px;
+    background: none;
+ }
+ .formulario {
+     background: #fff;
+     border: solid 10px;
+     border-radius: 20px 20px 20px 20px;
+     align-items: center;  
+ }
+ 
+ .col-md-08{
+    left: 50%;
+ }

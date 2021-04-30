@@ -11,9 +11,9 @@
             <img src="{{ tempPelicula.imageUrl }}" class="img-responsive">
         </a>
 
-        <a routerLink="/products/{{ tempPelicula.id }}">
+        <a routerLink="/ver-pelicula/{{ tempPelicula.id }}">
             <h1>{{ tempPelicula.title }}</h1>
-            <h2>{{ tempPelicula.date | date: 'mediumDate'}}</h2>
+            <h2>Fecha estreno:{{ tempPelicula.date | date: 'mediumDate'}}</h2>
             <h2>{{ tempPelicula.description }}</h2>
         </a>
         <div class="price">
