@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AltaPeliculaComponent } from './controlador/pelicula/alta-pelicula/alta-pelicula.component';
@@ -17,12 +17,14 @@ import { AltaDatosPeliculaComponent } from './controlador/pelicula/alta-datos-pe
 import { CatalogoPeliculasComponent } from './controlador/pelicula/catalogo-peliculas/catalogo-peliculas.component';
 import { VerPeliculaComponent } from './controlador/pelicula/ver-pelicula/ver-pelicula.component';
 import { MenuPrincipalComponent } from './controlador/menu-principal/menu-principal.component';
+import { UserProfileComponent } from './controlador/user-profile/user-profile.component';
 
 const routes: Routes = [
   {path: 'catalogo-peliculas/:id', component: CatalogoPeliculasComponent},
   {path: 'ver-pelicula/:id', component: VerPeliculaComponent},
   {path: 'alta-pelicula', component: AltaPeliculaComponent},
   {path: 'datos-pelicula', component: AltaDatosPeliculaComponent},
+  {path: 'perfil', component: UserProfileComponent},
   {path: '', redirectTo: '/catalogo-peliculas/inicio', pathMatch: 'full'},
   {path: '**', redirectTo: '/catalogo-peliculas/inicio', pathMatch: 'full'}
 ];
@@ -34,7 +36,8 @@ const routes: Routes = [
     AltaDatosPeliculaComponent,
     CatalogoPeliculasComponent,
     VerPeliculaComponent,
-    MenuPrincipalComponent
+    MenuPrincipalComponent,
+    UserProfileComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -42,6 +45,7 @@ const routes: Routes = [
     HttpClientModule,
     NgbModule,
     ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
