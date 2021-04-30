@@ -13,6 +13,7 @@ export class UserService {
 
   private userURL = 'http://localhost:8080/api/users';
   private subscriberURL = 'http://localhost:8080/api/subscriber';
+  private cinemaURL = 'http://localhost:8080/api/cinema';
 
 
   constructor(private httpClient: HttpClient ) { }
@@ -29,7 +30,9 @@ export class UserService {
     return this.httpClient.post(this.subscriberURL, subscriber);
   }
 
-
+  registerCinema(cinema: any): Observable<any>{
+    return this.httpClient.post(this.cinemaURL, cinema);
+  }
 
 
 }
