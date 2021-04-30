@@ -1,6 +1,11 @@
 <div class="main-content">
     <div class="row section-content section-content-p30">
-        <h1>{{pelicula.title}}</h1>
+        <div class="col-md-2">
+            <button routerLink="/catalogo-peliculas" class="btn-sm btn-danger" title="Atrás" alt="Atrás"> X </button>
+        </div>
+        <div class="col-md-8">
+            <h4>{{pelicula.title}}</h4>
+        </div>
         <video src="{{pelicula.videoUrl}}" title="{{pelicula.title}}" controls></video>
     </div>
     
