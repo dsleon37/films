@@ -16,7 +16,7 @@ export class AltaDatosPeliculaComponent implements OnInit {
   datosPeliculaFormGroup: FormGroup;
   
   peliculaId : number = 3;
-  
+
   categorias: Categoria[] = [];
   actores: Actor[] = [];
   directores: Director[] = [];
@@ -82,6 +82,8 @@ export class AltaDatosPeliculaComponent implements OnInit {
   addActors(){
     console.log('Actor adicionado:');
     console.log( this.datosPeliculaFormGroup.get('film_has_actor').value.actor_id);
+    
+
   }
   addDirectors( director : Director){
     console.log('Director adicionado:' + director);

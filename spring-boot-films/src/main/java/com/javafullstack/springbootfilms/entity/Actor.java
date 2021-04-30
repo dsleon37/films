@@ -21,7 +21,7 @@ public class Actor {
     private String name;
 
 
-s    /**
+    /**
      * Peliculas.
      */
     @ManyToMany(mappedBy = "actores")
