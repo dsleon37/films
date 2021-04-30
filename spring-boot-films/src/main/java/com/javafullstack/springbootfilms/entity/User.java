@@ -36,5 +36,7 @@ public class User {
     @Column(name = "email")
     private String email;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private Set<Subscriber> subscribers;
 
 }

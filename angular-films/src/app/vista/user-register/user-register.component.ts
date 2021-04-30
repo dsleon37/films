@@ -35,7 +35,7 @@ export class UserRegisterComponent implements OnInit {
     this.userService.registerUser(this.user).subscribe(data => {
       let subscriber = {
         points: 0,
-        user_id: "http://localhost:9090/api/users"+data.id
+        user: "http://localhost:9090/api/users/"+data.id
       };
       this.saveSubscriber(subscriber);
     });
