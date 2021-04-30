@@ -50,19 +50,13 @@ export class AltaOfertaComponent implements OnInit {
       }
     )
   }
-  addOffers(){
-    this.altaOfertasService.registerOffer(this.altaOfertaFormGroup.get('oferta').value.description)
-  }
+
   deleteOffers(){
-    this.altaOfertasService.deleteOffer(this.altaOfertaFormGroup.get('oferta').value.id);
+    this.altaOfertasService.deleteOffer(this.ofert.id);
   }
   //get description(){return this.altaOfertaFormGroup.get('oferta.description')}
   onSubmit(){
-    if(this.altaOfertaFormGroup.invalid){
-      this.altaOfertaFormGroup.markAllAsTouched();
-    }else{
-      console.log();
-      this.addOffers;
-    }
+      console.log(this.altaOfertaFormGroup.get('oferta').value);
+      this.altaOfertasService.registerOffer(this.altaOfertaFormGroup.get('oferta').value);
   }
 }

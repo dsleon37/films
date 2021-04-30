@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Oferta } from 'src/app/controlador/ofertas/common/oferta';
@@ -9,6 +9,7 @@ import { map } from 'rxjs/operators';
 export class AltaOfertasService {
   private baseUrl = 'http://localhost:8080/api/offers';
 
+
   constructor(private httpClient: HttpClient) { }
   getaltaOffersList(): Observable<Oferta[]> {
     return this.httpClient.get<GetResponse>(this.baseUrl).pipe(
@@ -16,11 +17,9 @@ export class AltaOfertasService {
     )
   }
 
-  registerOffer(oferta: Oferta): Observable<any>{
-    console.log("algo");
-    console.log(oferta.description);
-    return this.httpClient.post(this.baseUrl, oferta);
-
+  registerOffer(oferta: Oferta): Observable<Oferta>{
+    console.log('oferta', oferta);
+    return this.httpClient.post<Oferta>(this.baseUrl, oferta);
   }
   deleteOffer(id:number) {
     let searchUrl = `${this.baseUrl}/offers/${id}`;
