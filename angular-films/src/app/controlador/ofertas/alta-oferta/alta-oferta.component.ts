@@ -57,6 +57,7 @@ export class AltaOfertaComponent implements OnInit {
   }
   //get description(){return this.altaOfertaFormGroup.get('oferta.description')}
   onSubmit(){
+ 
       console.log(this.altaOfertaFormGroup.get('oferta').value);
       this.altaOfertasService.registerOffer(this.altaOfertaFormGroup.get('oferta').value);
   }
