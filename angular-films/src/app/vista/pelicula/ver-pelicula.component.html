@@ -3,8 +3,8 @@
         <div class="col-sm-3">
             <a routerLink="/catalogo-peliculas" class="btn-sm btn-danger" title="Atrás"> X </a>
             <img src="{{pelicula.imageUrl}}" alt="{{pelicula.title}}">
-            <a routerLink="/catalogo-peliculas" class="btn-sm primary-btn btn-warning"> Modificar</a>
-            <a routerLink="/catalogo-peliculas" class="btn-sm primary-btn btn-danger"> Eliminar</a>
+            <a routerLink="/modificar-pelicula/{{pelicula.id}}" class="btn-sm primary-btn"> Modificar</a>
+            <a routerLink="/catalogo-peliculas" class="btn-sm primary-btn"> Eliminar</a>
         </div>
         <div class="col-sm-9">
             <div class="card-body">

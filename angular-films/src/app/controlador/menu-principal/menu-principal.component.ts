@@ -23,7 +23,7 @@ export class MenuPrincipalComponent implements OnInit {
     this.listarCategorias();
   }
   listarCategorias(){
-    this.servicioPeliculas.getCategories().subscribe(data =>{this.categorias = data._embedded.categories; console.log(this.categorias)})
+    this.servicioPeliculas.getCategories().subscribe(data =>{this.categorias = data._embedded.categories});
   
     
   }

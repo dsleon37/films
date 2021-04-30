@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class AltaPeliculaComponent implements OnInit {
 
-  altaPeliculaForm: FormGroup | undefined;
+  altaPeliculaForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
               private router: Router) { }
