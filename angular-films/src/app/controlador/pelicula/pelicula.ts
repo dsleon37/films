@@ -5,4 +5,5 @@ export class Pelicula {
     date!: Date;
     imageUrl: string = "";
     videoUrl: string = "";
+    categoria_id: number = 0;
 }

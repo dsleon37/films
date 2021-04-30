@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name="user")
@@ -35,5 +36,7 @@ public class User {
     @Column(name = "email")
     private String email;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private Set<Subscriber> subscribers;
 
 }

@@ -513,7 +513,7 @@ input.au-input.au-input-xl{
     background:#fff
 }
 .main-content.page-m{
-    padding:10% 15%!important
+    padding:10% 30% 10% 5%
 }
 
 /* 
@@ -522,8 +522,11 @@ input.au-input.au-input-xl{
  * ----------------------------
  */
 
-.product-box img {
-    width: 150px;
+
+.product-box img{
+    width: 80%;
+    height: 260px;
+    
 }
 
 .items select {
@@ -561,9 +564,7 @@ input.au-input.au-input-xl{
 .product-box a{
  text-decoration: none;
 }
-.product-box img{
-    width: 80%;
-}
+
 
 /* 
  * ----------------------------
@@ -600,9 +601,15 @@ input.au-input.au-input-xl{
     font-size:14px;
     margin-bottom:50px
 }
-.input-space input[type=text]{
+.input-space input[type=text],input[type=date]{
     width:100%;
     height:40px;
+    border-radius:30px;
+    outline:0;
+    padding:10px;
+    border:1px solid #ccc
+}
+.input-space textarea[type=text]{
     border-radius:30px;
     outline:0;
     padding:10px;
@@ -792,10 +799,11 @@ footer ul li a{
     color:#fff
 }
 footer{
-    background:#232324;
+    background:#00192d;
     z-index:1;
     position:relative;
-    text-align:center
+    text-align:center;
+    height: 50px;
 }
 footer li a{
     color:#313131;
@@ -1063,3 +1071,8 @@ footer ul li{
         padding:8px 0
     }
 }
+
+
+/*
+USUARIOS
+*/
