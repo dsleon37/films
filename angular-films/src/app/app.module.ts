@@ -28,6 +28,7 @@ import { UsersComponent } from './vista/users/users/users.component';
 
 const routes: Routes = [
   {path: 'alta-oferta', component: AltaOfertaComponent},
+  {path: 'user-menu', component: UserMenuComponent},
   {path: 'user-signup', component: UserRegisterComponent},
   {path: 'video-pelicula/:id', component: VideoPeliculaComponent},
   {path: 'ver-pelicula/:id', component: VerPeliculaComponent},
