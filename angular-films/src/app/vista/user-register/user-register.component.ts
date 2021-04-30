@@ -29,16 +29,24 @@ export class UserRegisterComponent implements OnInit {
 
   onSubmit(){
     
-    console.log(this.userRegisterFormGroup.get('newUser').get.name);
-    this.user.name = this.userRegisterFormGroup.get('newUser').value.name;
-    this.user.surname = this.userRegisterFormGroup.get('newUser').value.surname;
-    this.user.userName = this.userRegisterFormGroup.get('newUser').value.userName;
-    this.user.password = this.userRegisterFormGroup.get('newUser').value.password;
-    this.user.email = this.userRegisterFormGroup.get('newUser').value.email;
-    this.user.role = "http://localhost:8080/api/user-role/1";
+    this.user = this.userRegisterFormGroup.get('newUser').value;
+    this.user.role = "http://localhost:8080/api/user-role/2";
 
-    this.userService.registerUser(this.user);
+    this.userService.registerUser(this.user).subscribe(data => {
+      let subscriber = {
+        points: 0,
+        user_id: "http://localhost:9090/api/users"+data.id
+      };
+      this.saveSubscriber(subscriber);
+    });
 
   }
+
+  saveSubscriber(subscriber: any){
+    this.userService.registerSubscriber(subscriber).subscribe(data => {
+      console.log(data)
+    });
+
+  };
 
 }
