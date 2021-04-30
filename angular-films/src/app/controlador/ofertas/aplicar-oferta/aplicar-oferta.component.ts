@@ -7,6 +7,7 @@ import { Oferta } from '../common/oferta';
   templateUrl: '../../../vista/ofertas/aplicar-oferta/aplicar-oferta.component.html',
   styleUrls: ['../../../vista/ofertas/aplicar-oferta/aplicar-oferta.component.css']
 })
+
 export class AplicarOfertaComponent implements OnInit {
 
   offers: Oferta[] = [];

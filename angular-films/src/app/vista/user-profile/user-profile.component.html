@@ -1,0 +1,83 @@
+<p>user-profile works!</p>
+
+<div class="main-content page-m">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+
+
+            <h1> Informacion del Usuario</h1>
+            <br>
+            <br>
+            <form (ngSubmit) = "Updatebtn()" >
+
+                <div  class="form-area">
+                    <h3>Datos de tu usuario</h3>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label for="username">Username</label>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                               <input type="text" name="username" [(ngModel)]= "user.userName">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label for="password">Password</label>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                               <input type="password" name="password" id="password">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label for="name">Name</label>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                               <input type="text" name="name" id="name" [(ngModel)] = "user.name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label for="surname">Surname</label>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                               <input type="text" name="surname" id="surname" [(ngModel)] = "user.surname">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label for="email">email</label>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                               <input type="email" name="email" id="email" [(ngModel)] = "user.email">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-info">Guardar Cambios</button>
+                        <button class="btn btn-info" routerLink="/catalogo-peliculas" >Cancelar</button>
+                    </div>
+                    <div class="text-center">
+                        <p class="delete-text"><span>Importante!!</span>, Si deseas eliminar tu usuario del sistema preciona "Eliminar usuario"</p>
+                        <button class="btn btn-info deletebtn" routerLink="/catalogo-peliculas" (click) = "deletebtn()">Eliminar usuario</button>
+                    </div>
+                    
+                </div>
+
+               
+                    
+            </form>    
+
+        </div>
+    </div>
+</div>
