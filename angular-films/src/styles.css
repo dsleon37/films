@@ -522,8 +522,11 @@ input.au-input.au-input-xl{
  * ----------------------------
  */
 
-.product-box img {
-    width: 150px;
+
+.product-box img{
+    width: 80%;
+    height: 260px;
+    
 }
 
 .items select {
@@ -561,9 +564,7 @@ input.au-input.au-input-xl{
 .product-box a{
  text-decoration: none;
 }
-.product-box img{
-    width: 80%;
-}
+
 
 /* 
  * ----------------------------

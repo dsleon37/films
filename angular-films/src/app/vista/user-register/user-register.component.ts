@@ -38,12 +38,17 @@ export class UserRegisterComponent implements OnInit {
     this.user = this.userRegisterFormGroup.get('newUser').value;
     this.user.role = "http://localhost:8080/api/user-role/2";
 
-    this.userService.registerUser(this.user).subscribe(data => {
-      let subscriber = {
-        points: 0,
-        user: "http://localhost:9090/api/users/"+data.id
-      };
-      this.saveSubscriber(subscriber);
+    this.userService.registerUser(this.user).subscribe({
+      next: response => {
+        let subscriber = {
+          points: 0,
+          user: "http://localhost:9090/api/users/"+response.id
+        };
+        this.saveSubscriber(subscriber);
+      },
+      error: err => {
+        alert(`No se registro el usuario: ${err.message}`);
+      }
     });
 
   }
@@ -55,8 +60,13 @@ export class UserRegisterComponent implements OnInit {
   get email(){return this.userRegisterFormGroup.get('newUser.email');}
 
   saveSubscriber(subscriber: any){
-    this.userService.registerSubscriber(subscriber).subscribe(data => {
-      console.log(data)
+    this.userService.registerSubscriber(subscriber).subscribe({
+      next: response => {
+        alert(`Se registro el usuario`);
+      },
+      error: err => {
+        alert(`No se registro el usuario: ${err.message}`);
+      }
     });
 
   };
