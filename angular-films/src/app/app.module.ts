@@ -26,6 +26,7 @@ import { UserRegisterComponent } from './vista/user-register/user-register.compo
 import { UserStatusComponent } from './vista/user-status/user-status.component';
 import { UserMenuComponent } from './vista/user-menu/user-menu.component';
 import { UsersComponent } from './vista/users/users/users.component';
+import { CartStatusComponent } from './controlador/ofertas/cart-status/cart-status.component';
 
 const routes: Routes = [
   {path: 'alta-oferta', component: AltaOfertaComponent},
@@ -63,7 +64,8 @@ const routes: Routes = [
     UserStatusComponent,
     UserMenuComponent,
     VerOfertasComponent,
-    AplicarOfertaComponent
+    AplicarOfertaComponent,
+    CartStatusComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

@@ -10,6 +10,8 @@ import { map } from 'rxjs/operators';
 export class OfertasService {
 
   private baseUrl = 'http://localhost:8080/api/offers';
+  offers: Oferta[] = [];
+  totalPoints: any;
 
   constructor(private httpClient: HttpClient) { }
 
