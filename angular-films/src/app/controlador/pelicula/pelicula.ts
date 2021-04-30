@@ -1,3 +1,5 @@
+import { Director } from './director';
+import { Actor } from './actor';
 import { Categoria } from './categoria';
 export class Pelicula {
     id: number = 0;
@@ -6,4 +8,7 @@ export class Pelicula {
     date: Date;
     imageUrl: string = "";
     videoUrl: string = "";
+    Actor=  "";
+    Director= "";
+    Categoria="";
 }

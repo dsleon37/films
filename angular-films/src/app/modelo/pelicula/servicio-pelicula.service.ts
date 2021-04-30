@@ -12,11 +12,12 @@ import { Categoria } from 'src/app/controlador/pelicula/categoria';
   providedIn: 'root'
 })
 export class ServicioPeliculaService {
+  
   static getCategories() {
     throw new Error('Method not implemented.');
   }
   private baseUrl = 'http://localhost:8080/api';
-
+  
   constructor(private httpClient: HttpClient) { }
 
 
@@ -37,7 +38,7 @@ export class ServicioPeliculaService {
     return this.httpClient.get<Pelicula>(peliculaUrl);
   }
 
-
+  
 
   getCategories(): Observable<GetResponseCategories> {
     const searchUrl = `${this.baseUrl}/categories`;                      

@@ -53,7 +53,9 @@
                 <label> Categoria </label>
               </div>
               <div class="input-space">
-                <input formControlName=" categoria " type="text" />
+                <select name="categoria" id="categoria" formControlname="categoria" class="form-control">
+                  <option value="itemid" *ngFor="lef item of categoria"> {{categoria}} </option>
+                </select>
               </div>
             </div>
                
@@ -75,6 +77,15 @@
               </div>
               <div class="input-space">
                 <input formControlName=" imageurl " type="text" />
+              </div>
+            </div>
+            <!-- videourl -->
+            <div class="row">
+              <div class="col-md-2">
+                <label> Url de Video </label>
+              </div>
+              <div class="input-space">
+                <input formControlName=" videoUrl " type="text" />
               </div>
             </div>
           </div>
