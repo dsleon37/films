@@ -66,6 +66,7 @@
                             <th scope="col">Tiempo de Oferta</th>
                             <th scope="col">Puntos adicionales</th>
                             <th scope="col">Costo de puntos</th>
+                            <th scope="col">Ver Oferta</th>
                             <th scope="col">Aplicar Oferta</th>
                             <th scope="col">Eliminar Oferta</th>
                         </tr>
@@ -77,8 +78,9 @@
                             <td>{{tempOffer.deadline}}</td>
                             <td>{{tempOffer.addPoints}}</td>
                             <td>{{tempOffer.subPoints}}</td>
+                            <td><button type="submit" class="btn btn-info">Ver Oferta</button></td>
                             <td><button type="submit" class="btn btn-success">Aplicar Oferta</button></td>
-                            <td><button type="submit" class="btn btn-danger">Eliminar Oferta</button></td>
+                            <td><button [formGroup]="altaOfertaFormGroup"  (ngSubmit)=deleteOffers() class="btn btn-danger">Eliminar Oferta</button></td>
                         </tr>
                     </tbody>
                 </table>

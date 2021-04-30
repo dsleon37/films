@@ -1,51 +1,34 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { User } from 'src/app/modelo/user';
+import { Router } from '@angular/router';
+import { LoginUsuario } from 'src/app/modelo/login/login-usuario';
+import { TokenService } from 'src/app/services/token.service';
 import { UserService } from 'src/app/services/user.service';
+
+
 
 @Component({
   selector: 'app-user-status',
   templateUrl: './user-status.component.html',
   styleUrls: ['./user-status.component.css']
+  
 })
 export class UserStatusComponent implements OnInit {
 
-  userRegisterFormGroup: FormGroup;
-  user: User;
-  constructor(private formBuilder: FormBuilder, private userService: UserService) { }
+  isLogged = false;
 
-  ngOnInit(): void {
-    this.userRegisterFormGroup = this.formBuilder.group({
-      newUser: this.formBuilder.group({
-        name: [''],
-        surname: [''],
-        userName: [''],
-        password: [''],
-        email: ['']
-      })
-    });
+  constructor(private tokenService: TokenService) { }
+
+  ngOnInit() {
+    if (this.tokenService.getToken()) {
+      this.isLogged = true;
+    } else {
+      this.isLogged = false;
+    }
   }
 
-onSubmit(){
-    
-  this.user = this.userRegisterFormGroup.get('newUser').value;
-  this.user.role = "http://localhost:8080/api/user-role/2";
-
-  this.userService.registerUser(this.user).subscribe(data => {
-    let subscriber = {
-      points: 0,
-      user: "http://localhost:9090/api/users/"+data.id
-    };
-    this.saveSubscriber(subscriber);
-  });
-
-}
-
-saveSubscriber(subscriber: any){
-  this.userService.registerSubscriber(subscriber).subscribe(data => {
-    console.log(data)
-  });
-
-};
+  onLogOut(): void {
+    this.tokenService.logOut();
+    window.location.reload();
+  }
 
 }

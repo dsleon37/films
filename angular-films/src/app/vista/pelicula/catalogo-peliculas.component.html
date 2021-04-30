@@ -72,7 +72,7 @@
                         <a routerLink="/ver-pelicula/{{ tempPelicula.id }}">
                             <h1>{{ tempPelicula.title }}</h1>
                             <h2>Fecha estreno:{{ tempPelicula.date | date: 'mediumDate'}}</h2>
-                            <h2>{{ tempPelicula.description }}</h2>
+                            <p>{{ tempPelicula.description }}</p>
                         </a>
                         <div class="price">
                             <input type="checkbox" class="form-check-input" id="id_disponible">
@@ -87,7 +87,9 @@
                     No se encontraron películas.
                 </div>
 
-            <div class="footer-pagination">
+            </div>
+
+           <!-- <div class="footer-pagination">
                 <div class="row">
                     <div class="col-md-6"></div>
                     <div class="col-md-3">
@@ -113,7 +115,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
+
+
         </div>
     </div>
 </div>

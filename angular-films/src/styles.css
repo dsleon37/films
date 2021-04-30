@@ -522,8 +522,11 @@ input.au-input.au-input-xl{
  * ----------------------------
  */
 
-.product-box img {
-    width: 150px;
+
+.product-box img{
+    width: 80%;
+    height: 260px;
+    
 }
 
 .items select {
@@ -561,9 +564,7 @@ input.au-input.au-input-xl{
 .product-box a{
  text-decoration: none;
 }
-.product-box img{
-    width: 80%;
-}
+
 
 /* 
  * ----------------------------
@@ -1075,82 +1076,3 @@ footer ul li{
 /*
 USUARIOS
 */
-.newUser{
-    width: 200px;
-    height: 200px;
- }
- 
- 
- .fa-user:before {
-     content: "\f0a1";
- 
- }
- .input-space1{
-     margin-bottom:20px
- }
- .input-space1 label{
-     padding-left:31px;
-     font-size:14px;
-     margin-bottom:50px
- }
- .input-space1 input[type=text]{
-     width:100%;
-     height:40px;
-     border-radius:30px;
-     outline:0;
-     padding:10px;
-     border:1px solid #ccc;
-     text-align: center;
- }
- .input-space1 input[type=password]{
-     width:100%;
-     height:40px;
-     border-radius:30px;
-     outline:0;
-     padding:10px;
-     border:1px solid #ccc;
-     align-content: center;
- }
- 
- .form .titulo h3 ,h4{
-     color: #ccc;
-     text-align: center;
- }
- 
- .titulo{
-     background:#012996;
-     font: small-caps 100%/200% serif;
- }
- .col-md{
-     font: small-caps 100%/200% serif;
-     text-align: center;
- }
- 
- .form h4{
-    font-size: 10px;
- }
- 
- element.style {
-     position: absolute;
-     background: red;
-     transform: translate3d(0px, 19px, 0px);
-     top: 20px;
-     left: 0px;
-     will-change: transform;
- }
- 
- .dropdown-menu{
-     width: 250px;
-    height: 200px;
-    background: none;
- }
- .formulario {
-     background: #fff;
-     border: solid 10px;
-     border-radius: 20px 20px 20px 20px;
-     align-items: center;  
- }
- 
- .col-md-08{
-    left: 50%;
- }
