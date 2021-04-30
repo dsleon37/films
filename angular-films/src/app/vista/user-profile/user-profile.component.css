@@ -1,0 +1,62 @@
+.form-area{
+    background:local;
+    position:relative;
+    margin-bottom:45px;
+    padding:50px 20px;
+    border:3px solid #ccc
+}
+.form-area h3{
+    position:absolute;
+    top:-26px;
+    left:13px;
+    background:#e5e5e5;
+    color: rgb(0, 24, 46);;
+    padding:10px 20px;
+    font-weight:500;
+    z-index:23;
+    display:inline-block
+}
+.form-area label{
+    color: white;
+}
+
+.input-space input[type=password]{
+    width:100%;
+    height:40px;
+    border-radius:30px;
+    outline:0;
+    padding:10px;
+    border:1px solid #ccc
+}
+.input-space input[type=email]{
+    width:100%;
+    height:40px;
+    border-radius:30px;
+    outline:0;
+    padding:10px;
+    border:1px solid #ccc
+}
+
+.btn-info{
+    color:#fff;
+    background-color:#0da8e4!important;
+    border-color:#0da8e4!important;
+    margin-right: 5%;
+    margin-top: 5%;
+}
+
+.delete-text{
+    color:#fff;
+    font-weight:500;
+    margin-top: 5%;
+}
+
+.delete-text span{
+    color: darkred;
+    font-weight:800;
+}
+
+.deletebtn{
+    margin-top: 0;
+    background-color: darkred !important;
+}
