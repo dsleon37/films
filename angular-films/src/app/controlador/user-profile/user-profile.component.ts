@@ -36,7 +36,7 @@ export class UserProfileComponent implements OnInit {
 
   getUser(){
     //Este id de parámetro debe venir del usuario loggeado
-    this.servicioUser.getUser(7).subscribe(data =>{this.user = data})
+    this.servicioUser.getUser(2).subscribe(data =>{this.user = data})
   
     //this.router.navigateByUrl(`/catalogo-peliculas/${id}`);
   }
