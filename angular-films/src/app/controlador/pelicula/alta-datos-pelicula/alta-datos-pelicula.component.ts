@@ -24,6 +24,9 @@ export class AltaDatosPeliculaComponent implements OnInit {
   actoresPelicula : Actor[] = [];
   directoresPelicula: Director[] = [];
 
+  actorNuevo: any;
+  directorNuevo:any;
+
   constructor(private formBuilder: FormBuilder, 
               private router: Router, 
               private servicioPelicula: ServicioPeliculaService) {
@@ -32,6 +35,14 @@ export class AltaDatosPeliculaComponent implements OnInit {
       film_has_actor: this.formBuilder.group({
         film_id: new FormControl(''),
         actor_id: new FormControl('')
+      }),
+      actor: this.formBuilder.group({
+        id: new FormControl(''),
+        name: new FormControl('')
+      }),      
+      director: this.formBuilder.group({
+        id: new FormControl(''),
+        name: new FormControl('')
       })
 
     });
@@ -75,22 +86,38 @@ export class AltaDatosPeliculaComponent implements OnInit {
       }
     )
   }
-
-
   
-  get actor_id() { return this.datosPeliculaFormGroup.get('film_has_actor.actor_id'); }
+  get actorId() { return this.datosPeliculaFormGroup.get('actor.id'); }
+  get actorName() { return this.datosPeliculaFormGroup.get('actor.name'); }
   addActors(){
     console.log('Actor adicionado:');
-    console.log( this.datosPeliculaFormGroup.get('film_has_actor').value.actor_id);
-    
+    console.log( this.datosPeliculaFormGroup.get('actor.name'));
+    this.actorNuevo = this.datosPeliculaFormGroup.get('actor.name').value;
+    this.actorNuevo = Object.values(this.actorNuevo);
+    this.actorNuevo = this.actorNuevo[1];
 
+    console.log('en addActor:'+this.datosPeliculaFormGroup.controls['actor'].value);
+    //this.actoresPelicula.push(this.datosPeliculaFormGroup.controls['actor'].value);
+    //this.actoresPelicula.push(this.datosPeliculaFormGroup.get('actor').value);
+    console.log('resultado:' +this.actoresPelicula);    
   }
-  addDirectors( director : Director){
-    console.log('Director adicionado:' + director);
+
+  delActors(){
+    // this.actoresPelicula.slice(this.actoresPelicula.length);
+    console.log(this.actoresPelicula.length); 
+    this.actorNuevo= null;
+  }
+  delDirectors(){
+    this.directorNuevo= null;
+  }
+  addDirectors(){
+    this.directorNuevo = this.datosPeliculaFormGroup.get('director.name').value;
+    this.directorNuevo = Object.values(this.directorNuevo);
+    this.directorNuevo = this.directorNuevo[1];
   }
   onSubmit() {
     console.log('Handling the submit button');
-    this.addActors();
+    //this.addActors();
   }
 
   getActorsOfFilm( peliculaId: number){
@@ -111,5 +138,6 @@ export class AltaDatosPeliculaComponent implements OnInit {
       }
     );
   }
+ 
 
 }
