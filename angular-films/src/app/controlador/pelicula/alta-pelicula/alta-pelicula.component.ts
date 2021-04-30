@@ -18,6 +18,7 @@ export class AltaPeliculaComponent implements OnInit {
   AltaPeliculaFormGroup: any;
   categoria: any;
   
+  altaPeliculaForm: FormGroup;
 
   constructor(public formBuilder: FormBuilder,
      public   servicioPelicula: ServicioPeliculaService,

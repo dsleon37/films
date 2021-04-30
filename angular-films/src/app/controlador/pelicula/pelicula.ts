@@ -8,7 +8,5 @@ export class Pelicula {
     date: Date;
     imageUrl: string = "";
     videoUrl: string = "";
-    Actor=  "";
-    Director= "";
-    Categoria="";
+    categoria_id: number = 0;
 }

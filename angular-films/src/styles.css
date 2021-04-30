@@ -600,9 +600,15 @@ input.au-input.au-input-xl{
     font-size:14px;
     margin-bottom:50px
 }
-.input-space input[type=text]{
+.input-space input[type=text],input[type=date]{
     width:100%;
     height:40px;
+    border-radius:30px;
+    outline:0;
+    padding:10px;
+    border:1px solid #ccc
+}
+.input-space textarea[type=text]{
     border-radius:30px;
     outline:0;
     padding:10px;
@@ -792,10 +798,11 @@ footer ul li a{
     color:#fff
 }
 footer{
-    background:#232324;
+    background:#00192d;
     z-index:1;
     position:relative;
-    text-align:center
+    text-align:center;
+    height: 50px;
 }
 footer li a{
     color:#313131;
