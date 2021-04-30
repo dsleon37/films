@@ -24,14 +24,11 @@ import { AplicarOfertaComponent } from './controlador/ofertas/aplicar-oferta/apl
 
 import { UserRegisterComponent } from './vista/user-register/user-register.component';
 import { UserStatusComponent } from './vista/user-status/user-status.component';
-import { UserMenuComponent } from './vista/user-menu/user-menu.component';
-import { UsersComponent } from './vista/users/users/users.component';
 import { ModificarPeliculaComponent } from './controlador/pelicula/modificar-pelicula/modificar-pelicula.component';
 import { LoginComponent } from './vista/login/login.component';
 
 const routes: Routes = [
   {path: 'alta-oferta', component: AltaOfertaComponent},
-  {path: 'user-menu', component: UserMenuComponent},
   {path: 'user-signup', component: UserRegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'modificar-pelicula/:id', component: ModificarPeliculaComponent},
@@ -62,10 +59,8 @@ const routes: Routes = [
     UserProfileComponent,
     CatalogoPorCategoriaComponent,
     VideoPeliculaComponent,
-    UsersComponent,
     UserRegisterComponent,
     UserStatusComponent,
-    UserMenuComponent,
     ModificarPeliculaComponent,
     VerOfertasComponent,
     AplicarOfertaComponent,
