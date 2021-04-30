@@ -60,6 +60,17 @@ export class ServicioPeliculaService {
     const searchUrl = `${this.baseUrl}/films/${filmId}/directores`;                      
     return this.httpClient.get<GetResponseDirectors>(searchUrl);
   }
+
+  getActor(idActor:number): Observable<Actor>{
+    const actorUrl = `${this.baseUrl}/actors/${idActor}`;
+    return this.httpClient.get<Actor>(actorUrl);
+  }
+
+  getDirector(idDirector:number): Observable<Actor>{
+    const directorUrl = `${this.baseUrl}/directors/${idDirector}`;
+    return this.httpClient.get<Director>(directorUrl);
+  }
+
 }
 
 interface GetResponseFilms {
