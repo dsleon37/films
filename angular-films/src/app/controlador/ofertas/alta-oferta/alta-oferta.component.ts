@@ -15,6 +15,7 @@ export class AltaOfertaComponent implements OnInit {
 
   altaOfertaFormGroup: FormGroup;
   offers: Oferta[] = [];
+  oferta: Oferta = new Oferta;
 
   constructor(private formBuilder: FormBuilder, private altaOfertasService: AltaOfertasService, private router: Router) {
 
@@ -50,15 +51,18 @@ export class AltaOfertaComponent implements OnInit {
     )
   }
   addOffers(){
-    
+    this.altaOfertasService.registerOffer(this.oferta)
+  }
+  deleteOffers(){
+    this.altaOfertasService.deleteOffer(this.oferta.id);
   }
   //get description(){return this.altaOfertaFormGroup.get('oferta.description')}
   onSubmit(){
     if(this.altaOfertaFormGroup.invalid){
       this.altaOfertaFormGroup.markAllAsTouched();
     }else{
-      this.addOffers
+      console.log("handle algo button")
+      this.addOffers;
     }
-    console.log("handle algo button")
   }
 }

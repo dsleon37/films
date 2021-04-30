@@ -8,11 +8,22 @@ import { map } from 'rxjs/operators';
 })
 export class AltaOfertasService {
   private baseUrl = 'http://localhost:8080/api/offers';
+
   constructor(private httpClient: HttpClient) { }
   getaltaOffersList(): Observable<Oferta[]> {
     return this.httpClient.get<GetResponse>(this.baseUrl).pipe(
       map(response => response._embedded.offers)
     )
+  }
+  registerOffer(oferta: Oferta): Observable<any>{
+    return this.httpClient.post(this.baseUrl, oferta);
+
+  }
+  deleteOffer(id:number) {
+    let searchUrl = `${this.baseUrl}/offers/${id}`;
+    this.httpClient.delete(searchUrl).subscribe(data => {
+      console.log(data);
+    });
   }
 }
 
