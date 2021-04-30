@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ListaofertasI } from '../../../modelo/ofertas/listaoferta.interface';
+import { AltaOfertasService } from 'src/app/modelo/ofertas/alta-ofertas.service';
+import { Oferta } from '../common/oferta';
 
 @Component({
   selector: 'app-alta-oferta',
-  templateUrl: '../../../vista/oferta/alta-oferta.component.html',
-  styleUrls: ['../../../vista/oferta/alta-oferta.component.css']
+  templateUrl: '../../../vista/ofertas/alta-oferta/alta-oferta.component.html',
+  styleUrls: ['../../../vista/ofertas/alta-oferta/alta-oferta.component.css']
 })
 
 
@@ -15,7 +16,7 @@ export class AltaOfertaComponent implements OnInit {
   altaOfertaFormGroup: FormGroup;
   offers: Oferta[] = [];
 
-  constructor(private formBuilder: FormBuilder, private ofertasService: OfertasService,*/ private router: Router) {
+  constructor(private formBuilder: FormBuilder, private altaOfertasService: AltaOfertasService, private router: Router) {
 
     this.altaOfertaFormGroup= this.formBuilder.group({
       oferta: this.formBuilder.group({
@@ -41,12 +42,12 @@ export class AltaOfertaComponent implements OnInit {
       this.ofertas = data;
     })*/
   }
-  listOffers(){
-    this.ofertasService.getOffersList().subscribe({
-      data >= {
+  listOffers() {
+    this.altaOfertasService.getaltaOffersList().subscribe(
+      data => {
         this.offers = data;
       }
-    })
+    )
   }
   //get description(){return this.altaOfertaFormGroup.get('oferta.description')}
   onSubmit(){

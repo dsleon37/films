@@ -6,7 +6,7 @@
             <br>
             <form [formGroup]="altaOfertaFormGroup" (ngSubmit)="onSubmit()">
                 <!-- Ofertas Form Group-->
-                <div formGroupName="ofertas" class="form-area">
+                <div formGroupName="oferta" class="form-area">
                     <h3>Ofertas</h3>
                     <div class="row">
                         <div class="col-md-3"><label>Descripcion</label></div>
@@ -71,13 +71,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                        <!--<tr *ngFor="let tempOffer of offers">
-                            <td>{{tempOffer.OfertaId}}</td>
+                        <tr *ngFor="let tempOffer of offers">
+                            <td>{{tempOffer.id}}</td>
                             <td>{{tempOffer.description}}</td>
                             <td>{{tempOffer.deadline}}</td>
                             <td>{{tempOffer.addPoints}}</td>
-                            <td>{{tempOffer.subPoints}}</td>-->
+                            <td>{{tempOffer.subPoints}}</td>
                             <td><button type="submit" class="btn btn-success">Aplicar Oferta</button></td>
                             <td><button type="submit" class="btn btn-danger">Eliminar Oferta</button></td>
                         </tr>
