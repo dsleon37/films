@@ -20,7 +20,7 @@ export class UserService {
   }
 
   registerSubscriber(subscriber: any): Observable<any>{
-    return this.httpClient.post(this.userURL, subscriber);
+    return this.httpClient.post(this.subscriberURL, subscriber);
   }
 
 
