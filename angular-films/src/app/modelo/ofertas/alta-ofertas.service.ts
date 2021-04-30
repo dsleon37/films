@@ -15,7 +15,10 @@ export class AltaOfertasService {
       map(response => response._embedded.offers)
     )
   }
+
   registerOffer(oferta: Oferta): Observable<any>{
+    console.log("algo");
+    console.log(oferta.description);
     return this.httpClient.post(this.baseUrl, oferta);
 
   }
