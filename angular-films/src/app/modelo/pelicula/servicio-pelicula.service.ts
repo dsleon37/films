@@ -16,22 +16,36 @@ export class ServicioPeliculaService {
 
   constructor(private httpClient: HttpClient) { }
 
-
+  //Trae peliculas
   getFilmsListPaginate( thePage:number, thePageSize: number): Observable<GetResponseFilms> {
     const searchUrl = `${this.baseUrl}/films`;
                       
     return this.httpClient.get<GetResponseFilms>(searchUrl);
   }
-
+  
+  //Trae peliculas por categoria
   getFilmsListPaginateByCategories( thePage:number, thePageSize: number,categoryId:number): Observable<GetResponseFilms> {
     const searchUrl = `${this.baseUrl}/films/search/findByCategoryId?id=${categoryId}`;
                       
     return this.httpClient.get<GetResponseFilms>(searchUrl);
   }
 
+  //Trae pelicula por id
   getPelicula(idFilm:number): Observable<Pelicula>{
     const peliculaUrl = `${this.baseUrl}/films/${idFilm}`;
     return this.httpClient.get<Pelicula>(peliculaUrl);
+  }
+
+  //Filtra pelicula por palabra clave
+  getFilmsListByKeyWord(keyword:string): Observable<GetResponseFilms>{
+    const peliculaUrl = `${this.baseUrl}/films/search/findByTitleContaining?title=${keyword}`;
+    return this.httpClient.get<GetResponseFilms>(peliculaUrl);
+  }
+
+  //Guarda modificación de pelicula
+  pathPelicula(idFilm:number, pelicula:Pelicula): Observable<Pelicula>{
+    const searchUrl = `${this.baseUrl}/films/${idFilm}`;
+    return this.httpClient.patch<Pelicula>(searchUrl, pelicula);
   }
 
 
