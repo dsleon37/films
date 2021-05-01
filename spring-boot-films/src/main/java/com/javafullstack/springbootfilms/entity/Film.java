@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -61,5 +62,20 @@ public class Film {
             inverseJoinColumns = @JoinColumn(name = "director_id")
     )
     private List<Director> directores;
+
+
+    public void addActor(Actor actor){
+        if(this.actores == null){
+            this.actores = new ArrayList<>();
+        }
+        this.actores.add(actor);
+    }
+
+    public void addDirector(Director director){
+        if(this.directores == null){
+            this.directores = new ArrayList<>();
+        }
+        this.directores.add(director);
+    }
 
 }

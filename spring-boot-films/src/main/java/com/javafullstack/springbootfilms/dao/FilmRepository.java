@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 @CrossOrigin("http://localhost:4200")
 @RepositoryRestResource
 public interface FilmRepository extends JpaRepository<Film, Long> {
+
     Page<Film> findByCategoryId(@RequestParam("id")Long id, Pageable pageable);
 
+    Page<Film> findByTitleContaining(@RequestParam("title") String title,Pageable pageable);
 }

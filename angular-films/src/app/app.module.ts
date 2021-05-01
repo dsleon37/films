@@ -27,8 +27,10 @@ import { UserRegisterComponent } from './vista/user-register/user-register.compo
 import { UserStatusComponent } from './vista/user-status/user-status.component';
 import { ModificarPeliculaComponent } from './controlador/pelicula/modificar-pelicula/modificar-pelicula.component';
 import { LoginComponent } from './vista/login/login.component';
+import { FiltroPeliculasComponent } from './controlador/pelicula/filtro-peliculas/filtro-peliculas.component';
 
 const routes: Routes = [
+  {path: 'filtro-pelicula/:keyword', component: CatalogoPorCategoriaComponent},
   {path: 'alta-oferta', component: AltaOfertaComponent},
   {path: 'user-signup', component: UserRegisterComponent},
   {path: 'login', component: LoginComponent},
@@ -36,7 +38,7 @@ const routes: Routes = [
   {path: 'video-pelicula/:id', component: VideoPeliculaComponent},
   {path: 'ver-pelicula/:id', component: VerPeliculaComponent},
   {path: 'alta-pelicula', component: AltaPeliculaComponent},
-  {path: 'datos-pelicula', component: AltaDatosPeliculaComponent},
+  {path: 'datos-pelicula/:id', component: AltaDatosPeliculaComponent},
   {path: 'perfil', component: UserProfileComponent},
   {path: 'aplicar-oferta', component: AplicarOfertaComponent},
   {path: 'ver-ofertas', component: VerOfertasComponent},
@@ -65,7 +67,8 @@ const routes: Routes = [
     ModificarPeliculaComponent,
     VerOfertasComponent,
     AplicarOfertaComponent,
-    LoginComponent
+    LoginComponent,
+    FiltroPeliculasComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
