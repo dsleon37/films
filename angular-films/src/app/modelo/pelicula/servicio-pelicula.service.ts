@@ -6,6 +6,7 @@ import { Pelicula } from 'src/app/controlador/pelicula/pelicula';
 import { Actor } from 'src/app/controlador/pelicula/actor';
 import { Director } from 'src/app/controlador/pelicula/director';
 import { Categoria } from 'src/app/controlador/pelicula/categoria';
+import { Film } from 'src/app/controlador/pelicula/alta-pelicula/film';
 
 
 @Injectable({
@@ -13,17 +14,20 @@ import { Categoria } from 'src/app/controlador/pelicula/categoria';
 })
 export class ServicioPeliculaService {
   
-private guarda= "http://localhost:8080/api/Film";
+
 
   static getCategories() {
     throw new Error('Method not implemented.');
   }
   private baseUrl = 'http://localhost:8080/api';
-  
+  private addFilmUrl = 'http://localhost:8080/api/films';
   constructor(private httpClient: HttpClient) { }
 
-  public saveAlta(pelicula: any):Observable<any>{
-    return this.httpClient.post(this.guarda,pelicula);
+  
+  postFilm( film:Film):Observable<Film>{
+    console.log(film);
+    return this.httpClient.post<Film>(this.addFilmUrl,film);
+    
   }
 
   getfilmliscategori(theCategiryid:number):Observable<Categoria[]>{
@@ -106,6 +110,7 @@ private guarda= "http://localhost:8080/api/Film";
   }
 
 }
+
 interface GetResponse{
   _embedded:{
     categoria: Categoria[];

@@ -4,8 +4,8 @@
       <h1>Alta de Película</h1>
       <br />
       <br />
-      <form [formGroup]="altaPeliculaForm" (ngSubmit)="onSubmit()">
-        <div formGroupName="pelicula" class="form-area">
+      <form [formGroup]="altaPeliculaForm" (ngSubmit)="Updatebtn()">
+        <div formGroupName="film" class="form-area">
           <h3>Datos de Película</h3>
           <!-- titulo -->
           <div class="row">
@@ -13,7 +13,7 @@
               <label>Titulo</label>
             </div>
             <div class="input-space">
-              <input formControlName="titulo" type="text" />
+              <input formControlName="title" type="text" />
             </div>
           </div>
 
@@ -23,7 +23,7 @@
               <label>Descripción</label>
             </div>
             <div class="input-space">
-              <input formControlName="descripcion" type="text" />
+              <input formControlName="description" type="text" />
             </div>
           </div>
           <!-- fecha -->
@@ -34,11 +34,31 @@
             
             <div class="input-space">
               
-              <input formControlName="Fecha" type="text" />
+              <input formControlName="fecha" type="text" />
 
             </div>
           </div>
-          <!-- Actor -->
+
+          <!-- imageurl -->
+          <div class="row">
+            <div class="col-md-2">
+              <label> Url de Imagen </label>
+            </div>
+            <div class="input-space">
+              <input formControlName="imageurl" type="text" />
+            </div>
+          </div>
+          <!-- videourl -->
+          <div class="row">
+            <div class="col-md-2">
+              <label> Url de Video </label>
+            </div>
+            <div class="input-space">
+              <input formControlName="videoUrl" type="text" />
+            </div>
+          </div>
+
+          <!-- Actor 
           <div class="row">
             <div class="col-md-2">
               <label> Actor </label>
@@ -46,14 +66,13 @@
             <div class="input-space">
               <input formControlName=" actor " type="text" />
             </div>
-          </div>
+          </div>-->
+
+
           <!-- categoria -->
 
-          <div class="row">
-            <div class="col-md-2">
-              <label for="">Categoría</label>
-            </div>
-            <div class="col-md-9">
+          
+       <!--     <div class="col-md-9">
               <div class="input-space">
                 <select formControlName="categoria_id">
                   <option
@@ -65,32 +84,27 @@
                   </option>
                 </select>
               </div>
-            </div>
-          </div>
+            </div>-->
+            
 
-          <!--     <div class="row">
+               <div filmFormName="filmForm" class="row">
               <div class="col-md-2">
                 <label> Categoria </label>
               </div>
               <div  class="input-space">
-             <ul class="children">
-            <li *ngFor="let tempListCategory of categoria">
-                <a routerLink="/catalogo-por-categoria/:id" routerLinkActive="active-link">   
-                  <option> 
-                    
-                    {{tempListCategory.name}} 
+                <select formControlName='category_id' >
 
+                  <option *ngFor ="let categoria of categorias">
+                    {{categoria.name}}
                   </option>
-                </a>
-              </li>
-            </ul>
 
-            <input formControlName=" categoria " type="text" />
+                </select> 
+            
 
           </div>
             </div>
-          -->
-          <!-- director -->
+          
+          <!-- director 
           <div class="row">
             <div class="col-md-2">
               <label> Director </label>
@@ -98,33 +112,17 @@
             <div class="input-space">
               <input formControlName=" director " type="text" />
             </div>
-          </div>
+          </div> -->
 
-          <!-- imageurl -->
-          <div class="row">
-            <div class="col-md-2">
-              <label> Url de Imagen </label>
-            </div>
-            <div class="input-space">
-              <input formControlName=" imageurl " type="text" />
-            </div>
-          </div>
-          <!-- videourl -->
-          <div class="row">
-            <div class="col-md-2">
-              <label> Url de Video </label>
-            </div>
-            <div class="input-space">
-              <input formControlName=" videoUrl " type="text" />
-            </div>
-          </div>
+          
         </div>
 
         <!-- boton-->
-        <div class="text-center">
+        <div class="text-center"> 
           <button type="submit" class="btn btn-info">Guardar</button>
         </div>
       </form>
     </div>
   </div>
 </div>
+
