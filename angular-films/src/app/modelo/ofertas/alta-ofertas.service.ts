@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AltaOfertasService {
+  
   private baseUrl = 'http://localhost:8080/api/offers';
 
 
@@ -17,12 +18,14 @@ export class AltaOfertasService {
     )
   }
 
-  registerOffer(oferta: Oferta): Observable<Oferta>{
+  registerOffer(oferta: Oferta): Observable<any>{
     console.log('oferta', oferta);
-    return this.httpClient.post<Oferta>(this.baseUrl, oferta);
+    return this.httpClient.post(this.baseUrl, oferta);
   }
-  deleteOffer(id:number) {
-    let searchUrl = `${this.baseUrl}/offers/${id}`;
+
+  deleteOffer(id: number, oferta: Oferta) {
+    console.log('oferta', oferta);
+    const searchUrl = `${this.baseUrl}/offers/${id}`;
     this.httpClient.delete(searchUrl).subscribe(data => {
       console.log(data);
     });

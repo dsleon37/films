@@ -4,4 +4,5 @@ export class Oferta {
     deadline: number = 0;
     addPoints: number = 0;
     subPoints: number = 0;
+    userId: string = '';
 }
