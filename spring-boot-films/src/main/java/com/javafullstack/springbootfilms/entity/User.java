@@ -4,13 +4,14 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Set;
 
 @Entity
 @Table(name="user")
 @Getter
 @Setter
-public class User {
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +22,7 @@ public class User {
     @JoinColumn(name = "user_role_id", nullable = false)
     private UserRole role;
 
-    @Column(name = "username")
+    @Column(name = "username", unique = true)
     private String userName;
 
     @Column(name = "password")
