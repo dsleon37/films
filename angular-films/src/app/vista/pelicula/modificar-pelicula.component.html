@@ -52,7 +52,7 @@
                         <div class="col-md-2"> <label>Url video</label></div>
                         <div class="col-md-9">
                             <div class="input-space">
-                                <input type="text" name="title" [(ngModel)]="pelicula.videoUrl">
+                                <input type="text" name="videoUrl" [(ngModel)]="pelicula.videoUrl">
                             </div>
                         </div>
                     </div>
@@ -82,14 +82,6 @@
                     </div>
                 </div>
             </form>
-            <div *ngIf="mensaje?.length " class="alert alert-success col-md-12" role="alert">
-                {{mensaje}} ---
-                <button routerLink="/catalogo-peliculas" class="btn btn-info right">Volver al catálogo de
-                    películas</button>
-            </div>
-            <div *ngIf="mensajeError?.length" class="alert alert-danger col-md-12" role="alert">
-                {{mensajeError}}
-            </div>
         </div>
     </div>
 </div>
