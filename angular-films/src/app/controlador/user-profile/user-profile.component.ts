@@ -48,7 +48,8 @@ export class UserProfileComponent implements OnInit {
 
   //PAra que elimine el usuario con el boton eliminar
   deletebtn(){
+    let myuser = this.user;
     this.servicioUser.deleteUser(this.user.id);
-    console.log(this.user.id)
+    alert(`El usuario ${myuser.userName} fue eliminado del sistema`);
   }
 }
