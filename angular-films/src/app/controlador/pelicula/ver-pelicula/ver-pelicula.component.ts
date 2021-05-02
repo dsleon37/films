@@ -29,9 +29,7 @@ export class VerPeliculaComponent implements OnInit {
     this.peliculaService.getPelicula(peliculaId).subscribe(
       data => {
         this.pelicula = data;
-        console.log(this.pelicula);
-      }
-    )
+      });
   }
 
 }

@@ -2,36 +2,36 @@
     <div class="section-content section-content-p30">
         <div class="container-fluid">
             <div class="row">
-<!-- loop over the collection of products -->
-<div *ngFor="let tempPelicula of peliculasCategoria" class="col-md-3">
+                <!-- loop over the collection of products -->
+                <div *ngFor="let tempPelicula of peliculasCategoria" class="col-md-3">
 
-    <div class="product-box">
+                    <div class="product-box">
 
-        <a routerLink="/ver-pelicula/{{ tempPelicula.id }}">
-            <img src="{{ tempPelicula.imageUrl }}" class="img-responsive">
-        </a>
+                        <a routerLink="/ver-pelicula/{{ tempPelicula.id }}">
+                            <img src="{{ tempPelicula.imageUrl }}" class="img-responsive">
+                        </a>
 
-        <a routerLink="/products/{{ tempPelicula.id }}">
-            <h1>{{ tempPelicula.title }}</h1>
-            <h2>Fecha estreno:{{ tempPelicula.date | date: 'mediumDate'}}</h2>
-            <h2>{{ tempPelicula.description }}</h2>
-        </a>
-        <div class="price">
-            <input type="checkbox" class="form-check-input" id="id_disponible">
-            <span class="form-check-label" for="id_disponible">  Disponible en cinema</span>
-        </div>
-    </div>
+                        <a routerLink="/products/{{ tempPelicula.id }}">
+                            <h1>{{ tempPelicula.title }}</h1>
+                            <h2>Fecha estreno:{{ tempPelicula.date | date: 'mediumDate'}}</h2>
+                            <h2>{{ tempPelicula.description }}</h2>
+                        </a>
+                        <div class="price">
+                            <input type="checkbox" class="form-check-input" id="id_disponible">
+                            <span class="form-check-label" for="id_disponible"> Disponible en cinema</span>
+                        </div>
+                    </div>
 
-</div>
+                </div>
 
-<!-- if products empty then display a message-->
-<div *ngIf="peliculasCategoria?.length == 0" class="alert alert-warning col-md-12" role="alert">
-    No se encontraron películas.
-</div>
+                <!-- if products empty then display a message-->
+                <div *ngIf="peliculasCategoria?.length == 0" class="alert alert-warning col-md-12" role="alert">
+                    No se encontraron películas.
+                </div>
 
             </div>
 
-            <div class="footer-pagination">
+           <!--  <div class="footer-pagination">
                 <div class="row">
                     <div class="col-md-6"></div>
                     <div class="col-md-3">
@@ -54,7 +54,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
+
         </div>
     </div>
 </div>

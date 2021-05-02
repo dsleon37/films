@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ServicioPeliculaService } from 'src/app/modelo/pelicula/servicio-pelicula.service';
 import { Categoria } from '../categoria';
 import { Actor } from '../actor';
 import { Director} from '../director';
+import { Pelicula } from '../pelicula';
 
 @Component({
   selector: 'app-alta-datos-pelicula',
@@ -15,8 +17,10 @@ export class AltaDatosPeliculaComponent implements OnInit {
 
   datosPeliculaFormGroup: FormGroup;
   
-  peliculaId : number = 3;
-  
+  peliculaId : number;
+
+  pelicula: Pelicula = new Pelicula;
+
   categorias: Categoria[] = [];
   actores: Actor[] = [];
   directores: Director[] = [];
@@ -24,26 +28,51 @@ export class AltaDatosPeliculaComponent implements OnInit {
   actoresPelicula : Actor[] = [];
   directoresPelicula: Director[] = [];
 
+  actor: Actor;
+  director: Director;
+
   constructor(private formBuilder: FormBuilder, 
               private router: Router, 
+              private route: ActivatedRoute,
               private servicioPelicula: ServicioPeliculaService) {
 
     this.datosPeliculaFormGroup = this.formBuilder.group({
       film_has_actor: this.formBuilder.group({
         film_id: new FormControl(''),
         actor_id: new FormControl('')
+      }),
+      actor: this.formBuilder.group({
+        id: new FormControl(''),
+        name: new FormControl('')
+      }),      
+      director: this.formBuilder.group({
+        id: new FormControl(''),
+        name: new FormControl('')
       })
 
     });
   }
 
   ngOnInit(): void {
+
+
+    this.peliculaId = +this.route.snapshot.paramMap.get('id');
+    this.infoPelicula();
     this.getCategories();
     this.getActors();
     this.getDirectors();
 
     this.getActorsOfFilm(this.peliculaId);
     this.getDirectorsOfFilm(this.peliculaId);
+  }
+
+
+  infoPelicula() {
+    this.servicioPelicula.getPelicula(this.peliculaId).subscribe(
+      data => {
+        this.pelicula = data;
+      }
+    )
   }
 
   getCategories() {
@@ -75,20 +104,39 @@ export class AltaDatosPeliculaComponent implements OnInit {
       }
     )
   }
-
-
   
-  get actor_id() { return this.datosPeliculaFormGroup.get('film_has_actor.actor_id'); }
+  get actorId() { return this.datosPeliculaFormGroup.get('actor.id'); }
+  get actorName() { return this.datosPeliculaFormGroup.get('actor.name'); }
   addActors(){
-    console.log('Actor adicionado:');
-    console.log( this.datosPeliculaFormGroup.get('film_has_actor').value.actor_id);
+    
+    this.actor = this.datosPeliculaFormGroup.get('actor').value;
+    this.actoresPelicula.push(this.actor);
+    
+    console.log('todos los actores:'+ this.actoresPelicula);
   }
-  addDirectors( director : Director){
-    console.log('Director adicionado:' + director);
+
+  delActors(a: Actor){
+    let i = this.actoresPelicula.indexOf( a );
+    if ( i !== -1 ) {
+      this.actoresPelicula.splice( i, 1 );
+    console.log(this.actoresPelicula.length); 
+  }
+  }
+  
+  addDirectors(){
+    this.director = this.datosPeliculaFormGroup.get('director').value;
+    console.log('add director:'+ JSON.stringify(this.director) );
+    this.directoresPelicula.push(this.director);
+    console.log('todos los directores:'+ this.directoresPelicula);
+  }
+  delDirectors(d: Director){
+    let i = this.directoresPelicula.indexOf( d );
+    if ( i !== -1 ) {
+      this.directoresPelicula.splice( i, 1 );
+  }
   }
   onSubmit() {
     console.log('Handling the submit button');
-    this.addActors();
   }
 
   getActorsOfFilm( peliculaId: number){
@@ -109,5 +157,6 @@ export class AltaDatosPeliculaComponent implements OnInit {
       }
     );
   }
+ 
 
 }

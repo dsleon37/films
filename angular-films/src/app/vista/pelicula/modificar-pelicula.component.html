@@ -1,0 +1,95 @@
+<div class="main-content page-m">
+    <div class="section-content section-content-p30">
+        <div *ngIf="mensaje?.length" class="alert alert-success alert-dismissible fade show col-md-12" role="alert">
+            {{mensaje}}
+            <button routerLink="/catalogo-peliculas" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true"><strong>x</strong></span>
+            </button>
+        </div>
+        <div *ngIf="mensajeError?.length" class="alert alert-danger alert-dismissible fade show col-md-12" role="alert">
+            {{mensajeError}}
+        </div>
+        <div class="container-fluid">
+            <h2> Modificar Película</h2>
+            <br>
+            <br>
+            <form (ngSubmit)="guardarPelicula()">
+
+                <div class="form-area">
+                    <h3>{{pelicula.title}}</h3>
+                    <div class="row">
+                        <div class="col-md-2"> <label>Titulo</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input type="text" name="title" [(ngModel)]="pelicula.title">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>Descripción</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <textarea type="text" rows="5" cols="49" name="description"
+                                    [(ngModel)]="pelicula.description">
+
+                                </textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>Fecha de estreno</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input type="date" name="date" [ngModel]='pelicula.date| date:"yyyy-MM-dd" '
+                                    (ngModelChange)='pelicula.date=$event'>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>Url video</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input type="text" name="title" [(ngModel)]="pelicula.videoUrl">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--<div class="row">
+                        <div class="col-md-2">
+                            <label for="">Imagen:</label>
+                        </div>
+                        <div class="col-md-9">
+                        <div class="input-space">
+                                <select [(ngModel)]="categoria_id" name="categoria_id">
+                                    <option *ngFor="let categoria of categorias" [ngValue]="categoria.id">
+                                        {{categoria.name}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>-->
+                    <div class="row">
+                        <div class="col-md-9">
+                            <button routerLink="/catalogo-peliculas" class="btn btn-danger right">Cancelar</button>
+                        </div>
+                        <div class="col-md-3">
+                            <button type="submit" class="btn btn-info right-align">Guardar</button>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+            <div *ngIf="mensaje?.length " class="alert alert-success col-md-12" role="alert">
+                {{mensaje}} ---
+                <button routerLink="/catalogo-peliculas" class="btn btn-info right">Volver al catálogo de
+                    películas</button>
+            </div>
+            <div *ngIf="mensajeError?.length" class="alert alert-danger col-md-12" role="alert">
+                {{mensajeError}}
+            </div>
+        </div>
+    </div>
+</div>

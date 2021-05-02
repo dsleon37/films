@@ -12,12 +12,14 @@ export class CatalogoPorCategoriaComponent implements OnInit {
 
   categoriaId: number;
   peliculasCategoria: Pelicula[];
+  modoFiltro: boolean;
 
   constructor(private servicioPeliculas: ServicioPeliculaService,
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.listarPeliculasPorCategoria();
+    this.filtrarPelicula();
   }
 
   listarPeliculasPorCategoria() {
@@ -25,9 +27,15 @@ export class CatalogoPorCategoriaComponent implements OnInit {
 
     if (hasCategoriaId) {
       this.categoriaId = +this.route.snapshot.paramMap.get("id");
-      console.log(hasCategoriaId);
-      console.log(this.categoriaId);
-      this.servicioPeliculas.getFilmsListPaginateByCategories(1, 100, this.categoriaId).subscribe(data => { this.peliculasCategoria = data._embedded.films; console.log(this.peliculasCategoria) });
+      this.servicioPeliculas.getFilmsListPaginateByCategories(1, 100, this.categoriaId).subscribe(data => { this.peliculasCategoria = data._embedded.films});
+    }
+  }
+
+  filtrarPelicula(){
+    this.modoFiltro = this.route.snapshot.paramMap.has("keyword");
+    if (this.modoFiltro) {
+      const palabra: string = this.route.snapshot.paramMap.get('keyword');
+      this.servicioPeliculas.getFilmsListByKeyWord(palabra).subscribe(data => { this.peliculasCategoria = data._embedded.films});
     }
   }
 }

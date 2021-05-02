@@ -24,18 +24,26 @@ import { AplicarOfertaComponent } from './controlador/ofertas/aplicar-oferta/apl
 
 import { UserRegisterComponent } from './vista/user-register/user-register.component';
 import { UserStatusComponent } from './vista/user-status/user-status.component';
+<<<<<<< HEAD
 import { UserMenuComponent } from './vista/user-menu/user-menu.component';
 import { UsersComponent } from './vista/users/users/users.component';
 import { CartStatusComponent } from './controlador/ofertas/cart-status/cart-status.component';
+=======
+import { ModificarPeliculaComponent } from './controlador/pelicula/modificar-pelicula/modificar-pelicula.component';
+import { LoginComponent } from './vista/login/login.component';
+import { FiltroPeliculasComponent } from './controlador/pelicula/filtro-peliculas/filtro-peliculas.component';
+>>>>>>> David_2
 
 const routes: Routes = [
+  {path: 'filtro-pelicula/:keyword', component: CatalogoPorCategoriaComponent},
   {path: 'alta-oferta', component: AltaOfertaComponent},
-  {path: 'user-menu', component: UserMenuComponent},
   {path: 'user-signup', component: UserRegisterComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'modificar-pelicula/:id', component: ModificarPeliculaComponent},
   {path: 'video-pelicula/:id', component: VideoPeliculaComponent},
   {path: 'ver-pelicula/:id', component: VerPeliculaComponent},
   {path: 'alta-pelicula', component: AltaPeliculaComponent},
-  {path: 'datos-pelicula', component: AltaDatosPeliculaComponent},
+  {path: 'datos-pelicula/:id', component: AltaDatosPeliculaComponent},
   {path: 'perfil', component: UserProfileComponent},
   {path: 'aplicar-oferta', component: AplicarOfertaComponent},
   {path: 'ver-ofertas', component: VerOfertasComponent},
@@ -59,13 +67,17 @@ const routes: Routes = [
     UserProfileComponent,
     CatalogoPorCategoriaComponent,
     VideoPeliculaComponent,
-    UsersComponent,
     UserRegisterComponent,
     UserStatusComponent,
-    UserMenuComponent,
+    ModificarPeliculaComponent,
     VerOfertasComponent,
     AplicarOfertaComponent,
+<<<<<<< HEAD
     CartStatusComponent
+=======
+    LoginComponent,
+    FiltroPeliculasComponent
+>>>>>>> David_2
   ],
   imports: [
     RouterModule.forRoot(routes),
