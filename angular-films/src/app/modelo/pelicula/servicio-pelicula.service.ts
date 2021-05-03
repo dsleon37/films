@@ -6,38 +6,15 @@ import { Pelicula } from 'src/app/controlador/pelicula/pelicula';
 import { Actor } from 'src/app/controlador/pelicula/actor';
 import { Director } from 'src/app/controlador/pelicula/director';
 import { Categoria } from 'src/app/controlador/pelicula/categoria';
-import { Film } from 'src/app/controlador/pelicula/alta-pelicula/film';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServicioPeliculaService {
-  
-
-
-  static getCategories() {
-    throw new Error('Method not implemented.');
-  }
   private baseUrl = 'http://localhost:8080/api';
-  private addFilmUrl = 'http://localhost:8080/api/films';
+
   constructor(private httpClient: HttpClient) { }
-
-  
-  postFilm( film:Film):Observable<Film>{
-    console.log(film);
-    return this.httpClient.post<Film>(this.addFilmUrl,film);
-    
-  }
-
-  getfilmliscategori(theCategiryid:number):Observable<Categoria[]>{
-
-    const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${theCategiryid}`;
-
-    return this.httpClient.get<GetResponse>(searchUrl).pipe(
-      map(response => response._embedded.categoria)
-    );
-  }
 
   //Trae peliculas
   getFilmsListPaginate( thePage:number, thePageSize: number): Observable<GetResponseFilms> {
@@ -114,12 +91,6 @@ export class ServicioPeliculaService {
     return this.httpClient.get<Director>(directorUrl);
   }
 
-}
-
-interface GetResponse{
-  _embedded:{
-    categoria: Categoria[];
-  }
 }
 
 interface GetResponseFilms {
