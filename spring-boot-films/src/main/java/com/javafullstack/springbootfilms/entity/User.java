@@ -4,14 +4,13 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Set;
 
 @Entity
 @Table(name="user")
 @Getter
 @Setter
-public class User implements Serializable {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +21,7 @@ public class User implements Serializable {
     @JoinColumn(name = "user_role_id", nullable = false)
     private UserRole role;
 
-    @Column(name = "username", unique = true)
+    @Column(name = "username")
     private String userName;
 
     @Column(name = "password")
@@ -40,4 +39,6 @@ public class User implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private Set<Subscriber> subscribers;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private Set<FilmList> filmLists;
 }

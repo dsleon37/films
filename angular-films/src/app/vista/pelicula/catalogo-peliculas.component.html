@@ -37,13 +37,13 @@
                 <!-- loop over the collection of products -->
                 <div *ngFor="let tempPelicula of peliculas" class="col-md-3">
 
-                    <div class="product-box">
+                    <div class="product-box ">
 
                         <a routerLink="/ver-pelicula/{{ tempPelicula.id }}">
                             <img src="{{ tempPelicula.imageUrl }}" class="img-responsive">
                         </a>
 
-                        <a routerLink="/ver-pelicula/{{ tempPelicula.id }}">
+                        <a routerLink="/ver-pelicula/{{ tempPelicula.id }}" class="module line-clamp">
                             <h1>{{ tempPelicula.title }}</h1>
                             <h2>Fecha estreno:{{ tempPelicula.date | date: 'mediumDate'}}</h2>
                             <p>{{ tempPelicula.description }}</p>

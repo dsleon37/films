@@ -5,9 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="film")
@@ -60,18 +60,7 @@ public class Film {
     private List<Director> directores;
 
 
-    public void addActor(Actor actor){
-        if(this.actores == null){
-            this.actores = new ArrayList<>();
-        }
-        this.actores.add(actor);
-    }
-
-    public void addDirector(Director director){
-        if(this.directores == null){
-            this.directores = new ArrayList<>();
-        }
-        this.directores.add(director);
-    }
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "film")
+    private Set<FilmList> filmLists;
 
 }

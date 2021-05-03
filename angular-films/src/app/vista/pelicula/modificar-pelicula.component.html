@@ -52,25 +52,26 @@
                         <div class="col-md-2"> <label>Url video</label></div>
                         <div class="col-md-9">
                             <div class="input-space">
-                                <input type="text" name="videoUrl" [(ngModel)]="pelicula.videoUrl">
+                                <input type="text" name="videoUrl" [(ngModel)]="pelicula.videoUrl" required="required">
                             </div>
                         </div>
                     </div>
 
-                    <!--<div class="row">
+                    <div class="row">
                         <div class="col-md-2">
-                            <label for="">Imagen:</label>
+                            <label for="">Categoria:</label>
                         </div>
                         <div class="col-md-9">
                         <div class="input-space">
-                                <select [(ngModel)]="categoria_id" name="categoria_id">
+                                <select [(ngModel)]="categoriaPelicula.id" name="categoria_id">
+                                    <option value="{{categoriaPelicula.id}}" selected></option>
                                     <option *ngFor="let categoria of categorias" [ngValue]="categoria.id">
                                         {{categoria.name}}
                                     </option>
                                 </select>
                             </div>
                         </div>
-                    </div>-->
+                    </div>
                     <div class="row">
                         <div class="col-md-9">
                             <button routerLink="/catalogo-peliculas" class="btn btn-danger right">Cancelar</button>
@@ -82,14 +83,6 @@
                     </div>
                 </div>
             </form>
-            <div *ngIf="mensaje?.length " class="alert alert-success col-md-12" role="alert">
-                {{mensaje}} ---
-                <button routerLink="/catalogo-peliculas" class="btn btn-info right">Volver al catálogo de
-                    películas</button>
-            </div>
-            <div *ngIf="mensajeError?.length" class="alert alert-danger col-md-12" role="alert">
-                {{mensajeError}}
-            </div>
         </div>
     </div>
 </div>
