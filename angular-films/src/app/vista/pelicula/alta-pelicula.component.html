@@ -1,1 +1,128 @@
-<p>alta-pelicula works!</p>
+<div class="main-content page-m">
+  <div class="section-content section-content-p30">
+    <div class="container-fluid">
+      <h1>Alta de Película</h1>
+      <br />
+      <br />
+      <form [formGroup]="altaPeliculaForm" (ngSubmit)="Updatebtn()">
+        <div formGroupName="film" class="form-area">
+          <h3>Datos de Película</h3>
+          <!-- titulo -->
+          <div class="row">
+            <div class="col-md-2">
+              <label>Titulo</label>
+            </div>
+            <div class="input-space">
+              <input formControlName="title" type="text" />
+            </div>
+          </div>
+
+          <!-- Description -->
+          <div class="row">
+            <div class="col-md-2">
+              <label>Descripción</label>
+            </div>
+            <div class="input-space">
+              <input formControlName="description" type="text" />
+            </div>
+          </div>
+          <!-- fecha -->
+          <div class="row">
+            <div class="col-md-2">
+              <label> Fecha </label>
+            </div>
+            
+            <div class="input-space">
+              
+              <input formControlName="fecha" type="text" />
+
+            </div>
+          </div>
+
+          <!-- imageurl -->
+          <div class="row">
+            <div class="col-md-2">
+              <label> Url de Imagen </label>
+            </div>
+            <div class="input-space">
+              <input formControlName="imageurl" type="text" />
+            </div>
+          </div>
+          <!-- videourl -->
+          <div class="row">
+            <div class="col-md-2">
+              <label> Url de Video </label>
+            </div>
+            <div class="input-space">
+              <input formControlName="videoUrl" type="text" />
+            </div>
+          </div>
+
+          <!-- Actor 
+          <div class="row">
+            <div class="col-md-2">
+              <label> Actor </label>
+            </div>
+            <div class="input-space">
+              <input formControlName=" actor " type="text" />
+            </div>
+          </div>-->
+
+
+          <!-- categoria -->
+
+          
+       <!--     <div class="col-md-9">
+              <div class="input-space">
+                <select formControlName="categoria_id">
+                  <option
+                    *ngFor="let categoria of categorias"
+                    [ngValue]="categoria.name"
+                    value="{{ categoria.id }}"
+                  >
+                    {{ categoria.name }}
+                  </option>
+                </select>
+              </div>
+            </div>-->
+            
+
+               <div filmFormName="filmForm" class="row">
+              <div class="col-md-2">
+                <label> Categoria </label>
+              </div>
+              <div  class="input-space">
+                <select formControlName='category_id' >
+
+                  <option *ngFor ="let categoria of categorias">
+                    {{categoria.name}}
+                  </option>
+
+                </select> 
+            
+
+          </div>
+            </div>
+          
+          <!-- director 
+          <div class="row">
+            <div class="col-md-2">
+              <label> Director </label>
+            </div>
+            <div class="input-space">
+              <input formControlName=" director " type="text" />
+            </div>
+          </div> -->
+
+          
+        </div>
+
+        <!-- boton-->
+        <div class="text-center"> 
+          <button type="submit" class="btn btn-info">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
