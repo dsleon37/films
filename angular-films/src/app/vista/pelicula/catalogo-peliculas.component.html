@@ -34,6 +34,23 @@
         <div class="container-fluid">
            
             <div class="row">
+<!-- loop over the collection of products -->
+<div *ngFor="let tempPelicula of peliculas" class="col-md-3">
+
+    <div class="product-box">
+
+        <a routerLink="/ver-pelicula/{{ tempPelicula.id }}">
+            <img src="{{ tempPelicula.imageUrl }}" class="img-responsive">
+        </a>
+
+        <a routerLink="/ver-pelicula/{{ tempPelicula.id }}">
+            <h1>{{ tempPelicula.title }}</h1>
+            <h2>{{ tempPelicula.date }}</h2>
+            <h2>Fecha estreno:{{ tempPelicula.date | date: 'mediumDate'}}</h2>
+            <h2>{{ tempPelicula.description }}</h2>
+        </a>
+        <div class="price">{{ '92.000'| currency: "COP" :" $ " }}</div>
+    </div>
                 <!-- loop over the collection of products -->
                 <div *ngFor="let tempPelicula of peliculas" class="col-md-3">
 
@@ -76,6 +93,9 @@
                             </select>
                         </div>
                     </div>
+
+                    
+
                     <div class="col-md-2">
                         <div class="number">1 - 10 of 100</div>
                     </div>

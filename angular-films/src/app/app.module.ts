@@ -1,3 +1,4 @@
+import { ServicioPeliculaService } from 'src/app/modelo/pelicula/servicio-pelicula.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -37,7 +38,7 @@ const routes: Routes = [
   {path: 'video-pelicula/:id', component: VideoPeliculaComponent},
   {path: 'ver-pelicula/:id', component: VerPeliculaComponent},
   {path: 'alta-pelicula', component: AltaPeliculaComponent},
-  {path: 'datos-pelicula', component: AltaDatosPeliculaComponent},
+  {path: 'datos-pelicula/:id', component: AltaDatosPeliculaComponent},
   {path: 'perfil', component: UserProfileComponent},
   {path: 'aplicar-oferta', component: AplicarOfertaComponent},
   {path: 'ver-ofertas', component: VerOfertasComponent},
@@ -77,7 +78,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [UserService],
+  providers: [UserService,ServicioPeliculaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
