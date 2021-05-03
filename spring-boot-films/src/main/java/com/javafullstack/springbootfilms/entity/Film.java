@@ -52,15 +52,19 @@ public class Film {
     /**
      * Directores.
      */
+    /*
     @ManyToMany
     @JoinTable(name = "film_has_director",
             joinColumns = @JoinColumn(name = "film_id"),
             inverseJoinColumns = @JoinColumn(name = "director_id")
     )
     private List<Director> directores;
-
+*/
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "film")
     private Set<FilmList> filmLists;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "actor")
+    private Set<FilmHasActor> filmHasActors;
 
 }
