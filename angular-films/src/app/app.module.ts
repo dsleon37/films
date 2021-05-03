@@ -37,13 +37,12 @@ const routes: Routes = [
   {path: 'video-pelicula/:id', component: VideoPeliculaComponent},
   {path: 'ver-pelicula/:id', component: VerPeliculaComponent},
   {path: 'alta-pelicula', component: AltaPeliculaComponent},
-  {path: 'datos-pelicula', component: AltaDatosPeliculaComponent},
+  {path: 'datos-pelicula/:id', component: AltaDatosPeliculaComponent},
   {path: 'perfil', component: UserProfileComponent},
   {path: 'aplicar-oferta', component: AplicarOfertaComponent},
   {path: 'ver-ofertas', component: VerOfertasComponent},
   {path: 'catalogo-por-categoria/:id', component: CatalogoPorCategoriaComponent},
   {path: 'catalogo-peliculas', component: CatalogoPeliculasComponent},
-  {path: 'datos-pelicula', component: AltaDatosPeliculaComponent},
   {path: '', redirectTo: '/catalogo-peliculas', pathMatch: 'full'},
   {path: '**', redirectTo: '/catalogo-peliculas', pathMatch: 'full'}
 ];
