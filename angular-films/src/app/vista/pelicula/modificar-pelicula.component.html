@@ -5,7 +5,7 @@
             <h2> Modificar Película</h2>
             <br>
             <br>
-            <form (ngSubmit)="guardarPelicula()">
+            <form (ngSubmit) = "guardarPelicula()">
 
                 <div class="form-area">
                     <h3>{{pelicula.title}}</h3>
@@ -13,7 +13,7 @@
                         <div class="col-md-2"> <label>Titulo</label></div>
                         <div class="col-md-9">
                             <div class="input-space">
-                                <input type="text" name="title" [(ngModel)]="pelicula.title">
+                                <input type="text" name="title" [(ngModel)]= "pelicula.title">
                             </div>
                         </div>
                     </div>
@@ -22,8 +22,7 @@
                         <div class="col-md-2"> <label>Descripción</label></div>
                         <div class="col-md-9">
                             <div class="input-space">
-                                <textarea type="text" rows="5" cols="49" name="description"
-                                    [(ngModel)]="pelicula.description">
+                                <textarea type="text" rows="5" cols="49" name="description" [(ngModel)]= "pelicula.description">
 
                                 </textarea>
                             </div>
@@ -71,7 +70,7 @@
                         <div class="col-md-3">
                             <button type="submit" class="btn btn-info right-align" data-toggle="modal" data-target="#mensajeDeConfirmacion">Guardar</button>
                         </div>
-
+                        
                     </div>
                 </div>
             </form>
