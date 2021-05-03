@@ -36,6 +36,12 @@ export class ServicioPeliculaService {
     return this.httpClient.get<Pelicula>(peliculaUrl);
   }
 
+  //Trae categoria de una pelicula
+  getCategoriaPelicula(idFilm:number): Observable<GetResponseCategoryFilm>{
+    const peliculaUrl = `${this.baseUrl}/categories/search/categoryFilm?idFilm=${idFilm}`;
+    return this.httpClient.get<GetResponseCategoryFilm>(peliculaUrl);
+  }
+
   //Filtra pelicula por palabra clave
   getFilmsListByKeyWord(keyword:string): Observable<GetResponseFilms>{
     const peliculaUrl = `${this.baseUrl}/films/search/findByTitleContaining?title=${keyword}`;
@@ -126,6 +132,17 @@ interface GetResponseDirectors {
 interface GetResponseCategories {
   _embedded: {
     categories: Categoria[];
+  },
+  page: {
+    size: number,
+    totalElements: number,
+    totalPages: number,
+    number: number
+  }
+}
+interface GetResponseCategoryFilm {
+  _embedded: {
+    categories: Categoria [];
   },
   page: {
     size: number,

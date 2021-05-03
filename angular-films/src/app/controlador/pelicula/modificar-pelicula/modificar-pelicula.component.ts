@@ -16,7 +16,8 @@ import { Pelicula } from '../pelicula';
 export class ModificarPeliculaComponent implements OnInit {
 
   pelicula: Pelicula = new Pelicula;
-  categorias:Categoria[];
+  categorias:Categoria[] = [];
+  categoriaPelicula: Categoria = new Categoria;
   mensajeError: string = '';
   mensaje: string = '';
   
@@ -37,11 +38,24 @@ export class ModificarPeliculaComponent implements OnInit {
     this.peliculaService.getPelicula(peliculaId).subscribe(
       data => {
         this.pelicula = data;
+        console.log(this.pelicula);
+        if (this.pelicula.id >= 1) {
+          this.peliculaService.getCategoriaPelicula(this.pelicula.id).subscribe(
+            data =>{
+              this.categoriaPelicula = data._embedded.categories[0];
+              console.log(this.categoriaPelicula);
+            }
+          );
+        }
       });
+      
+     
+      
   }
 
   guardarPelicula(){
-    
+    this.pelicula.category = 'http://localhost:8080/api/categories/'+this.categoriaPelicula.id;
+    console.log(this.pelicula);
     this.peliculaService.pathPelicula(this.pelicula.id,this.pelicula).subscribe({
       next: response => {
         this.mensaje = `Película modificada.`;
