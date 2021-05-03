@@ -7,6 +7,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="film")
@@ -57,5 +58,9 @@ public class Film {
             inverseJoinColumns = @JoinColumn(name = "director_id")
     )
     private List<Director> directores;
+
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "film")
+    private Set<FilmList> filmLists;
 
 }

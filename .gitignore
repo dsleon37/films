@@ -10,3 +10,4 @@ spring-boot-films/src/main/resources/application.properties
 *.properties
 spring-boot-films/src/main/resources/application.properties
 *.properties
+.DS_Store
