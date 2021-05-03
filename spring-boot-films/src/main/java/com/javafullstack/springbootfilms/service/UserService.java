@@ -17,7 +17,7 @@ import java.util.Collections;
 import java.util.List;
 
 @Service
-public class UserService implements UserDetailsService{
+public class UserService implements IUserService, UserDetailsService{
 
     private Logger logger = LoggerFactory.getLogger(UserService.class);
 
@@ -35,5 +35,10 @@ public class UserService implements UserDetailsService{
         List<GrantedAuthority> authority = Collections.singletonList(new SimpleGrantedAuthority(user.getRole().getRole()));
 
         return new User(user.getUserName(), user.getPassword() ,  true,  true,  true,  true, authority);
+    }
+
+    @Override
+    public com.javafullstack.springbootfilms.entity.User findByUserName(String userName) {
+        return userRepository.findByUserName(userName);
     }
 }
