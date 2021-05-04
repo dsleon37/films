@@ -12,12 +12,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.Collections;
 import java.util.List;
 
-@CrossOrigin("http://localhost:4200")
 @Service
 public class UserService implements IUserService, UserDetailsService{
 
@@ -25,6 +23,7 @@ public class UserService implements IUserService, UserDetailsService{
 
     @Autowired
     private UserRepository userRepository;
+
 
     @Override
     @Transactional(readOnly = true)
@@ -42,5 +41,10 @@ public class UserService implements IUserService, UserDetailsService{
     @Override
     public com.javafullstack.springbootfilms.entity.User findByUserName(String userName) {
         return userRepository.findByUserName(userName);
+    }
+
+    public com.javafullstack.springbootfilms.entity.User save(com.javafullstack.springbootfilms.entity.User user){
+        System.out.println(user.getUserName());
+        return userRepository.save(user);
     }
 }
