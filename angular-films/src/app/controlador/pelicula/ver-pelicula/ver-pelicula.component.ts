@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { LoginService } from 'src/app/modelo/login/login.service';
 import { MiListaService } from 'src/app/modelo/pelicula/mi-lista.service';
 import { ServicioPeliculaService } from 'src/app/modelo/pelicula/servicio-pelicula.service';
+import { User } from 'src/app/modelo/user';
 import { Categoria } from '../categoria';
 import { Pelicula } from '../pelicula';
 import { PeliculasLista } from '../peliculas_lista';
@@ -21,6 +22,7 @@ export class VerPeliculaComponent implements OnInit {
   favorito: any;
   mensaje:string;
   mensajeError:string;
+  usuario:User;
 
   constructor(private peliculaService: ServicioPeliculaService,
     private peliculasListaService: MiListaService,
@@ -59,7 +61,8 @@ export class VerPeliculaComponent implements OnInit {
   }
 
   agregarMiLista(check:any, idPelicula:number){
-    const idUser = 1;//Cambiar por usuario de sesion
+    this.usuario = this.loginService.user;
+    const idUser =+ this.loginService.id;
     this.peliculasListaService.getFilmsByFilm(idUser,idPelicula).subscribe(data => { 
       this.peliculaLista = data._embedded.filmLists[0];
       if (this.agregar) {
@@ -85,7 +88,7 @@ export class VerPeliculaComponent implements OnInit {
        });
     } else {
       const peliculaNueva = new PeliculasLista();
-      const idUser = 1;
+      const idUser =+ this.loginService.id;
       peliculaNueva.user = "http://localhost:8080/api/users/"+idUser;
       peliculaNueva.film = "http://localhost:8080/api/films/"+this.pelicula.id;
       peliculaNueva.views = false;
@@ -117,15 +120,15 @@ export class VerPeliculaComponent implements OnInit {
        });
     } else {
       const peliculaNueva = new PeliculasLista();
-      const idUser = 1; //Cambiar por suuario en sesion
+      const idUser =+ this.loginService.id;
       peliculaNueva.user = "http://localhost:8080/api/users/"+idUser;
       peliculaNueva.film = "http://localhost:8080/api/films/"+this.pelicula.id;
-      peliculaNueva.views = false;
+      peliculaNueva.views = true;
       peliculaNueva.favorite = true;
       console.log(peliculaNueva);
       this.peliculasListaService.postGuardarPelicula(peliculaNueva).subscribe({
         next: response => {
-          this.mensaje = `Pelicula ${this.pelicula.title} agregada a tu lista.`;
+          this.mensaje = `Pelicula ${this.pelicula.title} agregada a tu lista de favoritos.`;
           
         },
         error: err => {
