@@ -62,7 +62,7 @@ export class AltaPeliculaComponent implements OnInit {
     this.pelicula.category='http://localhost:8080/api/categories/'+this.idCategoria
     //funcion guardar
     this.ServicioPelicula.postPelicula(this.pelicula).subscribe(data => {console.log(data)})
-    this.altaPeliculaForm.reset();
+    this.altaPeliculaForm.reset(this.pelicula);
 
   }
 
