@@ -1,3 +1,4 @@
+import { ServicioPeliculaService } from 'src/app/modelo/pelicula/servicio-pelicula.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -30,7 +31,7 @@ import { FiltroPeliculasComponent } from './controlador/pelicula/filtro-pelicula
 
 const routes: Routes = [
   {path: 'filtro-pelicula/:keyword', component: CatalogoPorCategoriaComponent},
-  {path: 'alta-oferta', component: AltaOfertaComponent},
+  {path: 'alta-oferta/:id', component: AltaOfertaComponent},
   {path: 'user-signup', component: UserRegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'modificar-pelicula/:id', component: ModificarPeliculaComponent},
@@ -77,7 +78,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [UserService],
+  providers: [UserService,ServicioPeliculaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

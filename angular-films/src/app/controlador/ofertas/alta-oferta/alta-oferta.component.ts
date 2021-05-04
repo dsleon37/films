@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AltaOfertasService } from 'src/app/modelo/ofertas/alta-ofertas.service';
 import { Oferta } from '../common/oferta';
 import { FormsValidators } from 'src/app/validators/forms-validators';
@@ -17,8 +17,15 @@ export class AltaOfertaComponent implements OnInit {
   altaOfertaFormGroup: FormGroup;
   offers: Oferta[] = [];
   ofert: Oferta;
+  currentOfferId: number;
+  deleteId: number;
+  mensaje : string;
+  mensajeErr : string;
+ 
 
-  constructor(private formBuilder: FormBuilder, private altaOfertasService: AltaOfertasService, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private altaOfertasService: AltaOfertasService, private router: Router, private route: ActivatedRoute) {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+   }
 
   
   ngOnInit(): void {
@@ -32,14 +39,22 @@ export class AltaOfertaComponent implements OnInit {
       })
     })
   }
+  
   onSubmit(){
     if(this.altaOfertaFormGroup.invalid){
       this.altaOfertaFormGroup.markAllAsTouched();
     }else{
       this.ofert = this.altaOfertaFormGroup.get('newOferta').value
       this.ofert.userId = "http://localhost:8080/api/cinemas/1"/*+UserID*/;
-      console.log(this.ofert);
-      this.altaOfertasService.registerOffer(this.ofert);
+      console.log('oferta', this.ofert);
+      this.altaOfertasService.registerOffer(this.ofert).subscribe({
+        next: response =>{
+          this.mensaje = "Se ha registrado correctamente la oferta.";
+        },
+        error: err => {
+          this.mensajeErr = `Error al registrar oferta: `+err.message;
+        }
+      });
     }
 }
   listOffers() {
@@ -50,9 +65,13 @@ export class AltaOfertaComponent implements OnInit {
     )
   }
   
-  deleteOffers(){
-    console.log(this.altaOfertaFormGroup.get('newOferta').value.id);
-    this.altaOfertasService.deleteOffer(this.altaOfertaFormGroup.get('newOferta').value.id, this.altaOfertaFormGroup.get('oferta').value.id);
-  }
+  deleteOffers(id: number){
+    /*this.route.paramMap.subscribe(() => {
+      this.currentOfferId = +this.route.snapshot.paramMap.get('id')
 
+    })*/
+    console.log("Esto esta dentro del delete");
+    console.log(id);
+    this.altaOfertasService.deleteOffer(id, this.ofert);
+  }
 }

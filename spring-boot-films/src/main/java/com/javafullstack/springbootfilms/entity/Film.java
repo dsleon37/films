@@ -1,6 +1,5 @@
 package com.javafullstack.springbootfilms.entity;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -35,9 +34,14 @@ public class Film {
     @Column(name="date")
     private Date date;
 
+
+
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
+
+
+
 
     /**
      * Actores.
