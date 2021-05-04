@@ -5,7 +5,8 @@
            <br>
             <img src="{{pelicula.imageUrl}}" alt="{{pelicula.title}}" class="img-ver">
             <a routerLink="/modificar-pelicula/{{pelicula.id}}" class="btn-sm primary-btn"> Modificar</a>
-            <a routerLink="/catalogo-peliculas" class="btn-sm primary-btn"> Eliminar</a>
+            <!--<a routerLink="/catalogo-peliculas" class="btn-sm primary-btn"> Eliminar</a>-->
+            <button class="btn btn-info deletebtn" routerLink="/catalogo-peliculas" (click) = "deletebtn()">Eliminar Pelicula</button>
         </div>
         <div class="col-sm-9">
             <div class="card-body">

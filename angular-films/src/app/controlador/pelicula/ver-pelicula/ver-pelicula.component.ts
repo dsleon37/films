@@ -11,6 +11,7 @@ import { Pelicula } from '../pelicula';
 })
 export class VerPeliculaComponent implements OnInit {
 
+  peliculas: Pelicula[] = [];
   pelicula: Pelicula = new Pelicula;
   categoriaPelicula: Categoria = new Categoria;
 
@@ -40,6 +41,12 @@ export class VerPeliculaComponent implements OnInit {
           );
         }
       });
+  }
+
+  deletebtn(){
+    let mytitle = this.pelicula;
+    this.peliculaService.deletePelicula(this.pelicula.id);
+    alert(`La Pelicula ${mytitle.title} fue eliminado del sistema`);
   }
 
 }
