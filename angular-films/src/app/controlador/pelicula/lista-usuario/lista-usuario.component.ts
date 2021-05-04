@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { LoginService } from 'src/app/modelo/login/login.service';
 import { MiListaService } from 'src/app/modelo/pelicula/mi-lista.service';
 import { ServicioPeliculaService } from 'src/app/modelo/pelicula/servicio-pelicula.service';
 import { Pelicula } from '../pelicula';
@@ -17,7 +18,8 @@ export class ListaUsuarioComponent implements OnInit {
   peliculasVistas: Pelicula[];
 
   constructor(private servicioLista: MiListaService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              public loginService:LoginService) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(() => {
@@ -26,8 +28,7 @@ export class ListaUsuarioComponent implements OnInit {
     
   }
   traerPeliculas(){
-    //Cambiar usuario por el de sesion
-    const idUsuario = 1;
+    const idUsuario =+ this.loginService.id;
     this.servicioLista.getFilmsMyList(idUsuario).subscribe(
       data => { this.peliculasMiLista = data._embedded.films;
       });
