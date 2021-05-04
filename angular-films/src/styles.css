@@ -1,4 +1,4 @@
-f/* 
+/* 
  * ----------------------------
  * Common CSS
  * ----------------------------
@@ -513,7 +513,7 @@ input.au-input.au-input-xl{
     background:#fff
 }
 .main-content.page-m{
-    padding:10% 30% 10% 5% 
+    padding:10% 30% 10% 5%
 }
 
 /* 
@@ -524,7 +524,7 @@ input.au-input.au-input-xl{
 
 
 .product-box img{
-    width: 80%;
+    width: 220px;
     height: 260px;
     
 }

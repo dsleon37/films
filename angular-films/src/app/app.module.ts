@@ -1,4 +1,3 @@
-import { ServicioPeliculaService } from 'src/app/modelo/pelicula/servicio-pelicula.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -28,8 +27,10 @@ import { UserStatusComponent } from './vista/user-status/user-status.component';
 import { ModificarPeliculaComponent } from './controlador/pelicula/modificar-pelicula/modificar-pelicula.component';
 import { LoginComponent } from './vista/login/login.component';
 import { FiltroPeliculasComponent } from './controlador/pelicula/filtro-peliculas/filtro-peliculas.component';
+import { ListaUsuarioComponent } from './controlador/pelicula/lista-usuario/lista-usuario.component';
 
 const routes: Routes = [
+  {path: 'lista-usuario', component: ListaUsuarioComponent},
   {path: 'filtro-pelicula/:keyword', component: CatalogoPorCategoriaComponent},
   {path: 'alta-oferta/:id', component: AltaOfertaComponent},
   {path: 'user-signup', component: UserRegisterComponent},
@@ -44,7 +45,6 @@ const routes: Routes = [
   {path: 'ver-ofertas', component: VerOfertasComponent},
   {path: 'catalogo-por-categoria/:id', component: CatalogoPorCategoriaComponent},
   {path: 'catalogo-peliculas', component: CatalogoPeliculasComponent},
-  {path: 'datos-pelicula', component: AltaDatosPeliculaComponent},
   {path: '', redirectTo: '/catalogo-peliculas', pathMatch: 'full'},
   {path: '**', redirectTo: '/catalogo-peliculas', pathMatch: 'full'}
 ];
@@ -68,7 +68,8 @@ const routes: Routes = [
     VerOfertasComponent,
     AplicarOfertaComponent,
     LoginComponent,
-    FiltroPeliculasComponent
+    FiltroPeliculasComponent,
+    ListaUsuarioComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -76,9 +77,9 @@ const routes: Routes = [
     HttpClientModule,
     NgbModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
-  providers: [UserService,ServicioPeliculaService],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

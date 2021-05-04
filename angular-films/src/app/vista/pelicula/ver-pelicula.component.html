@@ -3,18 +3,21 @@
         <div class="col-sm-3">
             <button routerLink="/catalogo-peliculas" class="btn-sm btn-danger" title="Atrás" alt="Atrás"> X </button>
            <br>
-            <img src="{{pelicula.imageUrl}}" alt="{{pelicula.title}}">
+            <img src="{{pelicula.imageUrl}}" alt="{{pelicula.title}}" class="img-ver">
             <a routerLink="/modificar-pelicula/{{pelicula.id}}" class="btn-sm primary-btn"> Modificar</a>
             <a routerLink="/catalogo-peliculas" class="btn-sm primary-btn"> Eliminar</a>
         </div>
         <div class="col-sm-9">
             <div class="card-body">
-                <h5 class="card-title">{{pelicula.title}}</h5>
+                <h3 class="card-title">{{pelicula.title}}</h3>
                 <p class="card-text">
                     {{pelicula.description}}
                 </p>
                 <p class="card-text">
-                    Fecha de estreno:{{pelicula.date | date: 'mediumDate'}}.
+                    <strong>Fecha de estreno: </strong>{{pelicula.date | date: 'mediumDate'}}.
+                </p>
+                <p class="card-text">
+                    <strong>Categoria: </strong>{{categoriaPelicula.name}}.
                 </p>
                 <!--<p class="card-text">
                     Director(es):

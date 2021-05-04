@@ -1,4 +1,3 @@
-<!--
 <div class="main-content page-m">
     <div class="section-content section-content-p30">
         <div class="container-fluid">
@@ -10,43 +9,46 @@
             <form [formGroup]="datosPeliculaFormGroup" (ngSubmit)="onSubmit()">
 
                 <div formGroupName="actor" class="form-area">
-                    <h3>Manejo de Actores</h3>
+                    <h3>Manejo de Datos</h3>
                     <div class="row">
                         <div class="col-md-2">
                             <label for="">Actor</label>
                         </div>
                         <div class="col-md-9">
-                            <div class="input-space">                                
-                                <select formControlName="name" >
+                            <div class="input-space">
+                                <select formControlName="name">
                                     <option>Elige el actor</option>
-                                    <option *ngFor="let actor of actores" >
-                                       {{actor.name}}
+                                    <option *ngFor="let actor of actores">
+                                        {{actor.name}}
                                     </option>
-                                </select>                            
+                                </select>
                             </div>
                         </div>
-                        <div class="col-md-1">  
-                            <button class="btn btn-primary btn-sm">
-                                <i (click)="addActors()" class="fas fa-plus"></i>
+                        <div class="col-md-1">
+                            <button (click)="addActors()" class="btn btn-primary btn-sm">
+                                <i  class="fas fa-plus"></i>
                             </button>
                         </div>
                     </div>
-                    <div >
-                        <h4>Actores de  {{pelicula.title}}:</h4>
+                    <div>
+                        <h4>Actores de {{pelicula.title}}:</h4>
                         <ul>
                             <li *ngFor="let a of actoresPelicula">
                                 <div class="row">
-                                    <div class="col"><h4>{{a.name}}</h4></div>
                                     <div class="col">
-                                        <button class="btn  btn-primary btn-sm">
-                                            <i (click)="delActors(a)" class="fas fa-minus"></i>
+                                        <h4>{{a.name}}</h4>
+                                    </div>
+                                    <div class="col">
+                                        <button (click)="delActors(a)"  class="btn  btn-primary btn-sm">
+                                            <i class="fas fa-minus"></i>
                                         </button>
-                                    </div>                                    
-                                </div>                               
-                            </li>                            
+                                    </div>
+                                </div>
+                            </li>
                         </ul>
-                    </div>     
-                
+
+                    </div>
+
                 </div>
 
                 <div formGroupName="director" class="form-area">
@@ -56,66 +58,48 @@
                             <label for="">Director</label>
                         </div>
                         <div class="col-md-9">
-                            <div class="input-space">                                
-                                <select formControlName="name" >
+                            <div class="input-space">
+                                <select formControlName="name">
                                     <option>Elige el director</option>
                                     <option *ngFor="let director of directores">
-                                       {{director.name}}
+                                        {{director.name}}
                                     </option>
-                                </select>                            
+                                </select>
                             </div>
                         </div>
-                        <div class="col-md-1">  
-                            <button class="btn btn-primary btn-sm">
-                                <i (click)="addDirectors()" class="fas fa-plus"></i>
+
+                        <div class="col-md-1">
+                            <button (click)="addDirectors()" class="btn btn-primary btn-sm">
+                                <i  class="fas fa-plus"></i>
                             </button>
                         </div>
                     </div>
-                    <div >
+
+
+                    <div>
                         <h4>Directores de {{pelicula.title}}:</h4>
                         <ul>
                             <li *ngFor="let d of directoresPelicula">
                                 <div class="row">
-                                    <div class="col"><h4>{{d.name}}</h4></div>
                                     <div class="col">
-                                        <button class="btn  btn-primary btn-sm">
-                                            <i (click)="delDirectors(d)" class="fas fa-minus"></i>
+                                        <h4>{{d.name}}</h4>
+                                    </div>
+                                    <div class="col">
+                                        <button (click)="delDirectors(d)" class="btn  btn-primary btn-sm">
+                                            <i class="fas fa-minus"></i>
                                         </button>
-                                    </div>                                        
+                                    </div>
                                 </div>
                             </li>
-                            
                         </ul>
-
                     </div>
-                    <!--
-                    <div class="row">
-                        <div class="col-md-2">
-                            <label for="">Categoría</label>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="input-space">
-                                
-                                <select formControlName="category_id" >
-                                    <option *ngFor="let category of categorias" [ngValue]="category">
-                                       {{category.name}}
-                                    </option>
-                                </select>                                                           
-                            </div>
-                        </div>
-                    </div>
-                
-
                 </div>
-
 
                 <div class="text-center">
                     <button type="submit" class="btn btn-info">Submit</button>
                 </div>
-            </form>    
+            </form>
 
         </div>
     </div>
 </div>
-
--->
