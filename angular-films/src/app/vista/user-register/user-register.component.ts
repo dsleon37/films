@@ -6,6 +6,9 @@ import { User } from 'src/app/modelo/user';
 import { UserService } from 'src/app/services/user.service';
 import { FormsValidators } from 'src/app/validators/forms-validators';
 
+
+
+
 @Component({
   selector: 'app-user-register',
   templateUrl: './user-register.component.html',
@@ -38,11 +41,13 @@ export class UserRegisterComponent implements OnInit {
 
   onSubmit(){
 
-
-
     if(this.loginService.hasRole('admin')){
       this.user = this.userRegisterFormGroup.get('newUser').value;
-      this.user.role = "http://localhost:8080/api/user-role/3";
+      this.user.role = {
+        id: 3,
+        role: "cinema"
+      };
+      //this.user.password = sha256(this.user.password);
       this.cinema = this.userRegisterFormGroup.get('newCinema').value;
 
       this.userService.registerUser(this.user).subscribe({
@@ -60,8 +65,12 @@ export class UserRegisterComponent implements OnInit {
       });
     }else {
       this.user = this.userRegisterFormGroup.get('newUser').value;
-      this.user.role = "http://localhost:8080/api/user-role/2";
-
+      //this.user.role = "http://localhost:8080/api/user-role/2";
+      //this.user.password = sha256(this.user.password);
+      this.user.role = {
+        id: 2,
+        role: "subscriber"
+      };
       this.userService.registerUser(this.user).subscribe({
         next: response => {
           let subscriber = {

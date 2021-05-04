@@ -29,6 +29,7 @@ import { LoginComponent } from './vista/login/login.component';
 import { FiltroPeliculasComponent } from './controlador/pelicula/filtro-peliculas/filtro-peliculas.component';
 import { ListaUsuarioComponent } from './controlador/pelicula/lista-usuario/lista-usuario.component';
 
+
 const routes: Routes = [
   {path: 'lista-usuario', component: ListaUsuarioComponent},
   {path: 'filtro-pelicula/:keyword', component: CatalogoPorCategoriaComponent},

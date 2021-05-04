@@ -14,7 +14,7 @@ import { User } from '../modelo/user';
 })
 export class UserService {
 
-  private userURL = 'http://localhost:8080/api/users';
+  private userURL = 'http://localhost:8080/api/users/save';
   private subscriberURL = 'http://localhost:8080/api/subscriber';
   private cinemaURL = 'http://localhost:8080/api/cinema';
 
@@ -46,7 +46,6 @@ export class UserService {
   }
 
   registerUser(user: User): Observable<any>{
-    console.log(user);
     return this.httpClient.post(this.userURL, user);
   }
 

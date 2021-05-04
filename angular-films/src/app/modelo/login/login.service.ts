@@ -93,8 +93,6 @@ export class LoginService {
   }
 
   hasRole(role : string): boolean {
-    //console.log('role:= ' + role)
-    //console.log("user.role= " + this.user.role)
     if(this.user.role == role){
       return true;
     }

@@ -1,6 +1,6 @@
 export class User {
     id: number ;
-    role: String;
+    role: any;
     userName: string ;
     password: string ;
     name: String;
