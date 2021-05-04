@@ -42,7 +42,7 @@ const routes: Routes = [
   {path: 'alta-pelicula', component: AltaPeliculaComponent},
   {path: 'datos-pelicula/:id', component: AltaDatosPeliculaComponent},
   {path: 'perfil', component: UserProfileComponent},
-  {path: 'aplicar-oferta', component: AplicarOfertaComponent},
+  {path: 'aplicar-oferta/:id', component: AplicarOfertaComponent},
   {path: 'ver-ofertas', component: VerOfertasComponent},
   {path: 'catalogo-por-categoria/:id', component: CatalogoPorCategoriaComponent},
   {path: 'catalogo-peliculas', component: CatalogoPeliculasComponent},

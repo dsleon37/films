@@ -6,6 +6,7 @@ import { Pelicula } from 'src/app/controlador/pelicula/pelicula';
 import { Actor } from 'src/app/controlador/pelicula/actor';
 import { Director } from 'src/app/controlador/pelicula/director';
 import { Categoria } from 'src/app/controlador/pelicula/categoria';
+import { PeliculasLista } from 'src/app/controlador/pelicula/peliculas_lista';
 
 
 @Injectable({
@@ -36,6 +37,14 @@ export class ServicioPeliculaService {
     return this.httpClient.get<Pelicula>(peliculaUrl);
   }
 
+  //Eliminar pelicula 
+  public deletePelicula(id:number) {
+    let searchUrl = `${this.baseUrl}/films/${id}`;
+    this.httpClient.delete(searchUrl).subscribe(data => {
+      console.log(data);
+    });
+  }
+
   //Trae categoria de una pelicula
   getCategoriaPelicula(idFilm:number): Observable<GetResponseCategoryFilm>{
     const peliculaUrl = `${this.baseUrl}/categories/search/categoryFilm?idFilm=${idFilm}`;
@@ -54,7 +63,12 @@ export class ServicioPeliculaService {
     return this.httpClient.patch<Pelicula>(searchUrl, pelicula);
   }
 
-
+   //Registrar pelicula
+   postPelicula(pelicula:Pelicula): Observable<Pelicula>{
+    const searchUrl = `${this.baseUrl}/films`;
+    return this.httpClient.post<Pelicula>(searchUrl, pelicula);
+    
+  }
 
   getCategories(): Observable<GetResponseCategories> {
     const searchUrl = `${this.baseUrl}/categories`;                      

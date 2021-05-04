@@ -10,7 +10,7 @@ export class LoginService {
 
   private _user: User;
   private _token: string;
-  private _id: number;
+  private _id: string;
 
   private authURL ='http://localhost:8080/oauth/token';
   private credenciales = btoa('angularapp' + ':'+'12345');
@@ -40,6 +40,16 @@ export class LoginService {
     return null;
   }
 
+  public get id(): string{
+    if(this._id != null ){
+      return this._id
+    }else if(this._id == null && sessionStorage.getItem('id') != null){
+      this._id = JSON.parse(sessionStorage.getItem('id')) as string;
+      return this._id;
+    }
+    return this._id;
+  }
+
   login(user: User): Observable<any>{
 
     let params = new URLSearchParams();
@@ -50,6 +60,7 @@ export class LoginService {
     return this.http.post(this.authURL, params.toString(), {headers: this.httpHeaders })
 
   }
+  
 
   saveUsername(accessToken: string){
     let payload = this.obtenerDatosToke(accessToken);
@@ -63,8 +74,15 @@ export class LoginService {
     sessionStorage.setItem('token', accessToken);
   }
 
-  saveId(id: number){
-    
+  saveId(id: string){
+    this._id=id;
+    sessionStorage.setItem('id', id);
+    console.log(this._id);
+  }
+
+  obtenerUsuario(accessToken: string){
+    this._user = new User();
+
   }
 
   obtenerDatosToke(accessToken: string){

@@ -1,0 +1,33 @@
+.form-area{
+    background:local;
+    position:relative;
+    margin-bottom:45px;
+    padding:50px 20px;
+    border:3px solid #ccc
+}
+.form-area h3{
+    position:absolute;
+    top:-26px;
+    left:13px;
+    background:#e5e5e5;
+    color: rgb(0, 24, 46);;
+    padding:10px 20px;
+    font-weight:500;
+    z-index:23;
+    display:inline-block
+}
+.form-area label{
+    color: white;
+}
+
+.form-area input[type="text"],
+.form-area input[type="date"],
+.form-area textarea {
+    transition: all 0, 30s ease-in-out;
+    outline: none;
+    box-sizing: border-box;
+    background: #fff;
+    margin-bottom: 4%;
+    border: 1px solic #ccc;
+    color: #555;
+}

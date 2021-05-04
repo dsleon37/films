@@ -23,8 +23,4 @@ export class CatalogoPeliculasComponent implements OnInit {
         this.servicioPeliculas.getFilmsListPaginate(1, 100).subscribe(data => { this.peliculas = data._embedded.films });
   }
 
-  verPelicula(pelicula: Pelicula) {
-
-  }
-
 }
