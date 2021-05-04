@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ServicioPeliculaService } from 'src/app/modelo/pelicula/servicio-pelicula.service';
 import { Categoria } from '../categoria';
 import { Pelicula } from '../pelicula';
+import { Actor } from '../actor';
+import { Director } from '../director';
 
 @Component({
   selector: 'app-ver-pelicula',
@@ -13,6 +15,9 @@ export class VerPeliculaComponent implements OnInit {
 
   pelicula: Pelicula = new Pelicula;
   categoriaPelicula: Categoria = new Categoria;
+
+  actoresPelicula: Actor[] = [];
+  directoresPelicula: Director[] = [];
 
   constructor(private peliculaService: ServicioPeliculaService,
     private route: ActivatedRoute) { }
@@ -41,5 +46,26 @@ export class VerPeliculaComponent implements OnInit {
         }
       });
   }
+
+
+  getActorsOfFilm(peliculaId: number) {
+    this.peliculaService.getActorsOfFilm(peliculaId).subscribe(
+      data => {
+        this.actoresPelicula = data._embedded.actors;
+        console.log('Actores de Pelicula:');
+        console.log(JSON.stringify(data._embedded.actors));
+      }
+    );
+  }
+  getDirectorsOfFilm(peliculaId: number) {
+    this.peliculaService.getDirectorsOfFilm(peliculaId).subscribe(
+      data => {
+        this.directoresPelicula = data._embedded.directors;
+        //console.log('Directores de Pelicula:');
+        //console.log(JSON.stringify(data._embedded.directors));
+      }
+    );
+  }
+
 
 }

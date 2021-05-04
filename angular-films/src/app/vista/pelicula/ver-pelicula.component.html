@@ -19,12 +19,23 @@
                 <p class="card-text">
                     <strong>Categoria: </strong>{{categoriaPelicula.name}}.
                 </p>
-                <!--<p class="card-text">
-                    Director(es):
-                </p>
                 <p class="card-text">
                     Actores(es):
-                </p>-->
+                </p>
+                <ul>
+                    <li *ngFor="let a of actoresPelicula">                           
+                        <h4>{{a.name}}</h4>                             
+                    </li>
+                </ul>            
+                <p class="card-text">
+                    Director(es):
+                </p>
+                <ul>
+                    <li *ngFor="let d of directoresPelicula">                            
+                        <h4>{{d.name}}</h4>                                                            
+                    </li>
+                </ul>
+                
             </div>
             <div class="card-footer">
                     <p>Disponible en los siguientes cinemas:</p>

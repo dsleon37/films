@@ -6,7 +6,8 @@ import { Pelicula } from 'src/app/controlador/pelicula/pelicula';
 import { Actor } from 'src/app/controlador/pelicula/actor';
 import { Director } from 'src/app/controlador/pelicula/director';
 import { Categoria } from 'src/app/controlador/pelicula/categoria';
-
+import { ActorPelicula} from 'src/app/controlador/pelicula/actor-pelicula';
+import { DirectorPelicula } from 'src/app/controlador/pelicula/director-pelicula';
 
 @Injectable({
   providedIn: 'root'
@@ -91,8 +92,16 @@ export class ServicioPeliculaService {
     return this.httpClient.get<Director>(directorUrl);
   }
 
-  postActoresPelicula(urlPelicula:string,urlActor:number){
+  postActoresPelicula(actorPelicula:ActorPelicula): Observable<ActorPelicula>{
+    console.log('en servicio:' + JSON.stringify(actorPelicula));
+    let dirUrlpostActorPelicula = `${this.baseUrl}/filmHasActors`;
+    return this.httpClient.post<any>(dirUrlpostActorPelicula, actorPelicula);
+  }
 
+  postDirectoresPelicula(directorPelicula:DirectorPelicula): Observable<DirectorPelicula>{
+    console.log('en servicio:' + JSON.stringify(directorPelicula));
+    let dirUrlpostDirectorPelicula = `${this.baseUrl}/filmHasDirectors`;
+    return this.httpClient.post<any>(dirUrlpostDirectorPelicula, directorPelicula);
   }
 
 }
