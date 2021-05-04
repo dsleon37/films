@@ -135,4 +135,10 @@ export class VerPeliculaComponent implements OnInit {
     }
   }
 
+  //Eliminar pelicula
+  deletebtn(){
+    let mypelicula = this.pelicula;
+    this.peliculaService.deleteFilm(this.pelicula.id);
+    alert(`La pelicula ${mypelicula.title} fue eliminado del sistema`);
+  }
 }
