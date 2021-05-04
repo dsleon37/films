@@ -76,7 +76,7 @@ const routes: Routes = [
     HttpClientModule,
     NgbModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [UserService,ServicioPeliculaService],
   bootstrap: [AppComponent]

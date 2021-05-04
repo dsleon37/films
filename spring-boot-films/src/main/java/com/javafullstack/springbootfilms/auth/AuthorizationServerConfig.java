@@ -13,9 +13,11 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.Arrays;
 
+@CrossOrigin("http://localhost:4200")
 @Configuration
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
@@ -35,6 +37,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         security.tokenKeyAccess("permitAll()")
         .checkTokenAccess("isAuthenticated()");
     }
+
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
