@@ -1,5 +1,95 @@
 <div class="main-content">
     <div class="row section-content section-content-p30">
-        
+        <h1>Mi lista</h1>
+        <div class="container-fluid">
+
+            <div class="row">
+                <!-- loop over the collection of products -->
+                <div *ngFor="let tempPelicula of peliculasMiLista" class="col-md-3">
+
+                    <div class="product-box ">
+
+                        <a routerLink="/ver-pelicula/{{ tempPelicula.id }}">
+                            <img src="{{ tempPelicula.imageUrl }}" class="img-responsive">
+                        </a>
+
+                        <a routerLink="/ver-pelicula/{{ tempPelicula.id }}" class="module line-clamp">
+                            <h1>{{ tempPelicula.title }}</h1>
+                            <h2>Fecha estreno:{{ tempPelicula.date | date: 'mediumDate'}}</h2>
+                            <p>{{ tempPelicula.description }}</p>
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- if products empty then display a message-->
+                <div *ngIf="peliculasMiLista?.length == 0" class="alert alert-warning col-md-12" role="alert">
+                    No se encontraron películas en tu lista.
+                </div>
+
+            </div>
+        </div>
+        <h2>Favoritos</h2>
+        <div class="container-fluid">
+
+            <div class="row">
+                <!-- loop over the collection of products -->
+                <div *ngFor="let tempFavoritas of peliculasFavoritas" class="col-md-3">
+
+                    <div class="product-box ">
+
+                        <a routerLink="/ver-pelicula/{{ tempFavoritas.id }}">
+                            <img src="{{ tempFavoritas.imageUrl }}" class="img-responsive">
+                        </a>
+
+                        <a routerLink="/ver-pelicula/{{ tempFavoritas.id }}" class="module line-clamp">
+                            <h1>{{ tempFavoritas.title }}</h1>
+                            <h2>Fecha estreno:{{ tempFavoritas.date | date: 'mediumDate'}}</h2>
+                            <p>{{ tempFavoritas.description }}</p>
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- if products empty then display a message-->
+                <div *ngIf="peliculasFavoritas?.length == 0" class="alert alert-warning col-md-12" role="alert">
+                    No se encontraron películas favoritas.
+                </div>
+
+            </div>
+        </div>
+        <h2>Vistas</h2>
+
+        <div class="container-fluid">
+
+            <div class="row">
+                <!-- loop over the collection of products -->
+                <div *ngFor="let tempVistas of peliculasVistas" class="col-md-3">
+
+                    <div class="product-box ">
+
+                        <a routerLink="/ver-pelicula/{{ tempVistas.id }}">
+                            <img src="{{ tempVistas.imageUrl }}" class="img-responsive">
+                        </a>
+
+                        <a routerLink="/ver-pelicula/{{ tempVistas.id }}" class="module line-clamp">
+                            <h1>{{ tempVistas.title }}</h1>
+                            <h2>Fecha estreno:{{ tempVistas.date | date: 'mediumDate'}}</h2>
+                            <p>{{ tempVistas.description }}</p>
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- if products empty then display a message-->
+                <div *ngIf="peliculasVistas?.length == 0" class="alert alert-warning col-md-12" role="alert">
+                    No se encontraron películas vistas.
+                </div>
+
+            </div>
+        </div>
     </div>
-</div>       
+</div>
