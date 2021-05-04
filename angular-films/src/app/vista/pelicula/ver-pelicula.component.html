@@ -25,6 +25,18 @@
                 <p class="card-text">
                     Actores(es):
                 </p>-->
+                <div class="price">
+                    <input type="checkbox" class="form-check-input" id="id_disponible">
+                    <span class="form-check-label" for="id_disponible"> Disponible en cinema</span>
+                </div>
+                <div class="price">
+                    <input type="checkbox" class="form-check-input" [(ngModel)]="checkbox"  data-md-icheck (change)="check($event)">
+                    <span class="form-check-label" for="id_agregar"> Agregar a mi lista</span>
+                </div>
+                <div class="price">
+                    <a type="checkbox" class="form-check-input"></a>
+                    <span class="form-check-label" for="id_disponible"> Marcar como favorito</span>
+                </div>
             </div>
             <div class="card-footer">
                     <p>Disponible en los siguientes cinemas:</p>

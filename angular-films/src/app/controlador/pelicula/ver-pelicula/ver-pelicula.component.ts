@@ -13,6 +13,7 @@ export class VerPeliculaComponent implements OnInit {
 
   pelicula: Pelicula = new Pelicula;
   categoriaPelicula: Categoria = new Categoria;
+  checkbox: boolean;
 
   constructor(private peliculaService: ServicioPeliculaService,
     private route: ActivatedRoute) { }
@@ -40,6 +41,13 @@ export class VerPeliculaComponent implements OnInit {
           );
         }
       });
+  }
+
+  agregarListaPeliculas(id:number){
+    console.log(id, this.checkbox);
+  }
+  check(check:any){
+    console.log(check);
   }
 
 }
