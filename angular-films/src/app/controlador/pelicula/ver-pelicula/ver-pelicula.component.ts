@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { LoginService } from 'src/app/modelo/login/login.service';
 import { MiListaService } from 'src/app/modelo/pelicula/mi-lista.service';
 import { ServicioPeliculaService } from 'src/app/modelo/pelicula/servicio-pelicula.service';
 import { Categoria } from '../categoria';
@@ -23,7 +24,8 @@ export class VerPeliculaComponent implements OnInit {
 
   constructor(private peliculaService: ServicioPeliculaService,
     private peliculasListaService: MiListaService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    public loginService: LoginService) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(() => {

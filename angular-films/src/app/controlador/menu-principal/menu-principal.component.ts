@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LoginService } from 'src/app/modelo/login/login.service';
 import { ServicioPeliculaService } from 'src/app/modelo/pelicula/servicio-pelicula.service';
 import { Categoria } from '../pelicula/categoria';
 
@@ -15,7 +16,8 @@ export class MenuPrincipalComponent implements OnInit {
  
   constructor(private servicioPeliculas:ServicioPeliculaService,
               private route: ActivatedRoute,
-              private router: Router){
+              private router: Router,
+              public loginService: LoginService){
               this.router.routeReuseStrategy.shouldReuseRoute = () => false;
               }
 
