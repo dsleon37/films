@@ -21,10 +21,12 @@ import java.util.Arrays;
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/categories/{id}", "/api/films", "/api/categories", "api/films/{id}").permitAll()
+        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/categories/**", "/api/films/**", "/api/categories", "api/films/{id}","/api/actors/**","/api/directors","/api/filmHasActors").permitAll()
                 .antMatchers(HttpMethod.POST,"/api/users").permitAll()
                 .antMatchers(HttpMethod.POST,"/api/films/**").hasRole("admin")
                 .antMatchers(HttpMethod.POST,"/api/offers").hasRole("cinema")
+                .antMatchers(HttpMethod.POST,"/api/filmHasActors").permitAll()
+                .antMatchers(HttpMethod.POST,"/api/filmHasDirectors").permitAll()
                 .anyRequest().permitAll()
                 .and().cors().configurationSource(corsConfigurationSource());
     }

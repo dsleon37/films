@@ -198,23 +198,54 @@ export class AltaDatosPeliculaComponent implements OnInit {
   }
 
   delActors(a: Actor) {
-    let i = this.actoresPelicula.indexOf(a);
-    console.log('id en tabla:' + i);
-    if (i !== -1) {
-      this.actoresPelicula.splice(i, 1);
-      console.log(this.actoresPelicula.length);
-    }
+    //console.log('actor:' + a);
+    let idfilmHasActor = 0;
 
 
-    this.actores.forEach(element => {
-      if (element.id == a.id) {
-        this.actor.id = element.id;
+    Swal.fire({
+      title: 'Esta seguro?',
+      text: "Luego no podrá revertir esto!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, eliminar!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+        this.servicioPelicula.getfilmHasActorId(this.peliculaId,a.id).subscribe(
+          data => {
+            console.log('resp de servidor:' + JSON.stringify(data));
+            idfilmHasActor = data.id;
+            console.log('Id en la tabla para eliminar:' +idfilmHasActor);
+            this.delActorId(idfilmHasActor);
+          }
+        );
+        let i = this.actoresPelicula.indexOf(a);
+        if (i !== -1) {
+          this.actoresPelicula.splice(i, 1);
+          console.log(this.actoresPelicula.length);
+        }
+        Swal.fire(
+          'Eliminado!',
+          'El actor ha sido eliminado.',
+          'success'
+        )
+      }
+    })
+
+    
+  }
+  delActorId(idfilmHasActor:number){
+    this.servicioPelicula.deletefilmHasActor(idfilmHasActor).subscribe({
+      next: response => {
+        console.log('eliminado actor');
+      },
+      error: err => {
+        console.log('Error al eliminar actor en pelicula: ' + err.message);
       }
     });
-    console.log('id actor a eliminar: ' + a.id);
   }
-
-
   delDirectors(d: Director) {
     let i = this.directoresPelicula.indexOf(d);
     if (i !== -1) {
