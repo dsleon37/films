@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AltaOfertasService } from 'src/app/modelo/ofertas/alta-ofertas.service';
 import { Oferta } from '../common/oferta';
+import { FormsValidators } from 'src/app/validators/forms-validators';
 
 @Component({
   selector: 'app-alta-oferta',
@@ -15,34 +16,47 @@ export class AltaOfertaComponent implements OnInit {
 
   altaOfertaFormGroup: FormGroup;
   offers: Oferta[] = [];
-  ofert: Oferta = new Oferta;
+  ofert: Oferta;
+  currentOfferId: number;
+  deleteId: number;
+  mensaje : string;
+  mensajeErr : string;
+ 
 
-  constructor(private formBuilder: FormBuilder, private altaOfertasService: AltaOfertasService, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private altaOfertasService: AltaOfertasService, private router: Router, private route: ActivatedRoute) {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+   }
 
+  
+  ngOnInit(): void {
+    this.listOffers();
     this.altaOfertaFormGroup= this.formBuilder.group({
-      oferta: this.formBuilder.group({
-        description:  new FormControl('',[Validators.required,Validators.minLength(2)]),
-        deadline:  new FormControl('',[Validators.required]),
-        addPoints: new FormControl('', [Validators.required]),
-        subPoints: new FormControl('', [Validators.required]),
+      newOferta: this.formBuilder.group({
+        description:  new FormControl('',[Validators.required,Validators.minLength(2), FormsValidators.notOnlyWhitespace]),
+        deadline:  new FormControl('',[Validators.required, FormsValidators.notOnlyWhitespace]),
+        addPoints: new FormControl('', [Validators.required, FormsValidators.notOnlyWhitespace]),
+        subPoints: new FormControl('', [Validators.required, FormsValidators.notOnlyWhitespace]),
       })
     })
   }
-
-  ngOnInit(): void {
-    this.listOffers();
-    /*this.altaOfertaFormGroup= this.formBuilder.group({
-      oferta: this.formBuilder.group({
-        description:  new FormControl('',[Validators.required,Validators.minLength(2)]),
-        deadline:  new FormControl('',[Validators.required]),
-        addPoints: new FormControl('', [Validators.required]),
-        subPoints: new FormControl('', [Validators.required]),
-      })
-    })*/
-    /*this.api.getAllOffers(1).subscribe(data =>{
-      this.ofertas = data;
-    })*/
-  }
+  
+  onSubmit(){
+    if(this.altaOfertaFormGroup.invalid){
+      this.altaOfertaFormGroup.markAllAsTouched();
+    }else{
+      this.ofert = this.altaOfertaFormGroup.get('newOferta').value
+      this.ofert.userId = "http://localhost:8080/api/cinemas/1"/*+UserID*/;
+      console.log('oferta', this.ofert);
+      this.altaOfertasService.registerOffer(this.ofert).subscribe({
+        next: response =>{
+          this.mensaje = "Se ha registrado correctamente la oferta.";
+        },
+        error: err => {
+          this.mensajeErr = `Error al registrar oferta: `+err.message;
+        }
+      });
+    }
+}
   listOffers() {
     this.altaOfertasService.getaltaOffersList().subscribe(
       data => {
@@ -50,15 +64,14 @@ export class AltaOfertaComponent implements OnInit {
       }
     )
   }
+  
+  deleteOffers(id: number){
+    /*this.route.paramMap.subscribe(() => {
+      this.currentOfferId = +this.route.snapshot.paramMap.get('id')
 
-  deleteOffers(){
-    console.log(this.altaOfertaFormGroup.get('oferta').value.id);
-    this.altaOfertasService.deleteOffer(this.altaOfertaFormGroup.get('oferta').value.id);
-  }
-  //get description(){return this.altaOfertaFormGroup.get('oferta.description')}
-  onSubmit(){
- 
-      console.log(this.altaOfertaFormGroup.get('oferta').value);
-      this.altaOfertasService.registerOffer(this.altaOfertaFormGroup.get('oferta').value);
+    })*/
+    console.log("Esto esta dentro del delete");
+    console.log(id);
+    this.altaOfertasService.deleteOffer(id, this.ofert);
   }
 }

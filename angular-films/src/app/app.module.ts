@@ -32,20 +32,19 @@ import { ListaUsuarioComponent } from './controlador/pelicula/lista-usuario/list
 const routes: Routes = [
   {path: 'lista-usuario', component: ListaUsuarioComponent},
   {path: 'filtro-pelicula/:keyword', component: CatalogoPorCategoriaComponent},
-  {path: 'alta-oferta', component: AltaOfertaComponent},
+  {path: 'alta-oferta/:id', component: AltaOfertaComponent},
   {path: 'user-signup', component: UserRegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'modificar-pelicula/:id', component: ModificarPeliculaComponent},
   {path: 'video-pelicula/:id', component: VideoPeliculaComponent},
   {path: 'ver-pelicula/:id', component: VerPeliculaComponent},
   {path: 'alta-pelicula', component: AltaPeliculaComponent},
-  {path: 'datos-pelicula', component: AltaDatosPeliculaComponent},
+  {path: 'datos-pelicula/:id', component: AltaDatosPeliculaComponent},
   {path: 'perfil', component: UserProfileComponent},
   {path: 'aplicar-oferta', component: AplicarOfertaComponent},
   {path: 'ver-ofertas', component: VerOfertasComponent},
   {path: 'catalogo-por-categoria/:id', component: CatalogoPorCategoriaComponent},
   {path: 'catalogo-peliculas', component: CatalogoPeliculasComponent},
-  {path: 'datos-pelicula', component: AltaDatosPeliculaComponent},
   {path: '', redirectTo: '/catalogo-peliculas', pathMatch: 'full'},
   {path: '**', redirectTo: '/catalogo-peliculas', pathMatch: 'full'}
 ];
