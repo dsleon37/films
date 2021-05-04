@@ -91,6 +91,10 @@ export class ServicioPeliculaService {
     return this.httpClient.get<Director>(directorUrl);
   }
 
+  postActoresPelicula(urlPelicula:string,urlActor:number){
+
+  }
+
 }
 
 interface GetResponseFilms {
