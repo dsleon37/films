@@ -1,30 +1,93 @@
-<p *ngFor="let tempOffer of offers">
-    {{ tempOffer.description }}: {{ tempOffer.addPoints }}:
-</p>
-<div>
-    <table class="table table-striped table-hover table-light">
-        <thead>
-            <tr>
-                <th scope="col">Nº de oferta</th>
-                <th scope="col">Descripcion</th>
-                <th scope="col">Tiempo de Oferta</th>
-                <th scope="col">Puntos adicionales</th>
-                <th scope="col">Costo de puntos</th>
-                <th scope="col">Aplicar Oferta</th>
-                <th scope="col">Eliminar Oferta</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-            <tr *ngFor="let tempOffer of offers">>
-                <td>{{tempOffer.id}}</td>
-                <td>{{tempOffer.description}}</td>
-                <!--<td>{{tempOffer.deadline}}</td>-->
-                <td>{{tempOffer.addPoints}}</td>
-                <td>{{tempOffer.subPoints}}</td>
-                <td><button type="submit" class="btn btn-success">Aplicar Oferta</button></td>
-                <td><button type="submit" class="btn btn-danger">Eliminar Oferta</button></td>
-            </tr>
-        </tbody>
-    </table>
+<div class="main-content page-m">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+
+
+            <h1 class = "text-center">Aplicación Oferta Suscriptor</h1><br>
+
+            <div class="Oferta">
+                <label for="staticOffer" class="col-form-label text-light">DESCRIPCIÓN DE OFERTA</label>
+            </div><br>
+            <div class = "table-responsive-md">
+                <table class="table table-hover table-light">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nº de oferta</th>
+                            <th scope="col">Descripcion</th>
+                            <th scope="col">Tiempo de Oferta</th>
+                            <th scope="col">Puntos adicionales</th>
+                            <th scope="col">Costo de puntos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{offers.id}}</td>
+                            <td>{{offers.description}}</td>
+                            <td>{{offers.deadline}}</td>
+                            <td>{{offers.addPoints}}</td>
+                            <td>{{offers.subPoints}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="Oferta">
+                <label for="staticOffer" class="col-form-label text-light">FORMULARIO</label>
+            </div><br>
+            <form [formGroup]="aplicarOfertaFormGroup" (ngSubmit)="onSubmit()">
+                <div formGroupName= "newSuscriptor">
+
+                    <div class="form-group">
+                        <label for="id" class = "text-light">Id Suscriptor</label>
+                        <input formControlName= "id"
+                            class="form-control" 
+                            id="id" 
+                            placeholder="Id">
+                        <small id="nameHelp" class="form-text text-light">Por favor ingrese el User Id del suscriptor.</small>
+                    </div><br>
+
+                    <div class="row">
+
+                        <div class="col">
+                            <input formControlName= "points" 
+                            type="text"
+                            id = "points"
+                            class="form-control" 
+                            placeholder="TOTAL">
+                            <small id="nameHelp" class="form-text text-light">Por favor ingrese el monto total de puntos a añadir.</small>
+                        </div>
+                    </div><br>
+
+                    <br>
+                    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#mensajeDeConfirmacion">
+                        Aplicar Oferta
+                    </button>
+                </div>
+            </form>
+        </div> 
+    </div>
+</div>
+
+<!-- Mensaje de confirmación -->
+<div class="modal fade"
+    id="mensajeDeConfirmacion" 
+    tabindex="-1" 
+    role="dialog" 
+    aria-labelledby="mensajeDeConfirmacion" 
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-dark" id="mensajeDeConfirmacionTitle">Confirmación envío oferta</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Se ha enviado la oferta satisfactoriamente.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
 </div>
