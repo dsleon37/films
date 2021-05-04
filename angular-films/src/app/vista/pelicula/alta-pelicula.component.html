@@ -1,1 +1,80 @@
-<p>alta-pelicula works!</p>
+<div class="main-content paga-m">
+    <div class="section-comtent section-content-p30">
+        <div class="container-fluid">
+            <form (ngSubmit)="postBtn()">
+                <div  class="form-area">
+                    <h3>Alta de Peliculas</h3>
+  
+                    <div class="row">
+                        <div class="col-md-2"> <label>Titulo</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input  type="text" name="title" [(ngModel)]= "pelicula.title">                              
+                            </div>
+                        </div>
+                    </div>
+  
+                    <div class="row">
+                        <div class="col-md-2"> <label>Descripcion</label> </div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input type="text" name="description" [(ngModel)]= "pelicula.description">
+  
+                            </div>
+                        </div>
+                    </div>
+  
+                    <div class="row">
+                        <div class="col-md-2"> <label>Fecha</label> </div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input type="date" name="date" [(ngModel)]= "pelicula.date">
+  
+                            </div>
+                        </div>
+                    </div>
+  
+                    <div class="row">
+                        <div class="col-md-2"> <label>Imagen </label> </div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input type="text" name="imageUrl" [(ngModel)]= "pelicula.imageUrl">
+  
+  
+                            </div>
+                        </div>
+                    </div>
+  
+                    <div class="row">
+                        <div class="col-md-2"> <label>Video</label> </div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input  type="text" name="videoUrl" [(ngModel)]= "pelicula.videoUrl">
+  
+                            </div>
+                        </div>
+                    </div>
+  
+                    <div class="row">
+                      <div class="col-md-2"> <label>Categoria</label> </div>
+                      <div class="col-md-9">
+                          <div class="input-space">
+                              <input  type="text" name="category" [(ngModel)]= "idCategoria">
+  
+                          </div>
+                      </div>
+                  </div>
+  
+                  
+  
+  
+                </div>
+  
+                <div class="text-center">
+                    <button type="submit" class="btn btn-info">Registrar</button>
+                </div>
+  
+            </form>
+        </div>
+    </div>
+  </div>

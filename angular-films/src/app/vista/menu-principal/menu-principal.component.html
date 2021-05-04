@@ -18,8 +18,9 @@
                 </ul>
             </li>
             <li><a href="/alta-oferta">Ofertas</a></li>
+            <li><a href="/alta-pelicula">Alta peliculas</a></li>
             <li><a href="perfil"><span class="icon-earth"></span>Datos usuario</a></li>
-            <li><a href="lista-usuario"><span class="icon-earth"></span>Mi lista</a></li>
+            <li *ngIf="loginService.hasRole('subscriber')||loginService.hasRole('admin')"><a href="lista-usuario"><span class="icon-earth"></span>Mi lista</a></li>
         </ul>
     </nav>
 
