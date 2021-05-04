@@ -27,8 +27,10 @@ import { UserStatusComponent } from './vista/user-status/user-status.component';
 import { ModificarPeliculaComponent } from './controlador/pelicula/modificar-pelicula/modificar-pelicula.component';
 import { LoginComponent } from './vista/login/login.component';
 import { FiltroPeliculasComponent } from './controlador/pelicula/filtro-peliculas/filtro-peliculas.component';
+import { ListaUsuarioComponent } from './controlador/pelicula/lista-usuario/lista-usuario.component';
 
 const routes: Routes = [
+  {path: 'lista-usuario', component: ListaUsuarioComponent},
   {path: 'filtro-pelicula/:keyword', component: CatalogoPorCategoriaComponent},
   {path: 'alta-oferta', component: AltaOfertaComponent},
   {path: 'user-signup', component: UserRegisterComponent},
@@ -66,7 +68,8 @@ const routes: Routes = [
     VerOfertasComponent,
     AplicarOfertaComponent,
     LoginComponent,
-    FiltroPeliculasComponent
+    FiltroPeliculasComponent,
+    ListaUsuarioComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -74,7 +77,7 @@ const routes: Routes = [
     HttpClientModule,
     NgbModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

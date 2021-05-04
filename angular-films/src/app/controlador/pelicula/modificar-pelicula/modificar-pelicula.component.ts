@@ -38,12 +38,10 @@ export class ModificarPeliculaComponent implements OnInit {
     this.peliculaService.getPelicula(peliculaId).subscribe(
       data => {
         this.pelicula = data;
-        console.log(this.pelicula);
         if (this.pelicula.id >= 1) {
           this.peliculaService.getCategoriaPelicula(this.pelicula.id).subscribe(
             data =>{
               this.categoriaPelicula = data._embedded.categories[0];
-              console.log(this.categoriaPelicula);
             }
           );
         }
