@@ -57,10 +57,8 @@ export class VerPeliculaComponent implements OnInit {
   }
 
   agregarMiLista(check:any, idPelicula:number){
-    console.log(this.agregar);
-    console.log(this.favorito);
     const idUser = 1;//Cambiar por usuario de sesion
-    this.peliculasListaService.getFilmsByFilm(1,idPelicula).subscribe(data => { 
+    this.peliculasListaService.getFilmsByFilm(idUser,idPelicula).subscribe(data => { 
       this.peliculaLista = data._embedded.filmLists[0];
       if (this.agregar) {
         this.guardarLista(this.peliculaLista);

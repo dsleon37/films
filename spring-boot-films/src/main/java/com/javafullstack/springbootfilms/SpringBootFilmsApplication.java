@@ -7,7 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
-public class SpringBootFilmsApplication{
+public class SpringBootFilmsApplication implements CommandLineRunner {
+
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootFilmsApplication.class, args);
