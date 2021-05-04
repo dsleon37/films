@@ -54,7 +54,7 @@ export class LoginService {
   saveUsername(accessToken: string){
     let payload = this.obtenerDatosToke(accessToken);
     this._user = new User();
-    this._user.role = payload.authorities[1];
+    this._user.role = payload.authorities;
     sessionStorage.setItem('user', JSON.stringify(this._user));
   }
 
@@ -72,5 +72,14 @@ export class LoginService {
       return JSON.parse(atob(accessToken.split(".")[1]));
     }
     return null;
+  }
+
+  hasRole(role : string): boolean {
+    console.log('role:= ' + role)
+    console.log("user.role= " + this.user.role)
+    if(this.user.role == role){
+      return true;
+    }
+    return false;
   }
 }

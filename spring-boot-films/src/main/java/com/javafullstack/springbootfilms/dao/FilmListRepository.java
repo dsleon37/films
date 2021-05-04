@@ -12,4 +12,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @CrossOrigin("http://localhost:4200")
 @RepositoryRestResource
 public interface FilmListRepository extends JpaRepository<FilmList, Long>{
+
+    @Query(value = "SELECT * FROM film_list WHERE user_id = :idUser and film_id = :idFilm", nativeQuery = true)
+    Page<FilmList> findFilmListByFilm(Long idUser,Long idFilm, Pageable pageable);
+
 }
