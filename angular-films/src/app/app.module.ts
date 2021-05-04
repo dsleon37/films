@@ -32,7 +32,7 @@ import { ListaUsuarioComponent } from './controlador/pelicula/lista-usuario/list
 const routes: Routes = [
   {path: 'lista-usuario', component: ListaUsuarioComponent},
   {path: 'filtro-pelicula/:keyword', component: CatalogoPorCategoriaComponent},
-  {path: 'alta-oferta', component: AltaOfertaComponent},
+  {path: 'alta-oferta/:id', component: AltaOfertaComponent},
   {path: 'user-signup', component: UserRegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'modificar-pelicula/:id', component: ModificarPeliculaComponent},
@@ -69,7 +69,7 @@ const routes: Routes = [
     AplicarOfertaComponent,
     LoginComponent,
     FiltroPeliculasComponent,
-    ListaUsuarioComponent
+    ListaUsuarioComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
