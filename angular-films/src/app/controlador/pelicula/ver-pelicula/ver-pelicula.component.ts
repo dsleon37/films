@@ -53,7 +53,7 @@ export class VerPeliculaComponent implements OnInit {
         }
       });
   }
-
+  //eliminar peliculas
   deletebtn(){
     let mytitle = this.pelicula;
     this.peliculaService.deletePelicula(this.pelicula.id);
@@ -143,5 +143,6 @@ export class VerPeliculaComponent implements OnInit {
        });
     }
   }
+
 
 }

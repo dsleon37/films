@@ -9,7 +9,7 @@
            
             <div *ngIf="loginService.hasRole('admin')">
                 <a routerLink="/modificar-pelicula/{{pelicula.id}}" class="btn-sm primary-btn"> Modificar</a>
-                <button class="btn btn-info deletebtn" routerLink="/catalogo-peliculas" (click) = "deletebtn()">Eliminar Pelicula</button>
+                <a routerLink="/catalogo-peliculas" class="btn-sm primary-btn" (click) = "deletebtn()"> Eliminar</a>
             </div>
         </div>
         <div class="col-sm-9">
