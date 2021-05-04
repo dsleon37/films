@@ -37,6 +37,14 @@ export class ServicioPeliculaService {
     return this.httpClient.get<Pelicula>(peliculaUrl);
   }
 
+  //Eliminar pelicula 
+  public deletePelicula(id:number) {
+    let searchUrl = `${this.baseUrl}/films/${id}`;
+    this.httpClient.delete(searchUrl).subscribe(data => {
+      console.log(data);
+    });
+  }
+
   //Trae categoria de una pelicula
   getCategoriaPelicula(idFilm:number): Observable<GetResponseCategoryFilm>{
     const peliculaUrl = `${this.baseUrl}/categories/search/categoryFilm?idFilm=${idFilm}`;
