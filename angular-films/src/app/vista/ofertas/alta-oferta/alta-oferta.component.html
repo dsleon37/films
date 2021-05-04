@@ -77,14 +77,15 @@
                             <td>{{tempOffer.deadline}}</td>
                             <td>{{tempOffer.addPoints}}</td>
                             <td>{{tempOffer.subPoints}}</td>
-                            <td><app-cart-status></app-cart-status></td>
 
-                            <td><button type="submit" class="btn btn-info">Ver Oferta</button></td>
                             <td>
-                            <button (click) = "deleteOffers(tempOffer.id)"  class="btn btn-danger" data-toggle="modal" data-target="#deleteConfirmacion" >
-                                Eliminar Oferta
-                            </button>
+                                <button routerLink = "/aplicar-oferta/{{tempOffer.id}}" class="btn btn-secondary">Ver Oferta</button>
                             </td>
+                            <td>
+                                <button (click) = "deleteOffers(tempOffer.id)"  class="btn btn-danger" data-toggle="modal" data-target="#deleteConfirmacion" >
+                                    Eliminar Oferta
+                                </button>
+                            </td>  
                         </tr>
                     </tbody>
                 </table>

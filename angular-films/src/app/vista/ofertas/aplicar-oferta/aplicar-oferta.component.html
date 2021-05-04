@@ -3,68 +3,67 @@
         <div class="container-fluid">
 
 
-            <h1 class = "text-center">Aplicación Oferta Suscriptor</h1>
-            <form>
-                <div class="form-group row">
-                    <label for="staticOffer" class="col-sm-2 col-form-label text-light">Offer</label>
-                    <div class="col-sm-10">
-                    <input type="text" readonly class="form-control-plaintext text-light" id="staticOffer" value="Here should be the offer">
-                    </div>
-                </div><br>
+            <h1 class = "text-center">Aplicación Oferta Suscriptor</h1><br>
 
-                <div class="form-group">
-                    <label for="EmailSubscriber" class = "text-light">Email</label>
-                    <input type="email" 
-                        class="form-control" 
-                        id="EmailSubscriber" 
-                        aria-describedby="emailHelp" 
-                        placeholder="E-mail">
-                    <small id="emailHelp" class="form-text text-light">Por favor ingrese el E-mail del suscriptor.</small>
-                </div><br>
+            <div class="Oferta">
+                <label for="staticOffer" class="col-form-label text-light">DESCRIPCIÓN DE OFERTA</label>
+            </div><br>
+            <div class = "table-responsive-md">
+                <table class="table table-hover table-light">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nº de oferta</th>
+                            <th scope="col">Descripcion</th>
+                            <th scope="col">Tiempo de Oferta</th>
+                            <th scope="col">Puntos adicionales</th>
+                            <th scope="col">Costo de puntos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{offers.id}}</td>
+                            <td>{{offers.description}}</td>
+                            <td>{{offers.deadline}}</td>
+                            <td>{{offers.addPoints}}</td>
+                            <td>{{offers.subPoints}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="Oferta">
+                <label for="staticOffer" class="col-form-label text-light">FORMULARIO</label>
+            </div><br>
+            <form [formGroup]="aplicarOfertaFormGroup" (ngSubmit)="onSubmit()">
+                <div formGroupName= "newSuscriptor">
 
-                <div class="form-group">
-                    <label for="SubscriberName" class = "text-light">Nombres</label>
-                    <input class="form-control" 
-                        id="SubscriberName" 
-                        placeholder="Nombres">
-                    <small id="nameHelp" class="form-text text-light">Por favor ingrese los nombres del suscriptor.</small>
-                </div><br>
+                    <div class="form-group">
+                        <label for="id" class = "text-light">Id Suscriptor</label>
+                        <input formControlName= "id"
+                            class="form-control" 
+                            id="id" 
+                            placeholder="Id">
+                        <small id="nameHelp" class="form-text text-light">Por favor ingrese el User Id del suscriptor.</small>
+                    </div><br>
 
-                <div class="form-group">
-                    <label for="SubscriberLastname" class = "text-light">Apellidos</label>
-                    <input class="form-control" 
-                        id="SubscriberLastname" 
-                        placeholder="Apellidos">
-                    <small id="nameHelp" class="form-text text-light">Por favor ingrese los apellidos del suscriptor.</small>
-                </div><br>
+                    <div class="row">
 
-                <div class="form-group">
-                    <label for="SubscriberId" class = "text-light">Id Suscriptor</label>
-                    <input class="form-control" 
-                        id="SubscriberId" 
-                        placeholder="Id">
-                    <small id="nameHelp" class="form-text text-light">Por favor ingrese el User Id del suscriptor.</small>
-                </div><br>
+                        <div class="col">
+                            <input formControlName= "points" 
+                            type="text"
+                            id = "points"
+                            class="form-control" 
+                            placeholder="TOTAL">
+                            <small id="nameHelp" class="form-text text-light">Por favor ingrese el monto total de puntos a añadir.</small>
+                        </div>
+                    </div><br>
 
-                <div class="row">
-                    <div class="col">
-                      <input type="text" class="form-control" placeholder="Puntos a añadir">
-                    </div>
-                    <div class="col">
-                      <input type="text" class="form-control" placeholder="Puntos a restar">
-                    </div>
-                    <div class="col">
-                        <input type="text" readonly class="form-control" placeholder="Total de puntos">
-                        <small id="nameHelp" class="form-text text-light">TOTAL</small>
-                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#mensajeDeConfirmacion">
+                        Aplicar Oferta
+                    </button>
                 </div>
-                <br>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mensajeDeConfirmacion">
-                    Aplicar Oferta
-                </button>
             </form>
-        </div>
-        
+        </div> 
     </div>
 </div>
 
@@ -78,17 +77,16 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="mensajeDeConfirmacionTitle">Confirmación envío oferta</h5>
+                <h5 class="modal-title text-dark" id="mensajeDeConfirmacionTitle">Confirmación envío oferta</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                ¿Usted confirma el envío de la oferta?
+                Se ha enviado la oferta satisfactoriamente.
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary">Aplicar Oferta</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
