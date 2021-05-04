@@ -40,7 +40,7 @@
                     <span class="form-check-label" for="id_favorito"> Marcar como favorito</span>
                 </div>
             </div>
-            <div class="card-footer" *ngIf="!loginService.hasRole('cinema')">
+            <div class="card-footer" *ngIf="loginService.hasRole('subscriber')||loginService.hasRole('admin')">
                     <p>Disponible en los siguientes cinemas:</p>
                     <ul>
                         <li>

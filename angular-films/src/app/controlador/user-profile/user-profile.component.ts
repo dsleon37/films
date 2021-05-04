@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
+import { LoginService } from 'src/app/modelo/login/login.service';
 import { UserProfileService } from 'src/app/modelo/user-profile/user-profile.service';
 import { User } from './user';
 
@@ -19,12 +20,15 @@ export class UserProfileComponent implements OnInit {
 
   users: User[] = [];
   user: User = new User;
+  idUser:number;
 
   constructor(private servicioUser:UserProfileService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    public loginService: LoginService) { }
 
   ngOnInit(): void {
+   this.idUser =+ this.loginService.id;
     this.getUser();
   }
 
@@ -36,7 +40,8 @@ export class UserProfileComponent implements OnInit {
 
   getUser(){
     //Este id de parámetro debe venir del usuario loggeado
-    this.servicioUser.getUser(2).subscribe(data =>{this.user = data})
+    
+    this.servicioUser.getUser(this.idUser).subscribe(data =>{this.user = data})
   
     //this.router.navigateByUrl(`/catalogo-peliculas/${id}`);
   }
