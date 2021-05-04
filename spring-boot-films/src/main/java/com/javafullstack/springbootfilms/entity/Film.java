@@ -42,6 +42,7 @@ public class Film {
     /**
      * Actores.
      */
+    @Column(nullable = true)
     @ManyToMany
     @JoinTable(name = "film_has_actor",
             joinColumns = @JoinColumn(name = "film_id"),
@@ -52,7 +53,7 @@ public class Film {
     /**
      * Directores.
      */
-
+    @Column(nullable = true)
     @ManyToMany
     @JoinTable(name = "film_has_director",
             joinColumns = @JoinColumn(name = "film_id"),
@@ -60,14 +61,15 @@ public class Film {
     )
     private List<Director> directores;
 
-
+    @Column(nullable = true)
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "film")
     private Set<FilmList> filmLists;
 
+    @Column(nullable = true)
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "actor")
     private Set<FilmHasActor> filmHasActors;
 
-
+    @Column(nullable = true)
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "director")
     private Set<FilmHasDirector> filmHasDirectors;
 

@@ -54,7 +54,12 @@ export class ServicioPeliculaService {
     return this.httpClient.patch<Pelicula>(searchUrl, pelicula);
   }
 
-
+   //Registrar pelicula
+   postPelicula(pelicula:Pelicula): Observable<Pelicula>{
+    const searchUrl = `${this.baseUrl}/films`;
+    return this.httpClient.post<Pelicula>(searchUrl, pelicula);
+    
+  }
 
   getCategories(): Observable<GetResponseCategories> {
     const searchUrl = `${this.baseUrl}/categories`;                      
