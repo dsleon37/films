@@ -19,8 +19,8 @@
             </li>
             <li *ngIf="loginService.hasRole('cinema')"><a href="/alta-oferta/1">Gestión de ofertas</a></li>
             <li><a href="/ver-ofertas">Ofertas</a></li>
-            <li><a href="/alta-pelicula">Alta peliculas</a></li>
-            <li><a href="perfil"><span class="icon-earth"></span>Datos usuario</a></li>
+            <li *ngIf="loginService.hasRole('admin')"><a href="/alta-pelicula">Alta peliculas</a></li>
+            <li *ngIf="loginService.hasRole('subscriber')||loginService.hasRole('admin')"><a href="perfil"><span class="icon-earth"></span>Datos usuario</a></li>
             <li *ngIf="loginService.hasRole('subscriber')||loginService.hasRole('admin')"><a href="lista-usuario"><span class="icon-earth"></span>Mi lista</a></li>
         </ul>
     </nav>
