@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ServicioPeliculaService } from 'src/app/modelo/pelicula/servicio-pelicula.service';
+import { Categoria } from '../categoria';
 import { Pelicula } from '../pelicula';
 
 @Component({
@@ -11,6 +12,7 @@ import { Pelicula } from '../pelicula';
 export class VerPeliculaComponent implements OnInit {
 
   pelicula: Pelicula = new Pelicula;
+  categoriaPelicula: Categoria = new Categoria;
 
   constructor(private peliculaService: ServicioPeliculaService,
     private route: ActivatedRoute) { }
@@ -29,6 +31,14 @@ export class VerPeliculaComponent implements OnInit {
     this.peliculaService.getPelicula(peliculaId).subscribe(
       data => {
         this.pelicula = data;
+        if (this.pelicula.id >= 1) {
+          this.peliculaService.getCategoriaPelicula(this.pelicula.id).subscribe(
+            data =>{
+              this.categoriaPelicula = data._embedded.categories[0];
+              console.log(this.categoriaPelicula);
+            }
+          );
+        }
       });
   }
 

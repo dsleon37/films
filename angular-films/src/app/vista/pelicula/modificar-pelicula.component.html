@@ -1,5 +1,6 @@
 <div class="main-content page-m">
     <div class="section-content section-content-p30">
+        
         <div class="container-fluid">
             <h2> Modificar Película</h2>
             <br>
@@ -42,42 +43,66 @@
                         <div class="col-md-2"> <label>Url video</label></div>
                         <div class="col-md-9">
                             <div class="input-space">
-                                <input type="text" name="videoUrl" [(ngModel)]="pelicula.videoUrl">
+                                <input type="text" name="videoUrl" [(ngModel)]="pelicula.videoUrl" required="required">
                             </div>
                         </div>
                     </div>
 
-                    <!--<div class="row">
+                    <div class="row">
                         <div class="col-md-2">
-                            <label for="">Imagen:</label>
+                            <label for="">Categoria:</label>
                         </div>
                         <div class="col-md-9">
                         <div class="input-space">
-                                <select [(ngModel)]="categoria_id" name="categoria_id">
+                                <select [(ngModel)]="categoriaPelicula.id" name="categoria_id">
+                                    <option value="{{categoriaPelicula.id}}" selected></option>
                                     <option *ngFor="let categoria of categorias" [ngValue]="categoria.id">
                                         {{categoria.name}}
                                     </option>
                                 </select>
                             </div>
                         </div>
-                    </div>-->
+                    </div>
                     <div class="row">
                         <div class="col-md-9">
                             <button routerLink="/catalogo-peliculas" class="btn btn-danger right">Cancelar</button>
                         </div>
                         <div class="col-md-3">
-                            <button type="submit" class="btn btn-info right-align">Guardar</button>
+                            <button type="submit" class="btn btn-info right-align" data-toggle="modal" data-target="#mensajeDeConfirmacion">Guardar</button>
                         </div>
                         
                     </div>
                 </div>
             </form>
-            <div *ngIf="mensaje?.length " class="alert alert-success col-md-12" role="alert">
-               {{mensaje}} --- 
-               <button routerLink="/catalogo-peliculas" class="btn btn-info right">Volver al catálogo de películas</button>
+        </div>
+    </div>
+</div>
+
+<!-- Mensaje de confirmación -->
+<div class="modal fade"
+    id="mensajeDeConfirmacion" 
+    tabindex="-1" 
+    role="dialog" 
+    aria-labelledby="mensajeDeConfirmacion" 
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-dark" id="mensajeDeConfirmacionTitle">Mensaje</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-            <div *ngIf="mensajeError?.length" class="alert alert-danger col-md-12" role="alert">
-               {{mensajeError}}
+            <div class="modal-body">
+                <div *ngIf="mensaje?.length" class="alert alert-success alert-dismissible fade show col-md-12" role="alert">
+                    {{mensaje}}
+                </div>
+                <div *ngIf="mensajeError?.length" class="alert alert-danger alert-dismissible fade show col-md-12" role="alert">
+                    {{mensajeError}}
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>

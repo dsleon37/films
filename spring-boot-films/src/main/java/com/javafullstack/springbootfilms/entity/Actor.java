@@ -19,6 +19,9 @@ public class Actor {
     private Long id;
     @Column(name="name")
     private String name;
-    @ManyToMany(mappedBy = "actores")
-    List<Film> peliculas;
+    //@ManyToMany(mappedBy = "actores")
+    //List<Film> peliculas;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "actor")
+    private Set<FilmHasActor> filmHasActors;
 }

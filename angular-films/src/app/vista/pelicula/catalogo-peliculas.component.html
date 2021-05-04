@@ -34,38 +34,16 @@
         <div class="container-fluid">
            
             <div class="row">
-<!-- loop over the collection of products -->
-<div *ngFor="let tempPelicula of peliculas" class="col-md-3">
-
-    <div class="product-box">
-
-        <a routerLink="/ver-pelicula/{{ tempPelicula.id }}">
-            <img src="{{ tempPelicula.imageUrl }}" class="img-responsive">
-        </a>
-
-        <a routerLink="/ver-pelicula/{{ tempPelicula.id }}">
-            <h1>{{ tempPelicula.title }}</h1>
-            <h2>{{ tempPelicula.date }}</h2>
-            <h2>Fecha estreno:{{ tempPelicula.date | date: 'mediumDate'}}</h2>
-            <h2>{{ tempPelicula.description }}</h2>
-        </a>
-        <div class="price">{{ '92.000'| currency: "COP" :" $ " }}</div>
-    </div>
                 <!-- loop over the collection of products -->
                 <div *ngFor="let tempPelicula of peliculas" class="col-md-3">
 
-                    <div class="product-box">
+                    <div class="product-box ">
 
                         <a routerLink="/ver-pelicula/{{ tempPelicula.id }}">
                             <img src="{{ tempPelicula.imageUrl }}" class="img-responsive">
                         </a>
 
-<!-- if products empty then display a message-->
-<div *ngIf="peliculas?.length == 0" class="alert alert-warning col-md-12" role="alert">
-    No se encontraron películas.
-</div>      
-
-                        <a routerLink="/ver-pelicula/{{ tempPelicula.id }}">
+                        <a routerLink="/ver-pelicula/{{ tempPelicula.id }}" class="module line-clamp">
                             <h1>{{ tempPelicula.title }}</h1>
                             <h2>Fecha estreno:{{ tempPelicula.date | date: 'mediumDate'}}</h2>
                             <p>{{ tempPelicula.description }}</p>
@@ -98,9 +76,6 @@
                             </select>
                         </div>
                     </div>
-
-                    
-
                     <div class="col-md-2">
                         <div class="number">1 - 10 of 100</div>
                     </div>

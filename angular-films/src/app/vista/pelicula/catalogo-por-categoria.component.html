@@ -11,10 +11,10 @@
                             <img src="{{ tempPelicula.imageUrl }}" class="img-responsive">
                         </a>
 
-                        <a routerLink="/products/{{ tempPelicula.id }}">
+                        <a routerLink="/products/{{ tempPelicula.id }}" class="module line-clamp">
                             <h1>{{ tempPelicula.title }}</h1>
                             <h2>Fecha estreno:{{ tempPelicula.date | date: 'mediumDate'}}</h2>
-                            <h2>{{ tempPelicula.description }}</h2>
+                            <p>{{ tempPelicula.description }}</p>
                         </a>
                         <div class="price">
                             <input type="checkbox" class="form-check-input" id="id_disponible">

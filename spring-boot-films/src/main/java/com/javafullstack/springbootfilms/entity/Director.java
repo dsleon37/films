@@ -23,6 +23,6 @@ public class Director {
     /**
      * Peliculas.
      */
-    @ManyToMany(mappedBy = "directores")
-    List<Film> peliculas;
+    //@ManyToMany(mappedBy = "directores")
+    //List<Film> peliculas;
 }

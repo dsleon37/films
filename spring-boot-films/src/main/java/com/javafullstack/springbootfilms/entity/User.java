@@ -39,4 +39,6 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private Set<Subscriber> subscribers;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private Set<FilmList> filmLists;
 }
