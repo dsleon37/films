@@ -31,11 +31,11 @@
                     <input type="checkbox" class="form-check-input" id="id_disponible">
                     <span class="form-check-label" for="id_disponible"> Disponible en cinema</span>
                 </div>
-                <div class="price" *ngIf="!loginService.hasRole('cinema')">
+                <div class="price" *ngIf="loginService.hasRole('subscriber')||loginService.hasRole('admin')">
                     <input type="checkbox" class="form-check-input" name="id_agregar" [(ngModel)]="agregar"  data-md-icheck (change)="agregarMiLista($event,pelicula.id)" data-toggle="modal" data-target="#mensajeDeConfirmacion">
                     <span class="form-check-label" for="id_agregar"> Agregar a mi lista</span>
                 </div>
-                <div class="price" *ngIf="!loginService.hasRole('cinema')">
+                <div class="price" *ngIf="loginService.hasRole('subscriber')||loginService.hasRole('admin')">
                     <input type="checkbox" class="form-check-input" name="id_favorito" [(ngModel)]="favorito" data-md-icheck (change)="agregarMiLista($event,pelicula.id)" data-toggle="modal" data-target="#mensajeDeConfirmacion">
                     <span class="form-check-label" for="id_favorito"> Marcar como favorito</span>
                 </div>

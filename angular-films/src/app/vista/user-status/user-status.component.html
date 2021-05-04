@@ -1,10 +1,6 @@
-<li class="nav-item">
-    <a class="nav-link" routerLink="/"><i class="fas fa-home"></i> Inicio</a>
-  </li>
-
-    <li class="nav-item" *ngIf="!isLogged">
-        <a class="nav-link"  routerLink="/login"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a>
-      </li>
-      <li class="nav-item" *ngIf="isLogged" (click)="onLogOut()">
-        <a class="nav-link" style="cursor: pointer;"><i class="fas fa-door-open" ></i> Cerrar Sesión</a>
-      </li>
+<li class="nav-item" *ngIf="!isLogged">
+  <a class="nav-link" routerLink="/login"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a>
+</li>
+<li class="nav-item" *ngIf="isLogged" (click)="onLogOut()">
+  <a class="nav-link" style="cursor: pointer;"><i class="fas fa-door-open"></i> Cerrar Sesión</a>
+</li>
