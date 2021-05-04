@@ -69,7 +69,7 @@ const routes: Routes = [
     AplicarOfertaComponent,
     LoginComponent,
     FiltroPeliculasComponent,
-    ListaUsuarioComponent
+    ListaUsuarioComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),

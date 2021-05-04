@@ -4,9 +4,13 @@
             <button routerLink="/catalogo-peliculas" class="btn-sm btn-danger" title="Atrás" alt="Atrás"> X </button>
            <br>
             <img src="{{pelicula.imageUrl}}" alt="{{pelicula.title}}" class="img-ver">
-            <a routerLink="/modificar-pelicula/{{pelicula.id}}" class="btn-sm primary-btn"> Modificar</a>
-            <!--<a routerLink="/catalogo-peliculas" class="btn-sm primary-btn"> Eliminar</a>-->
-            <button class="btn btn-info deletebtn" routerLink="/catalogo-peliculas" (click) = "deletebtn()">Eliminar Pelicula</button>
+           
+           
+           
+            <div *ngIf="loginService.hasRole('admin')">
+                <a routerLink="/modificar-pelicula/{{pelicula.id}}" class="btn-sm primary-btn"> Modificar</a>
+                <button class="btn btn-info deletebtn" routerLink="/catalogo-peliculas" (click) = "deletebtn()">Eliminar Pelicula</button>
+            </div>
         </div>
         <div class="col-sm-9">
             <div class="card-body">
@@ -26,14 +30,55 @@
                 <p class="card-text">
                     Actores(es):
                 </p>-->
+                <div class="price" *ngIf="loginService.hasRole('cinema')" >
+                    <input type="checkbox" class="form-check-input" id="id_disponible">
+                    <span class="form-check-label" for="id_disponible"> Disponible en cinema</span>
+                </div>
+                <div class="price" *ngIf="!loginService.hasRole('cinema')">
+                    <input type="checkbox" class="form-check-input" name="id_agregar" [(ngModel)]="agregar"  data-md-icheck (change)="agregarMiLista($event,pelicula.id)" data-toggle="modal" data-target="#mensajeDeConfirmacion">
+                    <span class="form-check-label" for="id_agregar"> Agregar a mi lista</span>
+                </div>
+                <div class="price" *ngIf="!loginService.hasRole('cinema')">
+                    <input type="checkbox" class="form-check-input" name="id_favorito" [(ngModel)]="favorito" data-md-icheck (change)="agregarMiLista($event,pelicula.id)" data-toggle="modal" data-target="#mensajeDeConfirmacion">
+                    <span class="form-check-label" for="id_favorito"> Marcar como favorito</span>
+                </div>
             </div>
-            <div class="card-footer">
+            <div class="card-footer" *ngIf="!loginService.hasRole('cinema')">
                     <p>Disponible en los siguientes cinemas:</p>
                     <ul>
                         <li>
                             <a routerLink="/video-pelicula/{{pelicula.id}}" class=""> *Cine Colombia</a>        
                         </li>
                     </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Mensaje de confirmación -->
+<div class="modal fade"
+    id="mensajeDeConfirmacion" 
+    tabindex="-1" 
+    role="dialog" 
+    aria-labelledby="mensajeDeConfirmacion" 
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-dark" id="mensajeDeConfirmacionTitle">Mensaje</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div *ngIf="mensaje?.length" class="alert alert-success alert-dismissible fade show col-md-12" role="alert">
+                    {{mensaje}}
+                </div>
+                <div *ngIf="mensajeError?.length" class="alert alert-danger alert-dismissible fade show col-md-12" role="alert">
+                    {{mensajeError}}
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="limpiar()" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>

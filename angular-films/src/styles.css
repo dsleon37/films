@@ -565,6 +565,22 @@ input.au-input.au-input-xl{
  text-decoration: none;
 }
 
+.module {
+    width: 250px;
+    margin: 0 0 1em 0;
+    overflow: hidden;
+  }
+  
+  .module p {
+    margin: 0;
+  }
+  
+  .line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+  }
+
 
 /* 
  * ----------------------------
