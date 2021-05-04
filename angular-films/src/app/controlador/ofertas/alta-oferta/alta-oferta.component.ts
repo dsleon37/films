@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AltaOfertasService } from 'src/app/modelo/ofertas/alta-ofertas.service';
 import { Oferta } from '../common/oferta';
 import { FormsValidators } from 'src/app/validators/forms-validators';
+import { LoginService } from 'src/app/modelo/login/login.service';
 
 @Component({
   selector: 'app-alta-oferta',
@@ -23,7 +24,7 @@ export class AltaOfertaComponent implements OnInit {
   mensajeErr : string;
  
 
-  constructor(private formBuilder: FormBuilder, private altaOfertasService: AltaOfertasService, private router: Router, private route: ActivatedRoute) {
+  constructor(public loginService: LoginService ,private formBuilder: FormBuilder, private altaOfertasService: AltaOfertasService, private router: Router, private route: ActivatedRoute) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
    }
 
@@ -45,8 +46,9 @@ export class AltaOfertaComponent implements OnInit {
       this.altaOfertaFormGroup.markAllAsTouched();
     }else{
       this.ofert = this.altaOfertaFormGroup.get('newOferta').value
-      this.ofert.userId = "http://localhost:8080/api/cinemas/1"/*+UserID*/;
-      console.log('oferta', this.ofert);
+      const idUsuario =+ this.loginService.id;
+      this.ofert.userId = "http://localhost:8080/api/cinemas/"+idUsuario;
+      console.log('oferta', this.ofert, 'id_usuario', idUsuario);
       this.altaOfertasService.registerOffer(this.ofert).subscribe({
         next: response =>{
           this.mensaje = "Se ha registrado correctamente la oferta.";
