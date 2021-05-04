@@ -6,6 +6,7 @@ import { Pelicula } from 'src/app/controlador/pelicula/pelicula';
 import { Actor } from 'src/app/controlador/pelicula/actor';
 import { Director } from 'src/app/controlador/pelicula/director';
 import { Categoria } from 'src/app/controlador/pelicula/categoria';
+import { PeliculasLista } from 'src/app/controlador/pelicula/peliculas_lista';
 
 
 @Injectable({
@@ -53,8 +54,6 @@ export class ServicioPeliculaService {
     const searchUrl = `${this.baseUrl}/films/${idFilm}`;
     return this.httpClient.patch<Pelicula>(searchUrl, pelicula);
   }
-
-
 
   getCategories(): Observable<GetResponseCategories> {
     const searchUrl = `${this.baseUrl}/categories`;                      

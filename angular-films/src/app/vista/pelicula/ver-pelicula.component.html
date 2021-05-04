@@ -30,12 +30,12 @@
                     <span class="form-check-label" for="id_disponible"> Disponible en cinema</span>
                 </div>
                 <div class="price">
-                    <input type="checkbox" class="form-check-input" [(ngModel)]="checkbox"  data-md-icheck (change)="check($event)">
+                    <input type="checkbox" class="form-check-input" name="id_agregar" [(ngModel)]="agregar"  data-md-icheck (change)="agregarMiLista($event,pelicula.id)" data-toggle="modal" data-target="#mensajeDeConfirmacion">
                     <span class="form-check-label" for="id_agregar"> Agregar a mi lista</span>
                 </div>
                 <div class="price">
-                    <a type="checkbox" class="form-check-input"></a>
-                    <span class="form-check-label" for="id_disponible"> Marcar como favorito</span>
+                    <input type="checkbox" class="form-check-input" name="id_favorito" [(ngModel)]="favorito" data-md-icheck (change)="agregarMiLista($event,pelicula.id)" data-toggle="modal" data-target="#mensajeDeConfirmacion">
+                    <span class="form-check-label" for="id_favorito"> Marcar como favorito</span>
                 </div>
             </div>
             <div class="card-footer">
@@ -45,6 +45,35 @@
                             <a routerLink="/video-pelicula/{{pelicula.id}}" class=""> *Cine Colombia</a>        
                         </li>
                     </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Mensaje de confirmación -->
+<div class="modal fade"
+    id="mensajeDeConfirmacion" 
+    tabindex="-1" 
+    role="dialog" 
+    aria-labelledby="mensajeDeConfirmacion" 
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-dark" id="mensajeDeConfirmacionTitle">Mensaje</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div *ngIf="mensaje?.length" class="alert alert-success alert-dismissible fade show col-md-12" role="alert">
+                    {{mensaje}}
+                </div>
+                <div *ngIf="mensajeError?.length" class="alert alert-danger alert-dismissible fade show col-md-12" role="alert">
+                    {{mensajeError}}
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="limpiar()" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
